@@ -1,0 +1,74 @@
+---
+const profiles = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/yujiaqi/" },
+  { label: "ORCID", href: "https://orcid.org/0009-0005-5432-0506" },
+  { label: "Google Scholar", href: "https://scholar.google.com/citations?user=78t1HIkAAAAJ&hl=en" },
+  { label: "Credly", href: "https://www.credly.com/users/jiaqi-yu.827f7563" },
+];
+
+const lastUpdated = "June 2026";
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t border-gray-200 mt-24" style="background: #FAFAFA;">
+  <div class="max-w-6xl mx-auto px-6 py-12">
+    <div class="grid md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="footer-heading">Connect</h3>
+        <ul class="footer-list">
+          {profiles.map(p => (
+            <li><a href={p.href} class="footer-link">{p.label}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-heading">Resources</h3>
+        <ul class="footer-list">
+          <li><a href="/cv/CV_Jiaqi_Yu_2026-05.pdf" class="footer-link">Download CV (PDF)</a></li>
+          <li><a href="/contact/" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-heading">About this site</h3>
+        <p class="text-sm text-gray-soft leading-relaxed">
+          Last updated: {lastUpdated}<br />
+          Built with Astro + Decap CMS<br />
+          Hosted on Netlify
+        </p>
+      </div>
+    </div>
+    <div class="mt-10 pt-6 border-t border-gray-200 text-xs text-gray-soft text-center">
+      © {currentYear} Jiaqi Yu, PhD
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer-heading {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-navy);
+    margin-bottom: 0.75rem;
+  }
+  .footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .footer-link {
+    font-size: 0.875rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .footer-link:hover {
+    border-bottom-color: var(--color-gold);
+  }
+</style>

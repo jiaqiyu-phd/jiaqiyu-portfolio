@@ -1,0 +1,75 @@
+/* Tailwind CSS — utility classes */
+@import "tailwindcss";
+
+/* Your design tokens — visual identity */
+@theme {
+  /* Brand colors */
+  --color-navy: #1F3A5F;
+  --color-navy-light: #2D4B73;
+  --color-gold: #C9A227;
+  --color-gold-light: #E0BD4D;
+  --color-gray-soft: #6B7280;
+  --color-ink: #1F2937;
+  --color-paper: #FFFFFF;
+
+  /* Typography families */
+  --font-display: "Crimson Pro", Georgia, serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+/* Base body styles */
+body {
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background: var(--color-paper);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings — Crimson Pro, navy, scholarly */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--color-navy);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+/* Links — navy text with subtle gold underline */
+a {
+  color: var(--color-navy);
+  text-decoration: underline;
+  text-decoration-color: var(--color-gold);
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1.5px;
+  transition: text-decoration-thickness 0.15s ease;
+}
+
+a:hover {
+  text-decoration-thickness: 2.5px;
+}
+
+/* Skip-to-content link — accessibility */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: var(--color-navy);
+  color: var(--color-paper);
+  padding: 0.75rem 1.25rem;
+  z-index: 100;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Keyboard focus indicators — accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
