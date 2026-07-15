@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const grants = [
+  {
+    year: "2025–2026",
+    title: "Promoting Pedagogical Wellness Through a Community of Practice: A Scalable Faculty Development Model",
+    org: "POD Network Early Researcher Grant",
+    amount: "$1,000",
+  },
+  {
+    year: "2026–2027",
+    title: "Professional Development Award",
+    org: "Research Enhancement Assistance Program (REAP) at UNT Health",
+    amount: "$5,000",
+  },
+];
+
+const awards = [
+  {
+    year: "2026",
+    title: "TxDLA Outstanding Commitment to Excellence and Innovation in Digital Learning Award",
+    org: "Texas Distance Learning Association",
+    note: "Team recognition — Department of Educational Development, UNT Health",
+  },
+  {
+    year: "2026",
+    title: "UPCEA Credential Innovation Award",
+    org: "University Professional and Continuing Education Association",
+    note: "Team recognition — Division of Academic Innovation, UNT Health",
+  },
+  {
+    year: "2024",
+    title: "Delta Omega Innovative Curriculum Runner-Up Award",
+    org: "Delta Omega, the national public health honor society",
+    note: "For the UDL-grounded redesign of EPID 5300 Principles of Epidemiology",
+  },
+  {
+    year: "2023",
+    title: "Nomination — Online Learning Consortium Board of Directors",
+    org: "Online Learning Consortium",
+    note: "2024–2026 term",
+  },
+  {
+    year: "2021–2022",
+    title: "Project of the Month — five-time recipient",
+    org: "Division of Academic Innovation, UNT Health",
+  },
+];
+
+const fellowships = [
+  {
+    year: "2025",
+    title: "IELOL Fellow — Institute for Emerging Leadership in Online Learning",
+    org: "Online Learning Consortium",
+  },
+  {
+    year: "2024 & 2025",
+    title: "ID2ID Advisory Committee Member",
+    org: "EDUCAUSE / Penn State University",
+  },
+  {
+    year: "2023",
+    title: "Teaching and Learning Pathway Advisor",
+    org: "EDUCAUSE",
+  },
+];
+---
+
+<BaseLayout
+  title="Recognition — Jiaqi Yu, PhD"
+  description="Awards, grants, fellowships, and microcredentials recognizing Jiaqi Yu's contributions to instructional innovation and health sciences education."
+>
+  <section class="max-w-4xl mx-auto px-6 py-16">
+    <h1 class="text-4xl font-semibold mb-4">Recognition</h1>
+    <p class="text-lg text-gray-soft leading-relaxed mb-12 max-w-3xl">
+      Selected grants, awards, fellowships, and microcredentials — grouped by type, then by
+      recency. Where the recognition is collaborative, the team is named; where it is
+      individual, the citation is included for verification.
+    </p>
+
+    <div class="mb-16">
+      <h2 class="recognition-section-heading">Funded grants</h2>
+      <ul class="recognition-list">
+        {grants.map(g => (
+          <li>
+            <div class="item-year">{g.year}</div>
+            <div class="item-body">
+              <div class="item-title">{g.title}</div>
+              <div class="item-org">{g.org} · {g.amount}</div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="mb-16">
+      <h2 class="recognition-section-heading">National & regional awards</h2>
+      <ul class="recognition-list">
+        {awards.map(a => (
+          <li>
+            <div class="item-year">{a.year}</div>
+            <div class="item-body">
+              <div class="item-title">{a.title}</div>
+              <div class="item-org">{a.org}</div>
+              {a.note && <div class="item-note">{a.note}</div>}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="mb-16">
+      <h2 class="recognition-section-heading">Fellowships & microcredentials</h2>
+      <ul class="recognition-list">
+        {fellowships.map(f => (
+          <li>
+            <div class="item-year">{f.year}</div>
+            <div class="item-body">
+              <div class="item-title">{f.title}</div>
+              <div class="item-org">{f.org}</div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <p class="text-sm text-gray-soft">
+      <em>Full award record to be verified and expanded in the next site update. See CV for the complete list.</em>
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .recognition-section-heading {
+    font-size: 1.5rem;
+    color: var(--color-navy);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-gold);
+  }
+  .recognition-list { list-style: none; padding: 0; margin: 0; }
+  .recognition-list li {
+    display: grid;
+    grid-template-columns: 6rem 1fr;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #F3F4F6;
+    align-items: baseline;
+  }
+  .recognition-list li:last-child { border-bottom: none; }
+  .item-year {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--color-gold);
+    font-size: 1.05rem;
+  }
+  .item-title {
+    font-size: 1.05rem;
+    color: var(--color-navy);
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 0.25rem;
+  }
+  .item-org {
+    font-size: 0.9rem;
+    color: var(--color-ink);
+    line-height: 1.4;
+  }
+  .item-note {
+    font-size: 0.85rem;
+    color: var(--color-gray-soft);
+    font-style: italic;
+    margin-top: 0.35rem;
+    line-height: 1.4;
+  }
+</style>

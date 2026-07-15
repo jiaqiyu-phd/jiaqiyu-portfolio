@@ -1,0 +1,70 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  featured?: boolean;
+}
+
+const { project, featured = false } = Astro.props;
+const { title, summary, themes = [], status } = project.data;
+const url = `/projects/${project.data.slug ?? project.id}/`;
+const tagLabel = status === 'mini' ? 'Mini case study' : (themes[0] ?? 'Case study');
+---
+
+<a href={url} class:list={['project-card', featured && 'featured', status === 'mini' && 'mini']}>
+  <div class="card-tag">{tagLabel}</div>
+  <h3 class="card-title">{title}</h3>
+  <p class="card-summary">{summary}</p>
+  <span class="card-cta">Read the case study →</span>
+</a>
+
+<style>
+  .project-card {
+    display: block;
+    padding: 1.75rem;
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.15s;
+    height: 100%;
+  }
+  .project-card:hover {
+    border-color: var(--color-gold);
+    transform: translateY(-2px);
+  }
+  .card-tag {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .card-title {
+    font-size: 1.35rem;
+    color: var(--color-navy);
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    line-height: 1.25;
+  }
+  .card-summary {
+    color: var(--color-ink);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin-bottom: 1rem;
+  }
+  .card-cta {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--color-navy);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .project-card.featured .card-title { font-size: 1.75rem; }
+  .project-card.mini { background: #FAFAFA; }
+  .project-card.mini .card-title { font-size: 1.2rem; }
+</style>

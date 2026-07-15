@@ -73,3 +73,81 @@ a:hover {
   outline: 2px solid var(--color-gold);
   outline-offset: 2px;
 }
+/* Case study content styling — applies to rendered Markdown */
+.case-study h1 {
+  font-size: 2.25rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.case-study h1 + p em {
+  display: block;
+  font-size: 1.15rem;
+  color: var(--color-navy-light);
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.case-study h2 {
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-gold);
+}
+
+.case-study h3 {
+  font-size: 1.15rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.case-study p {
+  margin-bottom: 1.25rem;
+  line-height: 1.7;
+}
+
+.case-study ul, .case-study ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.case-study li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.case-study table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+.case-study th, .case-study td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #E5E7EB;
+  text-align: left;
+  vertical-align: top;
+}
+
+.case-study th {
+  background: var(--color-navy);
+  color: var(--color-paper);
+  font-weight: 600;
+}
+
+.case-study tr:nth-child(even) td {
+  background: #FAFAFA;
+}
+
+.case-study strong {
+  color: var(--color-navy);
+  font-weight: 600;
+}
+
+.case-study a {
+  color: var(--color-navy);
+  text-decoration: underline;
+  text-decoration-color: var(--color-gold);
+}

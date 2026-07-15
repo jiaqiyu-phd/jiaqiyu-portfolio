@@ -1,0 +1,16 @@
+---
+import { getEntry, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const entry = await getEntry('pages', 'contact');
+const { Content } = await render(entry);
+---
+
+<BaseLayout
+  title="Contact — Jiaqi Yu, PhD"
+  description="Get in touch with Jiaqi Yu, PhD — open to collaboration, conference speaking, and mentoring of mid-career instructional designers."
+>
+  <article class="case-study max-w-2xl mx-auto px-6 py-16">
+    <Content />
+  </article>
+</BaseLayout>

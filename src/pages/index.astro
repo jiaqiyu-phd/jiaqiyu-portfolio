@@ -1,18 +1,194 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const allProjects = await getCollection('projects');
+
+const pillarOrder = ['sotl-collective', 'pm-for-ids', 'id2id'];
+const featured = allProjects
+  .filter(p => pillarOrder.includes(p.data.slug ?? p.id))
+  .sort((a, b) =>
+    pillarOrder.indexOf(a.data.slug ?? a.id) - pillarOrder.indexOf(b.data.slug ?? b.id)
+  );
+
+const pillars = [
+  {
+    title: "Communities of Practice for Health Sciences Education",
+    headline: "I build sustainable Communities of Practice that translate clinical teaching into scholarship.",
+    body: "Five interconnected Communities of Practice engaging 150+ faculty and 20+ active SoTL projects at UNT Health. The hub-and-spoke model has produced two annual Unconferences, a POD Network–funded study, and a statewide award.",
+    href: "/projects/sotl-collective/",
+  },
+  {
+    title: "Project Management for Instructional Designers",
+    headline: "I make the invisible work of instructional designers visible — across institutions and at scale.",
+    body: "More than a decade of cross-institutional collaboration through the Online Learning Consortium, EDUCAUSE / Penn State ID2ID, and the POD Network. Templates and artifacts openly shared and actively reused across the field.",
+    href: "/projects/pm-for-ids/",
+  },
+  {
+    title: "Cross-Institutional Peer Mentoring & Scholarly Infrastructure",
+    headline: "I co-design the structures that sustain mid-career instructional designers.",
+    body: "Advisory Committee service on the EDUCAUSE / Penn State ID2ID Peer Mentoring Program (2024 & 2025). Co-author of the forthcoming Routledge chapter documenting the program's evolution to an international network.",
+    href: "/projects/id2id/",
+  },
+];
 ---
 
 <BaseLayout title="Jiaqi Yu, PhD">
-  <section class="max-w-4xl mx-auto px-6 py-24 text-center">
-    <p class="text-sm uppercase tracking-widest text-gold mb-4">
-      Visual identity preview
-    </p>
-    <h1 class="text-4xl md:text-5xl font-semibold mb-6">
-      Site frame is live.
+  <section class="hero max-w-4xl mx-auto px-6 pt-20 pb-16 text-center">
+    <p class="hero-eyebrow">Instructional Innovation · Health Sciences Education</p>
+    <h1 class="hero-headline">
+      I design Communities of Practice, scale faculty development, and advance the scholarship of teaching and learning — work built to be sustainable for the people doing it.
     </h1>
-    <p class="text-lg text-gray-soft leading-relaxed max-w-2xl mx-auto">
-      Navy and gold tokens applied. Crimson Pro headings, Inter body type.
-      Real content arrives in Session 4.
+    <p class="hero-subline">
+      Jiaqi Yu, PhD · Assistant Director of Instructional Innovation and Project Management, UNT Health at Fort Worth
+    </p>
+    <div class="hero-ctas">
+      <a href="/projects/" class="btn-primary">View projects</a>
+      <a href="/cv/CV_Jiaqi_Yu.pdf" class="btn-secondary">Download CV</a>
+    </div>
+  </section>
+
+  <section class="pillars-section max-w-5xl mx-auto px-6 py-16">
+    <h2 class="section-heading">Signature Contributions</h2>
+    <div class="grid md:grid-cols-3 gap-10">
+      {pillars.map((pillar, idx) => (
+        <div class="pillar">
+          <div class="pillar-number">0{idx + 1}</div>
+          <h3 class="pillar-title">{pillar.title}</h3>
+          <p class="pillar-headline">{pillar.headline}</p>
+          <p class="pillar-body">{pillar.body}</p>
+          <a href={pillar.href} class="pillar-link">Explore →</a>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="featured-section max-w-5xl mx-auto px-6 py-16 border-t border-gray-200">
+    <h2 class="section-heading">Featured Projects</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      {featured.map(project => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
+    <p class="text-center mt-8">
+      <a href="/projects/" class="pillar-link">See all projects →</a>
     </p>
   </section>
+
+  <section class="about-preview max-w-3xl mx-auto px-6 py-16 border-t border-gray-200 text-center">
+    <h2 class="section-heading">About</h2>
+    <p class="about-preview-body">
+      Scholar-practitioner in higher education. First-generation college student, immigrant scholar, and working parent — perspectives that shape why I design for sustainable scholarship, why I build Communities of Practice rather than offer one-off workshops, and why care for the people doing the work is part of the work.
+    </p>
+    <a href="/about/roots/" class="pillar-link">Read more about what guides my work →</a>
+  </section>
 </BaseLayout>
+
+<style>
+  .hero-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-gold);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+  .hero-headline {
+    font-size: 2rem;
+    line-height: 1.35;
+    color: var(--color-navy);
+    max-width: 44rem;
+    margin: 0 auto 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .hero-headline { font-size: 2.5rem; }
+  }
+  .hero-subline {
+    font-size: 0.95rem;
+    color: var(--color-gray-soft);
+    margin-bottom: 2rem;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary, .btn-secondary {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    border-radius: 3px;
+    font-family: var(--font-body);
+    transition: background 0.15s;
+  }
+  .btn-primary {
+    background: var(--color-navy);
+    color: white;
+  }
+  .btn-primary:hover { background: var(--color-navy-light); }
+  .btn-secondary {
+    background: white;
+    color: var(--color-navy);
+    border: 2px solid var(--color-navy);
+  }
+  .btn-secondary:hover { background: #F9FAFB; }
+
+  .section-heading {
+    font-size: 1.75rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--color-navy);
+  }
+
+  .pillar-number {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--color-gold);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .pillar-title {
+    font-size: 1.2rem;
+    color: var(--color-navy);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+  .pillar-headline {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--color-navy-light);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+  .pillar-body {
+    color: var(--color-ink);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  .pillar-link {
+    color: var(--color-navy);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: var(--font-body);
+    text-decoration: none;
+    border-bottom: 2px solid var(--color-gold);
+    padding-bottom: 2px;
+    display: inline-block;
+  }
+  .about-preview-body {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-ink);
+    margin-bottom: 1.5rem;
+  }
+</style>

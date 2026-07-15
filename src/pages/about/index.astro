@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="About — Jiaqi Yu, PhD"
+  description="About Jiaqi Yu, PhD — instructional innovation leader at UNT Health at Fort Worth; current focus on pedagogical wellness and responsible AI in education."
+>
+  <section class="max-w-5xl mx-auto px-6 py-16">
+    <div class="about-hero flex flex-col md:flex-row gap-10 mb-16 items-start">
+      <div class="headshot-wrapper">
+        <img src="/images/headshot.jpg" alt="Headshot of Jiaqi Yu, PhD." class="headshot" />
+      </div>
+      <div class="bio-wrapper">
+        <h1 class="mt-0 mb-6">Jiaqi Yu, PhD</h1>
+        <p class="about-bio">
+          Jiaqi Yu, PhD, is Assistant Director of Instructional Innovation and Project Management at UNT Health at Fort Worth, where she leads institution-wide initiatives in faculty development, instructional design, and educational research. As founder of the Scholarship of Teaching and Learning Collective at UNT Health, she has built five Communities of Practice engaging 150+ faculty members and 20+ active SoTL projects.
+        </p>
+        <p class="about-bio">
+          Across more than a decade of practice, Jiaqi has shaped how higher education prepares instructional design teams to lead complex projects — through cross-institutional collaborations with the Online Learning Consortium, EDUCAUSE and Penn State's ID2ID program, and the POD Network. Her co-led redesign of EPID 5300 earned the Delta Omega Innovative Curriculum Runner-Up Award in 2024, and her current scholarship explores pedagogical wellness and responsible AI integration in health sciences education. She holds a PhD in Curriculum & Instructional Technology from Iowa State University.
+        </p>
+      </div>
+    </div>
+
+    <div class="current-focus mb-16">
+      <p class="focus-body">
+        <strong>Current focus:</strong> two questions that shape the future of health sciences education — how to sustain educator well-being inside ambitious instructional change, and how to integrate generative AI into teaching with rigor, transparency, and care for faculty trust.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 mb-16">
+      <div>
+        <h2 class="about-section-heading">Education & credentials</h2>
+        <ul class="about-list">
+          <li><strong>PhD, Curriculum & Instructional Technology</strong> (co-major, Human–Computer Interaction) — Iowa State University</li>
+          <li><strong>MEd, Curriculum Studies and Teacher Development</strong> — University of Toronto</li>
+          <li><strong>BA</strong> — Beijing Normal University</li>
+          <li><strong>IELOL Fellow</strong>, Online Learning Consortium</li>
+          <li><strong>Certified Quality Matters Coordinator</strong></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="about-section-heading">Selected service</h2>
+        <ul class="about-list">
+          <li>Advisory Committee, EDUCAUSE / Penn State ID2ID Peer Mentoring Program (2024–2025)</li>
+          <li>Board of Directors nomination, Online Learning Consortium (2024–2026)</li>
+          <li>Peer mentor across multiple ID2ID cohorts</li>
+          <li>Founder, Scholarship of Teaching and Learning Collective at UNT Health</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-16">
+      <a href="/about/roots/" class="link-block">
+        <span class="link-block-eyebrow">Beyond the CV</span>
+        <span class="link-block-title">Roots & Leadership Philosophy →</span>
+        <span class="link-block-desc">What guides my work — first-generation scholar, immigrant, working parent, and what those experiences produce in professional practice.</span>
+      </a>
+      <a href="/cv/CV_Jiaqi_Yu.pdf" class="link-block">
+        <span class="link-block-eyebrow">Full record</span>
+        <span class="link-block-title">Download CV (PDF) →</span>
+        <span class="link-block-desc">12 pages. Education, experience, publications, presentations, awards, service, grants. Last updated July 2026.</span>
+      </a>
+    </div>
+
+    <div class="text-center py-8 border-t border-gray-200">
+      <p class="text-lg mb-4">Open to collaboration, speaking, and mentoring conversations.</p>
+      <a href="/contact/" class="btn-primary">Contact</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .headshot-wrapper { flex-shrink: 0; width: 240px; }
+  .bio-wrapper { flex: 1; min-width: 0; }
+  .headshot { width: 100%; height: auto; border-radius: 4px; }
+  .about-bio { font-size: 1.05rem; line-height: 1.65; color: var(--color-ink); margin-bottom: 1rem; }
+  .focus-body {
+    padding: 1.25rem 1.5rem;
+    background: #FAFAFA;
+    border-left: 3px solid var(--color-gold);
+    font-size: 1.05rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+  .focus-body strong { color: var(--color-navy); }
+  .about-section-heading {
+    font-size: 1.15rem;
+    color: var(--color-navy);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-gold);
+  }
+  .about-list { list-style: none; padding: 0; margin: 0; }
+  .about-list li {
+    padding: 0.6rem 0;
+    line-height: 1.55;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #F3F4F6;
+  }
+  .about-list li:last-child { border-bottom: none; }
+  .link-block {
+    display: block;
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .link-block:hover { border-color: var(--color-gold); transform: translateY(-2px); }
+  .link-block-eyebrow {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-gold);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .link-block-title {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--color-navy);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .link-block-desc { display: block; font-size: 0.9rem; color: var(--color-ink); line-height: 1.5; }
+  .btn-primary {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    border-radius: 3px;
+    font-family: var(--font-body);
+    background: var(--color-navy);
+    color: white;
+  }
+  .btn-primary:hover { background: var(--color-navy-light); }
+</style>
+</BaseLayout>

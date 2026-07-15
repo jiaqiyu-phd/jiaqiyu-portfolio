@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+
+const allProjects = await getCollection('projects');
+
+const featured = allProjects.find(p => (p.data.slug ?? p.id) === 'sotl-collective');
+const rest = allProjects
+  .filter(p => (p.data.slug ?? p.id) !== 'sotl-collective')
+  .sort((a, b) => {
+    if (a.data.status === b.data.status) return 0;
+    return a.data.status === 'flagship' ? -1 : 1;
+  });
+---
+
+<BaseLayout
+  title="Projects — Jiaqi Yu, PhD"
+  description="Six projects spanning Communities of Practice, faculty partnership, cross-institutional collaboration, and community-led work in health sciences education."
+>
+  <section class="max-w-5xl mx-auto px-6 py-16">
+    <h1 class="text-4xl font-semibold mb-4">Projects</h1>
+    <p class="text-lg text-gray-soft leading-relaxed mb-12 max-w-3xl">
+      Six projects across institutional Communities of Practice, cross-institutional
+      collaboration, faculty partnership, and community-led work — selected because
+      together they show how the same design principles travel from a faculty
+      development program at UNT Health to a national peer mentoring network to
+      a bilingual book club in Dallas–Fort Worth.
+    </p>
+
+    {featured && (
+      <div class="mb-8">
+        <ProjectCard project={featured} featured={true} />
+      </div>
+    )}
+
+    <div class="grid md:grid-cols-2 gap-6">
+      {rest.map(project => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

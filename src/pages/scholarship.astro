@@ -1,0 +1,163 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const publications = [
+  {
+    year: "2026",
+    title: "From Campus to Global: Building a Peer Mentorship Network Through the ID2ID Program",
+    authors: "Dick, A., Beck, E., Yu, J., & Englund, J.",
+    venue: "[Routledge volume on mentoring instructional designers] (in press)",
+  },
+  {
+    year: "2020",
+    title: "[Book chapter on ELL Math Teacher Preparation]",
+    authors: "Yu, J.",
+    venue: "Palgrave Macmillan",
+  },
+  {
+    year: "2018",
+    title: "Designing a Forensic Science Online Course for Students of Color",
+    authors: "Yu, J.",
+    venue: "Journal of Online Learning Research (JOLR)",
+  },
+];
+
+const presentations = [
+  {
+    year: "2025",
+    title: "Nurturing a Culture of Innovation in Health Science Education: Best Practices from the SoTL Collective",
+    venue: "TxDLA 2025, Denton, TX",
+  },
+  {
+    year: "2023",
+    title: "Project Management for Instructional Designers",
+    venue: "HigherID Podcast, Episode 13 (most-listened of its season)",
+  },
+  {
+    year: "2023",
+    title: "Interactive or Conventional Lectures: An Exploratory Study on Student Perceptions of Multiple Means of Representation",
+    venue: "UDL-IRN International Summit",
+  },
+  {
+    year: "2023",
+    title: "Project Management Practices for Instructional Designers",
+    venue: "Online Learning Consortium Webinar Series (recording available)",
+  },
+];
+
+const profiles = [
+  { label: "ORCID", url: "https://orcid.org/" },
+  { label: "Google Scholar", url: "https://scholar.google.com/" },
+  { label: "ResearchGate", url: "https://www.researchgate.net/" },
+];
+---
+
+<BaseLayout
+  title="Scholarship — Jiaqi Yu, PhD"
+  description="Selected publications and conference presentations by Jiaqi Yu, PhD — instructional design, SoTL, faculty development, and AI in education."
+>
+  <section class="max-w-4xl mx-auto px-6 py-16">
+    <h1 class="text-4xl font-semibold mb-4">Scholarship</h1>
+    <p class="text-lg text-gray-soft leading-relaxed mb-8 max-w-3xl">
+      Selected publications and conference presentations are listed below, with the full record
+      grouped by year. For the most current view across all venues, see also my public profiles:
+    </p>
+
+    <div class="profile-links mb-16">
+      {profiles.map(p => (
+        <a href={p.url} class="profile-link">{p.label}</a>
+      ))}
+    </div>
+
+    <h2 class="scholarship-section-heading">Selected Publications</h2>
+    <ul class="scholarship-list mb-6">
+      {publications.map(pub => (
+        <li>
+          <div class="item-year">{pub.year}</div>
+          <div class="item-body">
+            <div class="item-authors">{pub.authors}</div>
+            <div class="item-title">{pub.title}</div>
+            <div class="item-venue">{pub.venue}</div>
+          </div>
+        </li>
+      ))}
+    </ul>
+    <p class="text-sm text-gray-soft mb-16">
+      <em>Full publication list to be added in the next site update. See ORCID or Google Scholar for the complete record.</em>
+    </p>
+
+    <h2 class="scholarship-section-heading">Selected Presentations</h2>
+    <ul class="scholarship-list mb-6">
+      {presentations.map(pres => (
+        <li>
+          <div class="item-year">{pres.year}</div>
+          <div class="item-body">
+            <div class="item-title">{pres.title}</div>
+            <div class="item-venue">{pres.venue}</div>
+          </div>
+        </li>
+      ))}
+    </ul>
+    <p class="text-sm text-gray-soft">
+      <em>Full presentation list (30+ items across national and regional venues) to be added in the next site update.</em>
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .profile-links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .profile-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--color-navy);
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid var(--color-navy);
+    border-radius: 3px;
+    transition: background 0.15s, color 0.15s;
+  }
+  .profile-link:hover { background: var(--color-navy); color: white; }
+  .scholarship-section-heading {
+    font-size: 1.5rem;
+    color: var(--color-navy);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-gold);
+  }
+  .scholarship-list { list-style: none; padding: 0; margin: 0; }
+  .scholarship-list li {
+    display: grid;
+    grid-template-columns: 4rem 1fr;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #F3F4F6;
+    align-items: baseline;
+  }
+  .scholarship-list li:last-child { border-bottom: none; }
+  .item-year {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--color-gold);
+    font-size: 1.1rem;
+  }
+  .item-authors {
+    font-size: 0.9rem;
+    color: var(--color-gray-soft);
+    margin-bottom: 0.25rem;
+  }
+  .item-title {
+    font-size: 1rem;
+    color: var(--color-navy);
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 0.25rem;
+  }
+  .item-venue {
+    font-size: 0.9rem;
+    color: var(--color-ink);
+    font-style: italic;
+    line-height: 1.4;
+  }
+</style>
