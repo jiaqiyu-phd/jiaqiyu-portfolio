@@ -4,30 +4,49 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 <BaseLayout
   title="About — Jiaqi Yu, PhD"
-  description="About Jiaqi Yu, PhD — instructional innovation leader at UNT Health at Fort Worth; current focus on pedagogical wellness and responsible AI in education."
+  description="About Jiaqi Yu, PhD — Instructional Innovation Leader at UNT Health at Fort Worth. Building sustainable Communities of Practice for health sciences education."
 >
   <section class="max-w-5xl mx-auto px-6 py-16">
+
+    <!-- HERO -->
     <div class="about-hero flex flex-col md:flex-row gap-10 mb-16 items-start">
       <div class="headshot-wrapper">
         <img src="/images/headshot.jpg" alt="Headshot of Jiaqi Yu, PhD." class="headshot" />
       </div>
       <div class="bio-wrapper">
-        <h1 class="mt-0 mb-6">Jiaqi Yu, PhD</h1>
+        <h1 class="mt-0 mb-3">Jiaqi Yu, PhD</h1>
+        <p class="about-tagline">Building communities · Designing possibilities · Empowering educators</p>
         <p class="about-bio">
-          Jiaqi Yu, PhD, is Assistant Director of Instructional Innovation and Project Management at UNT Health at Fort Worth, where she leads institution-wide initiatives in faculty development, instructional design, and educational research. As founder of the Scholarship of Teaching and Learning Collective at UNT Health, she has built five Communities of Practice engaging 150+ faculty members and 20+ active SoTL projects.
-        </p>
-        <p class="about-bio">
-          Across more than a decade of practice, Jiaqi has shaped how higher education prepares instructional design teams to lead complex projects — through cross-institutional collaborations with the Online Learning Consortium, EDUCAUSE and Penn State's ID2ID program, and the POD Network. Her co-led redesign of EPID 5300 earned the Delta Omega Innovative Curriculum Runner-Up Award in 2024, and her current scholarship explores pedagogical wellness and responsible AI integration in health sciences education. She holds a PhD in Curriculum & Instructional Technology from Iowa State University.
+          I build Communities of Practice, faculty development programs, and scholarly infrastructure in health sciences education. What connects the work is a commitment to making scholarship sustainable for the people doing it — clinical educators, instructional designers, and emerging scholars building careers in a field that rarely stops changing.
         </p>
       </div>
     </div>
 
-    <div class="current-focus mb-16">
+    <!-- NOW -->
+    <div class="mb-6">
+      <p class="callout-eyebrow">Now</p>
       <p class="focus-body">
-        <strong>Current focus:</strong> two questions that shape the future of health sciences education — how to sustain educator well-being inside ambitious instructional change, and how to integrate generative AI into teaching with rigor, transparency, and care for faculty trust.
+        At UNT Health at Fort Worth, I serve as Assistant Director of Instructional Innovation and Project Management. As founder of the Scholarship of Teaching and Learning Collective, I have built five interconnected Communities of Practice — now engaging 150+ faculty and 20+ active SoTL projects — and I lead institution-wide initiatives in faculty development, instructional design, and educational research.
       </p>
     </div>
 
+    <!-- THEN -->
+    <div class="mb-6">
+      <p class="callout-eyebrow">Then</p>
+      <p class="focus-body">
+        Across more than a decade of practice, I have shaped how higher education prepares instructional design teams to lead complex projects — through cross-institutional collaborations with the Online Learning Consortium, EDUCAUSE and Penn State's ID2ID program, and the POD Network. My co-led redesign of an online public health course earned the Delta Omega Innovative Curriculum Runner-Up Award in 2024. I hold a PhD in Curriculum & Instructional Technology (co-major, Human–Computer Interaction) from Iowa State University.
+      </p>
+    </div>
+
+    <!-- NEXT -->
+    <div class="mb-16">
+      <p class="callout-eyebrow">Next</p>
+      <p class="focus-body">
+        Two questions shape the future of health sciences education for me: how to sustain educator well-being inside ambitious instructional change, and how to integrate generative AI into teaching with rigor, transparency, and care for faculty trust.
+      </p>
+    </div>
+
+    <!-- Education + Service -->
     <div class="grid md:grid-cols-2 gap-12 mb-16">
       <div>
         <h2 class="about-section-heading">Education & credentials</h2>
@@ -50,19 +69,21 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </div>
     </div>
 
+    <!-- Link blocks -->
     <div class="grid md:grid-cols-2 gap-6 mb-16">
       <a href="/about/roots/" class="link-block">
         <span class="link-block-eyebrow">Beyond the CV</span>
         <span class="link-block-title">Roots & Leadership Philosophy →</span>
         <span class="link-block-desc">What guides my work — first-generation scholar, immigrant, working parent, and what those experiences produce in professional practice.</span>
       </a>
-      <a href="/cv/CV_Jiaqi_Yu.pdf" class="link-block">
+      <a href="/cv/CV_Jiaqi_Yu_2026-05.pdf" class="link-block">
         <span class="link-block-eyebrow">Full record</span>
         <span class="link-block-title">Download CV (PDF) →</span>
-        <span class="link-block-desc">12 pages. Education, experience, publications, presentations, awards, service, grants. Last updated July 2026.</span>
+        <span class="link-block-desc">12 pages. Education, experience, publications, presentations, awards, service, grants. Last updated May 2026.</span>
       </a>
     </div>
 
+    <!-- Contact CTA -->
     <div class="text-center py-8 border-t border-gray-200">
       <p class="text-lg mb-4">Open to collaboration, speaking, and mentoring conversations.</p>
       <a href="/contact/" class="btn-primary">Contact</a>
@@ -73,17 +94,43 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 <style>
   .headshot-wrapper { flex-shrink: 0; width: 240px; }
   .bio-wrapper { flex: 1; min-width: 0; }
-  .headshot { width: 100%; height: auto; border-radius: 4px; }
-  .about-bio { font-size: 1.05rem; line-height: 1.65; color: var(--color-ink); margin-bottom: 1rem; }
+  .headshot { width: 100%; height: auto; border-radius: 4px; display: block; }
+
+  .about-tagline {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--color-gold);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+  }
+  .about-bio {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--color-ink);
+    margin-bottom: 0;
+  }
+
+  .callout-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-gold);
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+  }
   .focus-body {
     padding: 1.25rem 1.5rem;
     background: #FAFAFA;
     border-left: 3px solid var(--color-gold);
-    font-size: 1.05rem;
+    font-size: 1rem;
     line-height: 1.65;
     margin: 0;
+    color: var(--color-ink);
   }
-  .focus-body strong { color: var(--color-navy); }
+
   .about-section-heading {
     font-size: 1.15rem;
     color: var(--color-navy);
@@ -100,6 +147,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     border-bottom: 1px solid #F3F4F6;
   }
   .about-list li:last-child { border-bottom: none; }
+
   .link-block {
     display: block;
     padding: 1.5rem;
@@ -144,4 +192,3 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
   .btn-primary:hover { background: var(--color-navy-light); }
 </style>
-</BaseLayout>
