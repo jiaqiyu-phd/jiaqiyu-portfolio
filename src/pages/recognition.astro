@@ -3,48 +3,79 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const grants = [
   {
-    year: "2025–2026",
+    year: "2025",
     title: "Promoting Pedagogical Wellness Through a Community of Practice: A Scalable Faculty Development Model",
     org: "POD Network Early Researcher Grant",
     amount: "$1,000",
   },
   {
-    year: "2026–2027",
+    year: "2025",
     title: "Professional Development Award",
     org: "Research Enhancement Assistance Program (REAP) at UNT Health",
     amount: "$5,000",
   },
 ];
 
-const awards = [
+const nationalAwards = [
   {
     year: "2026",
-    title: "TxDLA Outstanding Commitment to Excellence and Innovation in Digital Learning Award",
-    org: "Texas Distance Learning Association",
-    note: "Team recognition — Department of Educational Development, UNT Health",
+    title: "TxDLA Outstanding Commitment to Excellence and Innovation in Digital Learning by an Organization Award (team)",
+    org: "Texas Distance Learning Association (TxDLA)",
+    note: "Statewide award recognizing the Department of Educational Development's leadership in digital learning innovation",
   },
   {
     year: "2026",
-    title: "UPCEA Credential Innovation Award",
-    org: "University Professional and Continuing Education Association",
-    note: "Team recognition — Division of Academic Innovation, UNT Health",
+    title: "UPCEA Credential Innovation Award (team)",
+    org: "UPCEA",
+    note: "National award to the Division of Academic Innovation for credentialing innovation",
   },
   {
     year: "2024",
     title: "Delta Omega Innovative Curriculum Runner-Up Award",
-    org: "Delta Omega, the national public health honor society",
-    note: "For the UDL-grounded redesign of EPID 5300 Principles of Epidemiology",
+    org: "Delta Omega Public Health Honor Society",
+    note: "For interactive lecture redesign of EPID 5300 Principles of Epidemiology (with Battaglia, Neelamegam) — national recognition of innovative public health curriculum",
+  },
+];
+
+const nominations = [
+  {
+    year: "2025",
+    title: "Nominated — TxDLA Outstanding Commitment to Excellence and Innovation in Digital Learning Award",
+    org: "Texas Distance Learning Association (TxDLA)",
+    note: "Nomination signals leadership visibility in TX digital learning community",
   },
   {
     year: "2023",
-    title: "Nomination — Online Learning Consortium Board of Directors",
-    org: "Online Learning Consortium",
-    note: "2024–2026 term",
+    title: "Nominated — OLC Board of Directors 2024-2026",
+    org: "Online Learning Consortium (OLC)",
+    note: "National-level board nomination",
+  },
+  {
+    year: "2023",
+    title: "Nominated — Excellence in Faculty Development Award",
+    org: "Online Learning Consortium (OLC)",
+    note: "National recognition of faculty development work",
+  },
+];
+
+const institutionalAwards = [
+  {
+    year: "2024",
+    title: "UNT System Way to Go Honoree (Regional Simulation Center)",
+    org: "UNT System / Regional Simulation Center at UNT Health",
+    note: "System-level recognition for collaborative excellence",
+  },
+  {
+    year: "2024",
+    title: "UNT System Way to Go Honoree (Office of Culture and Experience)",
+    org: "UNT System / Office of Culture and Experience at UNT Health",
+    note: "System-level recognition for cultural contribution",
   },
   {
     year: "2021–2022",
-    title: "Project of the Month — five-time recipient",
-    org: "Division of Academic Innovation, UNT Health",
+    title: "Project of the Month (Five-Time Awardee)",
+    org: "UNT Health Division of Academic Innovation",
+    note: "Recognition of project leadership and execution; five separate months",
   },
 ];
 
@@ -60,9 +91,9 @@ const fellowships = [
     org: "EDUCAUSE / Penn State University",
   },
   {
-    year: "2023",
-    title: "Teaching and Learning Pathway Advisor",
-    org: "EDUCAUSE",
+    year: "Ongoing",
+    title: "Certified Quality Matters Coordinator",
+    org: "Quality Matters",
   },
 ];
 ---
@@ -74,9 +105,7 @@ const fellowships = [
   <section class="max-w-4xl mx-auto px-6 py-16">
     <h1 class="text-4xl font-semibold mb-4">Recognition</h1>
     <p class="text-lg text-gray-soft leading-relaxed mb-12 max-w-3xl">
-      Selected grants, awards, fellowships, and microcredentials — grouped by type, then by
-      recency. Where the recognition is collaborative, the team is named; where it is
-      individual, the citation is included for verification.
+      Selected grants, awards, fellowships, and microcredentials — grouped by type, then by recency. Where the recognition is collaborative, the team is named; where it is individual, the citation is included for verification.
     </p>
 
     <div class="mb-16">
@@ -97,7 +126,39 @@ const fellowships = [
     <div class="mb-16">
       <h2 class="recognition-section-heading">National & regional awards</h2>
       <ul class="recognition-list">
-        {awards.map(a => (
+        {nationalAwards.map(a => (
+          <li>
+            <div class="item-year">{a.year}</div>
+            <div class="item-body">
+              <div class="item-title">{a.title}</div>
+              <div class="item-org">{a.org}</div>
+              {a.note && <div class="item-note">{a.note}</div>}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="mb-16">
+      <h2 class="recognition-section-heading">Nominations & board service</h2>
+      <ul class="recognition-list">
+        {nominations.map(a => (
+          <li>
+            <div class="item-year">{a.year}</div>
+            <div class="item-body">
+              <div class="item-title">{a.title}</div>
+              <div class="item-org">{a.org}</div>
+              {a.note && <div class="item-note">{a.note}</div>}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="mb-16">
+      <h2 class="recognition-section-heading">Institutional recognitions</h2>
+      <ul class="recognition-list">
+        {institutionalAwards.map(a => (
           <li>
             <div class="item-year">{a.year}</div>
             <div class="item-body">
@@ -124,10 +185,6 @@ const fellowships = [
         ))}
       </ul>
     </div>
-
-    <p class="text-sm text-gray-soft">
-      <em>Full award record to be verified and expanded in the next site update. See CV for the complete list.</em>
-    </p>
   </section>
 </BaseLayout>
 

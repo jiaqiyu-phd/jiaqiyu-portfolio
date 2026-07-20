@@ -4,52 +4,305 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const publications = [
   {
     year: "2026",
+    type: "Book chapter",
+    authors: "Dick, A., Ed, B., Yu, J., & Englund, J. (3rd author)",
     title: "From Campus to Global: Building a Peer Mentorship Network Through the ID2ID Program",
-    authors: "Dick, A., Beck, E., Yu, J., & Englund, J.",
-    venue: "Mancilla R. & Frey, B. (Eds.). Mentoring Instructional Designers: Professional Development in Higher Education. Routledge. (in press)",
+    venue: "Mancilla R. & Frey, B. (Eds.), Mentoring Instructional Designers: Professional Development in Higher Education, Routledge",
   },
   {
     year: "2020",
+    type: "Book chapter",
+    authors: "I, J. & Yu, J. (2nd author)",
     title: "Preparing Mathematics Preservice Teachers for Teaching Emergent Bilinguals through Concurrent Intervention",
-    authors: "I, J. & Yu, J.",
-    venue: "de Oliveira, L. C., & Civil, M. (Eds.). Teaching Mathematics to English Language Learners: Preparing Pre-Service and In-Service Teachers (pp. 6-26). Palgrave Macmillan.",
+    venue: "Teaching Mathematics to English Language Learners (Palgrave Macmillan), pp. 6-26",
+  },
+  {
+    year: "2020",
+    type: "Conference proceedings",
+    authors: "Yu, J. (sole author)",
+    title: "A Practical Guide to Managing Online Course Design Projects: Timeline, Milestone, and RACI",
+    venue: "Proceedings of Innovate Learning Summit 2020, pp. 167-170 (AACE)",
+    url: "https://www.learntechlib.org/primary/p/218798/",
+  },
+  {
+    year: "2019",
+    type: "Conference proceedings",
+    authors: "Karakaya, O., Yu, J., Valai, A. & Updegraff, A. (2nd author)",
+    title: "Preparing Preservice Teachers for 'Learning by Making' in Makerspace Communities",
+    venue: "Proceedings of SITE 2019, pp. 1594-1599 (AACE)",
+    url: "https://www.learntechlib.org/primary/p/207857/",
   },
   {
     year: "2018",
-    title: "Designing a Forensic Science Online Course for Students of Color",
-    authors: "Elrick, D., Yu, J. & Hargrave, C.",
-    venue: "Journal of Online Learning Research, 4(3), 263-294.",
+    type: "Peer-reviewed article",
+    authors: "Elrick, D., Yu, J. & Hargrave, C. (2nd author)",
+    title: "Integrating Online Instruction and Hands-on Laboratory Activities for Summer Learning for Students of Color: A Design Case in Forensic Science",
+    venue: "Journal of Online Learning Research, 4(3), 263-294",
+    url: "https://www.learntechlib.org/primary/p/183592/",
+  },
+  {
+    year: "2018",
+    type: "Conference proceedings",
+    authors: "Yu, J. & Hargrave, C. (1st author)",
+    title: "Examination of an Emerging Community of Practice among Instructional Designers: A Descriptive Case Study",
+    venue: "41st Annual AECT Proceedings, Vol. 1, 218-228",
+    url: "https://members.aect.org/pdf/Proceedings/proceedings18/2018/18_26.pdf",
+  },
+  {
+    year: "2018",
+    type: "Conference proceedings",
+    authors: "Yu, J., Karakaya, O. & Schmidt-Crawford, D. (1st author)",
+    title: "Mentoring for Success: Graduate Student Mentors' Perceptions on the Impact of a One-on-One Technology Mentoring Program",
+    venue: "41st Annual AECT Proceedings, Vol. 1, 229-237",
+    url: "https://members.aect.org/pdf/Proceedings/proceedings18/2018/18_27.pdf",
+  },
+  {
+    year: "2018",
+    type: "Conference proceedings",
+    authors: "Yu, J. & Karakaya, O. (1st author)",
+    title: "Examination of the Impact of a One-on-One Technology Mentoring Program: Multiple Case Studies on the Mentees' Perspectives",
+    venue: "SITE 2018 Proceedings, pp. 585-590 (AACE)",
+    url: "https://www.learntechlib.org/p/182588/",
+  },
+  {
+    year: "2018",
+    type: "Conference proceedings",
+    authors: "Elrick, D., Yu, J. & Hargrave, C. (2nd author)",
+    title: "Design and Evaluate a Forensic Science Online Course for High School Students of Color",
+    venue: "SITE 2018 Proceedings, pp. 632-637 (AACE)",
+    url: "https://www.learntechlib.org/p/182595/",
+  },
+  {
+    year: "2015",
+    type: "Conference proceedings",
+    authors: "Correia, A.P., Yu, J., Munkvold, G. & Youngberg, L. (2nd author)",
+    title: "An Online Graduate Program Evaluation: What Do Course Instructors Have to Say?",
+    venue: "Proceedings of E-Learn 2015 (AACE), pp. 1740-1747",
+    url: "https://www.learntechlib.org/p/152221/",
   },
 ];
 
 const presentations = [
   {
+    year: "2026",
+    title: "Re-Architecting the CTL for Impact: From Service Load to Strategic Value",
+    venue: "UPCEA Summit for Online Leadership and Administration (SOLAR)",
+    location: "Boston, MA",
+    role: "Co-presenter",
+    coPresenters: "Parks, H.",
+  },
+  {
+    year: "2026",
+    title: "Building Sustainable Communities of Practice: A Scalable Model for Professional Growth and Educational Research",
+    venue: "OLC Innovate 2026",
+    location: "Virtual",
+    role: "Sole presenter",
+  },
+  {
+    year: "2026",
+    title: "From Practitioner to Scholar: Finding Your First Scholarly Project",
+    venue: "UPCEA Digital Teaching & Learning Conference (DT&L)",
+    location: "Virtual",
+    role: "Sole presenter",
+  },
+  {
+    year: "2026",
+    title: "From Chaos to Clarity: Preparing Instructional Designers with Project Management Skills to Lead Digital Learning Initiatives",
+    venue: "UPCEA Digital Teaching & Learning Conference (DT&L)",
+    location: "Virtual",
+    role: "Sole presenter",
+  },
+  {
     year: "2025",
-    title: "Nurturing a Culture of Innovation in Health Science Education: Best Practices from the SoTL Collective",
-    venue: "TxDLA 2025, Denton, TX",
+    title: "Nurturing a Culture of Innovation in Health Science Education: Best Practices from the HSC SoTL Collective",
+    venue: "Texas Distance Learning Association (TxDLA) 2025",
+    location: "Denton, TX",
+    role: "Lead presenter",
+    coPresenters: "Parks, H.; Battaglia, A.",
+  },
+  {
+    year: "2025",
+    title: "Strategic Time Management and Academic Productivity",
+    venue: "UNT Health Academy of Medical Educators (AME)",
+    location: "Fort Worth, TX",
+    role: "Co-presenter",
+    coPresenters: "Heck, A.",
+  },
+  {
+    year: "2024",
+    title: "Cultivating a Community of Practice to Enhance Game-Based Learning and High-Impact Practices",
+    venue: "InnovateED 2024, Sanford University School of Medicine CME",
+    location: "Virtual",
+    role: "Lead presenter",
+    coPresenters: "Laborde, R.; Gruben, D.",
+  },
+  {
+    year: "2024",
+    title: "Fostering Well-Being: The Journey of Developing a Microcredential for Instructional Designers",
+    venue: "InstructureCon 2024",
+    location: "Las Vegas, NV",
+    role: "Co-presenter",
+    coPresenters: "Mahmoudi, L.",
   },
   {
     year: "2023",
-    title: "Project Management for Instructional Designers",
-    venue: "HigherID Podcast, Episode 13 (most-listened of its season)",
+    title: "Professional Development Opportunities and Strategies: Stories from Instructional Designers in Higher Education",
+    venue: "AECT 2023 International Convention",
+    location: "Orlando, FL",
+    role: "Panelist",
+    coPresenters: "Zeitler, J.; Woods, C.; Swift, A.; Gibson, R.; Battaglia, A.",
+  },
+  {
+    year: "2023",
+    title: "Five Institutions are Better than One: The Results of an Exploratory Collaborative on Instructional Designer Workload Planning and Capacity",
+    venue: "OLC Innovate 2023 Conference",
+    location: "Nashville, TN",
+    role: "Co-presenter",
+    coPresenters: "Pyke, G.; Stamper, B.; Grewe, K.; Cox, L.",
   },
   {
     year: "2023",
     title: "Interactive or Conventional Lectures: An Exploratory Study on Student Perceptions of Multiple Means of Representation",
-    venue: "UDL-IRN International Summit",
+    venue: "UDL-IRN International Summit 2023",
+    location: "Orlando, FL",
+    role: "Lead presenter",
+    coPresenters: "Battaglia, A.; Neelamegam, M.",
   },
   {
     year: "2023",
-    title: "Project Management Practices for Instructional Designers",
-    venue: "Online Learning Consortium Webinar Series (recording available)",
+    title: "Optimizing Project Management for Instructional Design in Higher Education",
+    venue: "OLC Webinar Series",
+    location: "Virtual",
+    role: "Panelist",
+    coPresenters: "McKenzie, J.; Wahl, L.; Zeitler, J.; Queen, E.",
+    link: "https://onlinelearningconsortium.org/webinar/optimizing-project-management-for-instructional-design-in-higher-education/",
+  },
+  {
+    year: "2022",
+    title: "Project Management for Instructional Designers in Higher Education: Best Practices, Strategies, and Tools",
+    venue: "OLC Accelerate 2022 Conference",
+    location: "Orlando, FL",
+    role: "Lead presenter",
+    coPresenters: "Wahl, L.; McKenzie, J.; Zeitler, J.; Queen, E.; Budhrani, K.",
+  },
+  {
+    year: "2022",
+    title: "Rapid Prototyping and Quality Assurance: An Agile Approach to Instructional Design in Higher Education",
+    venue: "OLC Accelerate 2022 Conference",
+    location: "Orlando, FL",
+    role: "Lead presenter",
+    coPresenters: "McKenzie, J.; Anderson, H.",
+  },
+  {
+    year: "2022",
+    title: "Towards a Multiverse of Faculty Development in Higher Education: A Community of Practice Approach",
+    venue: "OLC Accelerate 2022 Conference",
+    location: "Orlando, FL",
+    role: "Lead presenter",
+    coPresenters: "McKenzie, J.; Anderson, H.",
+  },
+  {
+    year: "2022",
+    title: "How Do Instructional Designers Spend Their Time? A Case Study from A Public Graduate School in Texas",
+    venue: "OLC Innovate 2022 Conference",
+    location: "Dallas, TX",
+    role: "Lead presenter",
+    coPresenters: "Anderson, H.",
+  },
+  {
+    year: "2020",
+    title: "A Practical Guide to Managing Online Course Design Projects: Timeline, Milestone, and RACI",
+    venue: "Innovate Learning Summit",
+    location: "Virtual",
+    role: "Sole presenter",
+  },
+  {
+    year: "2019",
+    title: "Preparing Preservice Teachers for 'Learning by Making' in Makerspace Communities",
+    venue: "SITE 2019",
+    location: "Las Vegas, NV",
+    role: "Co-presenter",
+    coPresenters: "Karakaya, O.; Valai, A.; Updegraff, A.",
+  },
+  {
+    year: "2018",
+    title: "Examination of an Emerging Community of Practice for Instructional Designers: A Descriptive Case Study",
+    venue: "AECT 2018 International Convention",
+    location: "Kansas City, MO",
+    role: "Lead presenter",
+    coPresenters: "Hargrave, C.",
+  },
+  {
+    year: "2018",
+    title: "Mentoring for Success: Graduate Student Mentors' Perceptions on the Impact of a One-on-One Technology Mentoring Program",
+    venue: "AECT 2018 International Convention",
+    location: "Kansas City, MO",
+    role: "Lead presenter",
+    coPresenters: "Karakaya, O.; Schmidt-Crawford, D.",
+  },
+  {
+    year: "2018",
+    title: "Examination of the Impact of a One-on-One Technology Mentoring Program: Multiple Case Studies on the Mentees' Perspectives",
+    venue: "SITE 2018",
+    location: "Washington, DC",
+    role: "Lead presenter",
+    coPresenters: "Karakaya, O.",
+  },
+  {
+    year: "2018",
+    title: "Design and Evaluate a Forensic Science Online Course for High School Students of Color",
+    venue: "SITE 2018",
+    location: "Washington, DC",
+    role: "Co-presenter",
+    coPresenters: "Elrick, D.; Hargrave, C.",
+  },
+  {
+    year: "2017",
+    title: "Application of UDL, Multimedia Learning, & Backward Design in Designing Accessible Instructional Videos",
+    venue: "AECT 2017 International Convention",
+    location: "Jacksonville, FL",
+    role: "Sole presenter",
+  },
+  {
+    year: "2017",
+    title: "Evaluating the Effectiveness, Efficiency, and Impact of a Blended Tutor Training: A Case Study",
+    venue: "OLC Innovate 2017",
+    location: "New Orleans, LA",
+    role: "Co-presenter",
+    coPresenters: "Jaramillo, N.",
+  },
+  {
+    year: "2017",
+    title: "Design for Innovation: A Blended Workshop to Prepare Female Graduate Students for Job-market Competency",
+    venue: "OLC Innovate 2017",
+    location: "New Orleans, LA",
+    role: "Co-presenter",
+    coPresenters: "Jaramillo, N.; Spencer, M.",
+  },
+  {
+    year: "2015",
+    title: "An Online Graduate Program Evaluation: What Do Course Instructors Have to Say?",
+    venue: "E-LEARN 2015",
+    location: "Kona, HI",
+    role: "Co-presenter",
+    coPresenters: "Correia, A.P.; Munkvold, G.; Youngberg, L.",
   },
 ];
 
 const profiles = [
-  { label: "ORCID", url: "https://orcid.org/" },
-  { label: "Google Scholar", url: "https://scholar.google.com/" },
-  { label: "ResearchGate", url: "https://www.researchgate.net/" },
+  { label: "ORCID", url: "https://orcid.org/0009-0005-5432-0506" },
+  { label: "Google Scholar", url: "https://scholar.google.com/citations?user=78t1HIkAAAAJ&hl=en" },
+  { label: "ResearchGate", url: "https://www.researchgate.net/profile/Jiaqi-Yu-33" },
 ];
+
+// Group presentations by year for display
+const presByYear = presentations.reduce((acc, p) => {
+  const y = p.year;
+  if (!acc[y]) acc[y] = [];
+  acc[y].push(p);
+  return acc;
+}, {} as Record<string, typeof presentations>);
+const presYears = Object.keys(presByYear).sort((a, b) => Number(b) - Number(a));
 ---
 
 <BaseLayout
@@ -59,8 +312,7 @@ const profiles = [
   <section class="max-w-4xl mx-auto px-6 py-16">
     <h1 class="text-4xl font-semibold mb-4">Scholarship</h1>
     <p class="text-lg text-gray-soft leading-relaxed mb-8 max-w-3xl">
-      Selected publications and conference presentations are listed below, with the full record
-      grouped by year. For the most current view across all venues, see also my public profiles:
+      Publications and conference presentations across instructional design, Communities of Practice, faculty development, and the scholarship of teaching and learning. For the most current view across all venues, see also my public profiles:
     </p>
 
     <div class="profile-links mb-16">
@@ -69,38 +321,44 @@ const profiles = [
       ))}
     </div>
 
-    <h2 class="scholarship-section-heading">Selected Publications</h2>
-    <ul class="scholarship-list mb-6">
+    <h2 class="scholarship-section-heading">Publications ({publications.length})</h2>
+    <ul class="scholarship-list mb-16">
       {publications.map(pub => (
         <li>
           <div class="item-year">{pub.year}</div>
           <div class="item-body">
+            <div class="item-type">{pub.type}</div>
             <div class="item-authors">{pub.authors}</div>
-            <div class="item-title">{pub.title}</div>
+            <div class="item-title">
+              {pub.url ? <a href={pub.url} target="_blank" rel="noopener">{pub.title}</a> : pub.title}
+            </div>
             <div class="item-venue">{pub.venue}</div>
           </div>
         </li>
       ))}
     </ul>
-    <p class="text-sm text-gray-soft mb-16">
-      <em>Full publication list to be added in the next site update. See ORCID or Google Scholar for the complete record.</em>
-    </p>
 
-    <h2 class="scholarship-section-heading">Selected Presentations</h2>
-    <ul class="scholarship-list mb-6">
-      {presentations.map(pres => (
-        <li>
-          <div class="item-year">{pres.year}</div>
-          <div class="item-body">
-            <div class="item-title">{pres.title}</div>
-            <div class="item-venue">{pres.venue}</div>
-          </div>
-        </li>
-      ))}
-    </ul>
-    <p class="text-sm text-gray-soft">
-      <em>Full presentation list (30+ items across national and regional venues) to be added in the next site update.</em>
-    </p>
+    <h2 class="scholarship-section-heading">Presentations ({presentations.length})</h2>
+    {presYears.map(year => (
+      <div class="pres-year-group mb-8">
+        <h3 class="pres-year-header">{year}</h3>
+        <ul class="scholarship-list">
+          {presByYear[year].map(pres => (
+            <li class="pres-item">
+              <div class="item-body">
+                <div class="item-title">
+                  {pres.link ? <a href={pres.link} target="_blank" rel="noopener">{pres.title}</a> : pres.title}
+                </div>
+                <div class="item-venue">{pres.venue}{pres.location ? ` · ${pres.location}` : ''}</div>
+                <div class="item-meta">
+                  {pres.role}{pres.coPresenters ? ` · with ${pres.coPresenters}` : ''}
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
   </section>
 </BaseLayout>
 
@@ -135,12 +393,24 @@ const profiles = [
     border-bottom: 1px solid #F3F4F6;
     align-items: baseline;
   }
+  .scholarship-list li.pres-item {
+    grid-template-columns: 1fr;
+  }
   .scholarship-list li:last-child { border-bottom: none; }
   .item-year {
     font-family: var(--font-display);
     font-weight: 600;
     color: var(--color-gold);
     font-size: 1.1rem;
+  }
+  .item-type {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-gold);
+    font-weight: 600;
+    margin-bottom: 0.35rem;
   }
   .item-authors {
     font-size: 0.9rem;
@@ -154,10 +424,30 @@ const profiles = [
     line-height: 1.4;
     margin-bottom: 0.25rem;
   }
+  .item-title a {
+    color: var(--color-navy);
+    text-decoration: underline;
+    text-decoration-color: var(--color-gold);
+  }
   .item-venue {
     font-size: 0.9rem;
     color: var(--color-ink);
     font-style: italic;
     line-height: 1.4;
+    margin-bottom: 0.25rem;
+  }
+  .item-meta {
+    font-size: 0.85rem;
+    color: var(--color-gray-soft);
+    line-height: 1.4;
+  }
+  .pres-year-header {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--color-gold);
+    font-weight: 700;
+    margin: 0 0 0.75rem 0;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid #F3F4F6;
   }
 </style>
