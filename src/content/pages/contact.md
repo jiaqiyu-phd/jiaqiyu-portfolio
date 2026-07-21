@@ -14,7 +14,8 @@ I'm glad you found your way here. The most useful thing I can offer is a real co
 
 - **Collaboration** on scholarship of teaching and learning, Communities of Practice, or responsible AI integration in health sciences education.
 - **Conference speaking, panels, and webinars** on instructional innovation, project management for instructional designers, pedagogical wellness, and faculty development.
-- **Mentoring** of mid-career instructional designers and emerging health sciences educators — through formal networks (EDUCAUSE / Penn State ID2ID) or informally.
+- **Mentoring** of early or mid-career instructional designers and emerging health sciences educators — through formal networks (EDUCAUSE / Penn State ID2ID) or informally.
+- **Coaching conversations** for instructional designers, health sciences educators, and emerging scholars — currently informal, with formal ACC-credentialed practice launching soon.
 
 ## How to reach me
 
