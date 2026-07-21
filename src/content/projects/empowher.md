@@ -1,7 +1,7 @@
 ---
 title: "EmpowHer: A Bilingual Community of Practice for First-Generation Asian
   Women in DFW"
-subtitle: TEST. A founder-led, member-shaped community using shared reading as
+subtitle: A founder-led, member-shaped community using shared reading as
   structure for cross-cultural inquiry, mutual support, and quiet leadership.
 slug: empowher
 url: /projects/empowher/
@@ -24,20 +24,19 @@ summary: A two-year-old bilingual Community of Practice for first-generation
 hero_image: /images/projects/empowher-hero.jpg
 hero_image_alt: Books and notes from a recent EmpowHer book club discussion.
 ---
-
 # EmpowHer: A Bilingual Community of Practice for First-Generation Asian Women in DFW
 
 *Mini case study — community-led*
 
-*A founder-led, member-shaped community using shared reading as structure for cross-cultural inquiry, mutual support, and quiet leadership.*
+*A founder-led, member-shaped community using shared reading as structure for cross-cultural inquiry, mutual support, and quiet leadership. TEST*
 
-| | |
-|---|---|
-| **Role** | Founder & Facilitator |
-| **Years** | 2024–Present |
-| **Location** | Dallas–Fort Worth, Texas |
-| **Audience tags** | Search Committee · Award Panel · Network |
-| **Themes** | Community of Practice design · Cross-cultural facilitation · Women's leadership · Bilingual learning · Equity beyond institutions |
+|                   |                                                                                                                                   |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| **Role**          | Founder & Facilitator                                                                                                             |
+| **Years**         | 2024–Present                                                                                                                      |
+| **Location**      | Dallas–Fort Worth, Texas                                                                                                          |
+| **Audience tags** | Search Committee · Award Panel · Network                                                                                          |
+| **Themes**        | Community of Practice design · Cross-cultural facilitation · Women's leadership · Bilingual learning · Equity beyond institutions |
 
 ## Context
 
@@ -57,20 +56,20 @@ EmpowHer is structured as a monthly bilingual book club anchored to a shared tex
 
 Sessions meet on the last weekend of each month, primarily in person and occasionally online. Several design choices are deliberate:
 
-- **Rotating facilitation.** Each month a different member leads, distributing ownership and protecting against single-founder fragility.
-- **No mandatory reading.** Members are welcome whether or not they finished the book — lowering the activation cost without lowering the quality of conversation.
-- **Cross-cultural prompts.** Discussion questions explicitly invite US–China comparative analysis, drawing on members' bilingual fluency as an analytical asset rather than a translation burden.
-- **Curated reading.** Selections lean toward methodologically serious texts — for example, Caroline Criado Perez's *Invisible Women: Data Bias in a World Designed for Men* — that surface gendered and cultural data gaps.
-- **Protected relational norms.** Group guidelines explicitly invite disagreement and forbid commercial use, keeping the space psychologically safe for candid exchange.
+* **Rotating facilitation.** Each month a different member leads, distributing ownership and protecting against single-founder fragility.
+* **No mandatory reading.** Members are welcome whether or not they finished the book — lowering the activation cost without lowering the quality of conversation.
+* **Cross-cultural prompts.** Discussion questions explicitly invite US–China comparative analysis, drawing on members' bilingual fluency as an analytical asset rather than a translation burden.
+* **Curated reading.** Selections lean toward methodologically serious texts — for example, Caroline Criado Perez's *Invisible Women: Data Bias in a World Designed for Men* — that surface gendered and cultural data gaps.
+* **Protected relational norms.** Group guidelines explicitly invite disagreement and forbid commercial use, keeping the space psychologically safe for candid exchange.
 
 ## Outcomes
 
 In two years of monthly convenings, EmpowHer has produced:
 
-- A sustained bilingual learning community of first-generation Asian women across professional sectors — academic, technical, and clinical.
-- More than twenty monthly sessions delivered with consistent engagement, demonstrating the model's retention across a notoriously hard-to-sustain population (working immigrant mothers).
-- A distributed leadership pipeline — rotating monthly leads have built facilitation experience that members report carrying into their own workplaces.
-- A standing proof point that Community of Practice infrastructure works across cultural contexts and entirely outside institutional sponsorship.
+* A sustained bilingual learning community of first-generation Asian women across professional sectors — academic, technical, and clinical.
+* More than twenty monthly sessions delivered with consistent engagement, demonstrating the model's retention across a notoriously hard-to-sustain population (working immigrant mothers).
+* A distributed leadership pipeline — rotating monthly leads have built facilitation experience that members report carrying into their own workplaces.
+* A standing proof point that Community of Practice infrastructure works across cultural contexts and entirely outside institutional sponsorship.
 
 ## My role
 
