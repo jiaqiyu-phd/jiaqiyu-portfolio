@@ -58,7 +58,7 @@ collections:
           - "Health sciences education"
           - "Equity & cross-cultural facilitation"
           - "Responsible AI in education"
-      - { label: "Last updated", name: "last_updated", widget: "date", format: "YYYY-MM-DD" }
+      - { label: "Last updated (YYYY-MM-DD)", name: "last_updated", widget: "string", required: false, hint: "Format: YYYY-MM-DD, e.g., 2026-05-28" }
       - { label: "Featured on Home page?", name: "featured", widget: "boolean", default: false }
       - { label: "Summary (~30 words for project cards)", name: "summary", widget: "text", required: false }
       - { label: "Hero image", name: "hero_image", widget: "image", required: false }
@@ -78,7 +78,7 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "URL slug", name: "slug", widget: "string" }
       - { label: "URL path", name: "url", widget: "string", required: false }
-      - { label: "Last updated", name: "last_updated", widget: "date", format: "YYYY-MM-DD" }
+     - { label: "Last updated (YYYY-MM-DD)", name: "last_updated", widget: "string", required: false, hint: "Format: YYYY-MM-DD, e.g., 2026-05-28" }
       - { label: "Meta description (≤155 chars, for SEO)", name: "meta_description", widget: "string", required: false }
       - label: "Audience"
         name: "audience"
