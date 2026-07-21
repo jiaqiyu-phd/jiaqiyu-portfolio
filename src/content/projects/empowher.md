@@ -1,9 +1,8 @@
 ---
 title: "EmpowHer: A Bilingual Community of Practice for First-Generation Asian
   Women in DFW"
-subtitle: A founder-led, member-shaped community using shared reading as
+subtitle: TEST. A founder-led, member-shaped community using shared reading as
   structure for cross-cultural inquiry, mutual support, and quiet leadership.
-  TEST ONLY
 slug: empowher
 url: /projects/empowher/
 status: mini
