@@ -1,19 +1,29 @@
 ---
-title: "EmpowHer: A Bilingual Community of Practice for First-Generation Asian Women in DFW"
-subtitle: "A founder-led, member-shaped community using shared reading as structure for cross-cultural inquiry, mutual support, and quiet leadership."
-slug: "empowher"
-url: "/projects/empowher/"
-status: "mini"
-role: "Founder & Facilitator"
-years: "2024–Present"
-location: "Dallas–Fort Worth, Texas"
-audience: ["Search Committee", "Award Panel", "Network"]
-themes: ["Community of Practice design", "Equity & cross-cultural facilitation"]
-last_updated: "2026-05-28"
+title: "EmpowHer: A Bilingual Community of Practice for First-Generation Asian
+  Women in DFW"
+subtitle: A founder-led, member-shaped community using shared reading as
+  structure for cross-cultural inquiry, mutual support, and quiet leadership.
+  TEST ONLY
+slug: empowher
+url: /projects/empowher/
+status: mini
+role: Founder & Facilitator
+years: 2024–Present
+location: Dallas–Fort Worth, Texas
+audience:
+  - Search Committee
+  - Award Panel
+  - Network
+themes:
+  - Community of Practice design
+  - Equity & cross-cultural facilitation
+last_updated: 2026-05-28
 featured: false
-summary: "A two-year-old bilingual Community of Practice for first-generation Asian women in DFW — proving that CoP design principles travel beyond institutional sponsorship."
-hero_image: "/images/projects/empowher-hero.jpg"
-hero_image_alt: "Books and notes from a recent EmpowHer book club discussion."
+summary: A two-year-old bilingual Community of Practice for first-generation
+  Asian women in DFW — proving that CoP design principles travel beyond
+  institutional sponsorship.
+hero_image: /images/projects/empowher-hero.jpg
+hero_image_alt: Books and notes from a recent EmpowHer book club discussion.
 ---
 
 # EmpowHer: A Bilingual Community of Practice for First-Generation Asian Women in DFW
