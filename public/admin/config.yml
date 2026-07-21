@@ -1,0 +1,19 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+site_url: https://jiaqiyu.netlify.app
+display_url: https://jiaqiyu.netlify.app
+logo_url: https://jiaqiyu.netlify.app/images/headshot.jpg
+
+collections:
+  - name: "test"
+    label: "Test — will replace"
+    folder: "src/content/pages"
+    create: false
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
