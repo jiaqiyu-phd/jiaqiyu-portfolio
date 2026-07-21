@@ -10,10 +10,56 @@ display_url: https://jiaqiyu.netlify.app
 logo_url: https://jiaqiyu.netlify.app/images/headshot.jpg
 
 collections:
-  - name: "test"
-    label: "Test — will replace"
-    folder: "src/content/pages"
-    create: false
+  - name: "projects"
+    label: "Projects (Case Studies)"
+    label_singular: "Project"
+    folder: "src/content/projects"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: "title"
+    editor:
+      preview: false
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+      - { label: "URL slug", name: "slug", widget: "string", hint: "Used in the URL, e.g., 'sotl-collective' for /projects/sotl-collective/" }
+      - { label: "URL path", name: "url", widget: "string", required: false, hint: "Full path with slashes, e.g., /projects/sotl-collective/" }
+      - label: "Status (visual weight)"
+        name: "status"
+        widget: "select"
+        options: ["flagship", "mini"]
+        default: "flagship"
+      - { label: "Role", name: "role", widget: "string", required: false }
+      - { label: "Years", name: "years", widget: "string", required: false, hint: "e.g., 2024–Present" }
+      - { label: "Institution", name: "institution", widget: "string", required: false }
+      - { label: "Funding source", name: "funding", widget: "string", required: false }
+      - { label: "Location", name: "location", widget: "string", required: false }
+      - { label: "Recognition", name: "recognition", widget: "string", required: false }
+      - { label: "Partner organizations", name: "partners", widget: "list", required: false, hint: "One partner per entry" }
+      - { label: "Co-authors", name: "co_authors", widget: "list", required: false }
+      - label: "Audience"
+        name: "audience"
+        widget: "select"
+        multiple: true
+        required: false
+        options: ["Search Committee", "Award Panel", "Network"]
+      - label: "Themes"
+        name: "themes"
+        widget: "select"
+        multiple: true
+        required: false
+        options:
+          - "Community of Practice design"
+          - "Faculty development"
+          - "Scholarship of Teaching and Learning (SoTL)"
+          - "Pedagogical wellness"
+          - "Project management for IDs"
+          - "Cross-institutional collaboration"
+          - "Health sciences education"
+          - "Equity & cross-cultural facilitation"
+          - "Responsible AI in education"
+      - { label: "Last updated", name: "last_updated", widget: "date", format: "YYYY-MM-DD" }
+      - { label: "Featured on Home page?", name: "featured", widget: "boolean", default: false }
+      - { label: "Summary (~30 words for project cards)", name: "summary", widget: "text", required: false }
+      - { label: "Hero image", name: "hero_image", widget: "image", required: false }
+      - { label: "Hero image alt text", name: "hero_image_alt", widget: "string",
