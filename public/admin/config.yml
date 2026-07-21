@@ -62,4 +62,43 @@ collections:
       - { label: "Featured on Home page?", name: "featured", widget: "boolean", default: false }
       - { label: "Summary (~30 words for project cards)", name: "summary", widget: "text", required: false }
       - { label: "Hero image", name: "hero_image", widget: "image", required: false }
-      - { label: "Hero image alt text", name: "hero_image_alt", widget: "string",
+      - { label: "Hero image alt text", name: "hero_image_alt", widget: "string", required: false }
+      - { label: "Body content", name: "body", widget: "markdown" }
+
+  - name: "pages"
+    label: "Standalone Pages"
+    label_singular: "Page"
+    folder: "src/content/pages"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: "title"
+    editor:
+      preview: false
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "URL slug", name: "slug", widget: "string" }
+      - { label: "URL path", name: "url", widget: "string", required: false }
+      - { label: "Last updated", name: "last_updated", widget: "date", format: "YYYY-MM-DD" }
+      - { label: "Meta description (≤155 chars, for SEO)", name: "meta_description", widget: "string", required: false }
+      - label: "Audience"
+        name: "audience"
+        widget: "select"
+        multiple: true
+        required: false
+        options: ["Search Committee", "Award Panel", "Network"]
+      - label: "Themes"
+        name: "themes"
+        widget: "select"
+        multiple: true
+        required: false
+        options:
+          - "Community of Practice design"
+          - "Faculty development"
+          - "Scholarship of Teaching and Learning (SoTL)"
+          - "Pedagogical wellness"
+          - "Project management for IDs"
+          - "Cross-institutional collaboration"
+          - "Health sciences education"
+          - "Equity & cross-cultural facilitation"
+          - "Responsible AI in education"
+      - { label: "Body content", name: "body", widget: "markdown" }
