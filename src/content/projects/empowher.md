@@ -26,9 +26,9 @@ hero_image_alt: Books and notes from a recent EmpowHer book club discussion.
 ---
 # EmpowHer: A Bilingual Community of Practice for First-Generation Asian Women in DFW
 
-*Mini case study — community-led*
+*Mini case study*
 
-*A founder-led, member-shaped community using shared reading as structure for cross-cultural inquiry, mutual support, and quiet leadership. TEST*
+*A founder-led, member-shaped community using shared reading as structure for cross-cultural inquiry, mutual support, and quiet leadership.*
 
 |                   |                                                                                                                                   |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------- |
