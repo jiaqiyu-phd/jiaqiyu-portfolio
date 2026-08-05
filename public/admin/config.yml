@@ -78,7 +78,7 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "URL slug", name: "slug", widget: "string" }
       - { label: "URL path", name: "url", widget: "string", required: false }
-     - { label: "Last updated (YYYY-MM-DD)", name: "last_updated", widget: "string", required: false, hint: "Format: YYYY-MM-DD, e.g., 2026-05-28" }
+      - { label: "Last updated (YYYY-MM-DD)", name: "last_updated", widget: "string", required: false, hint: "Format: YYYY-MM-DD, e.g., 2026-05-28" }
       - { label: "Meta description (≤155 chars, for SEO)", name: "meta_description", widget: "string", required: false }
       - label: "Audience"
         name: "audience"
