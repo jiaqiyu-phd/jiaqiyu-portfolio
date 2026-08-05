@@ -34,6 +34,10 @@ const {
     />
 
     <title>{title}</title>
+
+    <!-- Netlify Identity: handles invite, recovery, and email-change links
+         that land on site pages rather than /admin/ -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" is:inline></script>
   </head>
   <body>
     <a href="#main" class="skip-link">Skip to content</a>
@@ -42,5 +46,19 @@ const {
       <slot />
     </main>
     <Footer />
+
+    <script is:inline>
+      // After a successful login from a recovery/invite link on a site page,
+      // send the user on to the CMS instead of leaving them on the homepage.
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
   </body>
 </html>
