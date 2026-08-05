@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# The CMS admin panel has no public value and should never appear in results.
+Disallow: /admin/
+
+Sitemap: https://jiaqiyu.org/sitemap-index.xml

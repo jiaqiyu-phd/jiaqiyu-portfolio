@@ -1,3 +1,13 @@
+/*
+  # HSTS: after a first HTTPS visit, browsers refuse to load this site over
+  # http for two years. Replaces the old Netlify "Force HTTPS" toggle.
+  # "preload" is deliberately omitted — it is very hard to reverse.
+  Strict-Transport-Security: max-age=63072000; includeSubDomains
+  # Stops browsers from guessing a file is a different type than declared.
+  X-Content-Type-Options: nosniff
+  # Send the page URL to other sites, but never the query string.
+  Referrer-Policy: strict-origin-when-cross-origin
+
 /admin/*
   X-Frame-Options: SAMEORIGIN
   Content-Security-Policy: frame-ancestors 'self'
