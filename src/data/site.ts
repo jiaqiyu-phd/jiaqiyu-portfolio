@@ -17,21 +17,21 @@ export const signature = [
     n: "01",
     title: "Communities of Practice for Health Sciences Education",
     lead: "I build sustainable Communities of Practice that turn clinical teaching into scholarship.",
-    body: "Five interconnected CoPs engaging 150+ faculty and 20+ active SoTL projects at UNT Health — two annual Unconferences, a POD Network–funded study, and a statewide award.",
+    body: "Five interconnected CoPs engaging 150+ faculty at UNT Health — two annual Unconferences, a POD Network–funded study, and a statewide award.",
     url: "/projects/sotl-collective/",
   },
   {
     n: "02",
     title: "Project Management for Instructional Designers",
     lead: "I make the invisible work of instructional designers visible.",
-    body: "A decade of cross-institutional collaboration through OLC, EDUCAUSE / Penn State ID2ID, and the POD Network — with templates openly shared and reused across the field.",
+    body: "A decade of cross-institutional collaboration through ID2ID, OLC, UPCEA, and the POD Network — with templates openly shared and reused across the field.",
     url: "/projects/pm-for-ids/",
   },
   {
     n: "03",
     title: "Peer Mentoring & Scholarly Infrastructure",
     lead: "I co-design the structures that support instructional designers across career stages.",
-    body: "ID2ID Advisory Committee (2024 & 2025) and co-author of a forthcoming Routledge chapter on the program's growth into an international network.",
+    body: "ID2ID Advisory Committee and co-author of a forthcoming Routledge chapter on the program's growth into an international network.",
     url: "/projects/id2id/",
   },
 ];
@@ -45,7 +45,7 @@ export const chapters = [
 export const education = [
   { a: "PhD, Curriculum & Instructional Technology", b: "Co-major, Human–Computer Interaction · Iowa State University" },
   { a: "MEd, Curriculum Studies & Teacher Development", b: "University of Toronto" },
-  { a: "BA", b: "Beijing Normal University" },
+  { a: "BA, Chinese Language & Literature", b: "Beijing Normal University" },
 ];
 
 export const service = [
