@@ -1,43 +1,70 @@
 /* Tailwind CSS — utility classes */
 @import "tailwindcss";
 
-/* Your design tokens — visual identity */
+/* Design tokens — Direction A "Soft Editorial" */
 @theme {
-  /* Brand colors */
+  /* Brand */
   --color-navy: #1F3A5F;
   --color-navy-light: #2D4B73;
-  --color-gold: #C9A227;
-  --color-gold-light: #E0BD4D;
-  --color-gray-soft: #6B7280;
-  --color-ink: #1F2937;
-  --color-paper: #FFFFFF;
+  --color-gold: #C9A227;            /* decorative only — fails contrast as text on cream */
+  --color-gold-light: #E0BD4D;      /* buttons, chips, eyebrows on navy */
+  --color-gold-soft: #F1E4BC;       /* pills, eyebrow backgrounds, arch shape */
+  --color-gold-soft-hover: #EAD9A3;
+  --color-gold-ink: #8A6A10;        /* gold text on cream */
+  --color-gold-ink-deep: #6E550C;   /* text on gold-soft */
 
-  /* Typography families */
+  /* Grounds & surfaces */
+  --color-cream: #FAF6EF;           /* page background */
+  --color-surface: #FFFDF9;         /* cards, nav pill, form panel */
+  --color-sand: #F3ECDF;            /* footer */
+  --color-line: #EADFCB;            /* card borders, dividers */
+  --color-line-strong: #D9CBB0;     /* inputs, footer pills, dashed empty state */
+
+  /* Text */
+  --color-ink: #26303D;
+  --color-ink-muted: #4A5463;
+  --color-ink-subtle: #5B6472;
+  --color-button-ink: #1F2937;      /* text on gold-light buttons */
+
+  /* On navy */
+  --color-on-navy: #E6DFD1;
+  --color-on-navy-strong: #F4EEE2;
+  --color-on-navy-line: #4A6488;
+
+  /* Presentation badge */
+  --color-pres-bg: #E8EDF3;
+
+  /* Typography */
   --font-display: "Crimson Pro", Georgia, serif;
-  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --font-body: "Source Sans 3", system-ui, -apple-system, sans-serif;
+
+  /* Radii */
+  --radius-card: 24px;
+  --radius-panel: 28px;
+  --radius-hero: 32px;
+  --radius-input: 14px;
 }
 
-/* Base body styles */
+/* ---------- Base ---------- */
+@layer base {
 body {
   font-family: var(--font-body);
   color: var(--color-ink);
-  background: var(--color-paper);
-  font-size: 1.0625rem;
+  background: var(--color-cream);
+  font-size: 17px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Headings — Crimson Pro, navy, scholarly */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   color: var(--color-navy);
-  font-weight: 600;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
+  font-weight: 500;
+  line-height: 1.2;
 }
 
-/* Links — navy text with subtle gold underline */
+/* Links — navy text with gold underline */
 a {
   color: var(--color-navy);
   text-decoration: underline;
@@ -46,8 +73,8 @@ a {
   text-decoration-thickness: 1.5px;
   transition: text-decoration-thickness 0.15s ease;
 }
-
 a:hover {
+  color: var(--color-navy-light);
   text-decoration-thickness: 2.5px;
 }
 
@@ -57,97 +84,266 @@ a:hover {
   top: -100px;
   left: 0;
   background: var(--color-navy);
-  color: var(--color-paper);
+  color: var(--color-surface);
   padding: 0.75rem 1.25rem;
   z-index: 100;
   text-decoration: none;
   font-weight: 600;
 }
-
-.skip-link:focus {
-  top: 0;
-}
+.skip-link:focus { top: 0; }
 
 /* Keyboard focus indicators — accessibility */
 :focus-visible {
   outline: 2px solid var(--color-gold);
   outline-offset: 2px;
 }
-/* Case study content styling — applies to rendered Markdown */
+
+} /* end @layer base */
+
+/* Component classes live in the components layer so Tailwind utilities
+   (and Astro scoped styles) can override them. */
+@layer components {
+/* ---------- Layout ---------- */
+.site-container {
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 4vw, 40px);
+}
+.section {
+  padding-block: clamp(40px, 6vw, 72px);
+}
+.rule-top { border-top: 1px solid var(--color-line); }
+
+/* Fluid grid: set --min on the element; wraps without breakpoints */
+.fluid-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min, 300px)), 1fr));
+  gap: var(--gap, 20px);
+}
+
+/* Page intro block (H1 + lead) */
+.page-intro {
+  padding: clamp(32px, 6vw, 64px) 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 780px;
+}
+
+/* ---------- Type ---------- */
+.h1-page {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(40px, 5vw, 60px);
+  line-height: 1.05;
+  color: var(--color-navy);
+}
+.h2-section {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(30px, 3.4vw, 40px);
+  line-height: 1.15;
+  color: var(--color-navy);
+}
+.h2-sub {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.2;
+  color: var(--color-navy);
+}
+.h3-card {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.2;
+  color: var(--color-navy);
+  text-wrap: balance;
+}
+.lead {
+  margin: 0;
+  font-size: 19px;
+  color: var(--color-ink-muted);
+  text-wrap: pretty;
+}
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-gold-ink);
+}
+.numeral {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 44px;
+  line-height: 1;
+  color: var(--color-gold);
+}
+.pill-soft {
+  align-self: flex-start;
+  background: var(--color-gold-soft);
+  color: var(--color-gold-ink-deep);
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.pill-gold {
+  align-self: flex-start;
+  background: var(--color-gold-light);
+  color: var(--color-button-ink);
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.muted { color: var(--color-ink-muted); }
+.subtle { color: var(--color-ink-subtle); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: 600;
+  font: inherit;
+  font-weight: 600;
+  line-height: 1.6;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+.btn-primary {
+  background: var(--color-navy);
+  color: var(--color-surface);
+  padding: 14px 24px;
+  border: 0;
+}
+.btn-primary:hover { background: var(--color-navy-light); color: var(--color-surface); }
+.btn-secondary {
+  border: 1.5px solid var(--color-navy);
+  color: var(--color-navy);
+  padding: 12.5px 22px;
+  background: transparent;
+}
+.btn-secondary:hover { background: var(--color-gold-soft); color: var(--color-navy); }
+.btn-gold {
+  background: var(--color-gold-light);
+  color: var(--color-button-ink);
+  padding: 12px 22px;
+  border: 0;
+}
+.btn-gold:hover { background: var(--color-gold-soft); color: var(--color-button-ink); }
+
+/* Outline pill link (profiles, footer) */
+.pill-link {
+  text-decoration: none;
+  border: 1px solid var(--color-line-strong);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-navy);
+  transition: background-color 0.2s, border-color 0.2s;
+}
+.pill-link:hover { background: var(--color-surface); color: var(--color-navy); }
+
+/* ---------- Cards ---------- */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+a.card {
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+a.card:hover {
+  color: inherit;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px -18px rgba(31, 58, 95, 0.35);
+}
+.card-cta {
+  margin-top: auto;
+  padding-top: 8px;
+  color: var(--color-navy);
+  font-weight: 600;
+  font-size: 15px;
+}
+.panel-navy {
+  background: var(--color-navy);
+  color: var(--color-on-navy);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a.card, a.card:hover { transform: none; transition: none; }
+}
+
+} /* end @layer components */
+
+/* ---------- Case study content (rendered Markdown) ---------- */
 .case-study h1 {
-  font-size: 2.25rem;
+  font-size: clamp(36px, 4.4vw, 52px);
+  font-weight: 500;
+  line-height: 1.08;
   margin-top: 0;
   margin-bottom: 1rem;
+  text-wrap: balance;
 }
-
 .case-study h1 + p em {
   display: block;
-  font-size: 1.15rem;
-  color: var(--color-navy-light);
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--color-gold-ink);
   margin-bottom: 2rem;
-  line-height: 1.5;
+  line-height: 1.45;
 }
-
 .case-study h2 {
-  font-size: 1.5rem;
-  margin-top: 2.5rem;
+  font-size: 1.85rem;
+  margin-top: 2.75rem;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--color-gold);
+  border-bottom: 1px solid var(--color-line);
 }
-
 .case-study h3 {
-  font-size: 1.15rem;
+  font-size: 1.35rem;
+  font-weight: 600;
   margin-top: 2rem;
   margin-bottom: 0.75rem;
 }
-
-.case-study p {
-  margin-bottom: 1.25rem;
-  line-height: 1.7;
-}
-
-.case-study ul, .case-study ol {
-  margin-bottom: 1.25rem;
-  padding-left: 1.5rem;
-}
-
-.case-study li {
-  margin-bottom: 0.5rem;
-  line-height: 1.6;
-}
-
+.case-study p { margin-bottom: 1.25rem; line-height: 1.7; }
+.case-study ul, .case-study ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+.case-study ul { list-style: disc; }
+.case-study ol { list-style: decimal; }
+.case-study li { margin-bottom: 0.5rem; line-height: 1.6; }
+.case-study li::marker { color: var(--color-gold); }
 .case-study table {
   width: 100%;
   border-collapse: collapse;
   margin: 1.5rem 0;
   font-size: 0.95rem;
+  background: var(--color-surface);
 }
-
 .case-study th, .case-study td {
   padding: 0.75rem 1rem;
-  border: 1px solid #E5E7EB;
+  border: 1px solid var(--color-line);
   text-align: left;
   vertical-align: top;
 }
-
 .case-study th {
   background: var(--color-navy);
-  color: var(--color-paper);
+  color: var(--color-surface);
   font-weight: 600;
 }
-
-.case-study tr:nth-child(even) td {
-  background: #FAFAFA;
-}
-
-.case-study strong {
-  color: var(--color-navy);
-  font-weight: 600;
-}
-
-.case-study a {
-  color: var(--color-navy);
-  text-decoration: underline;
-  text-decoration-color: var(--color-gold);
-}
+.case-study tr:nth-child(even) td { background: var(--color-cream); }
+.case-study strong { color: var(--color-navy); font-weight: 600; }

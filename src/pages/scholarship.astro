@@ -1,453 +1,296 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const publications = [
-  {
-    year: "2026",
-    type: "Book chapter",
-    authors: "Dick, A., Ed, B., Yu, J., & Englund, J. (3rd author)",
-    title: "From Campus to Global: Building a Peer Mentorship Network Through the ID2ID Program",
-    venue: "Mancilla R. & Frey, B. (Eds.), Mentoring Instructional Designers: Professional Development in Higher Education, Routledge",
-  },
-  {
-    year: "2020",
-    type: "Book chapter",
-    authors: "I, J. & Yu, J. (2nd author)",
-    title: "Preparing Mathematics Preservice Teachers for Teaching Emergent Bilinguals through Concurrent Intervention",
-    venue: "Teaching Mathematics to English Language Learners (Palgrave Macmillan), pp. 6-26",
-  },
-  {
-    year: "2020",
-    type: "Conference proceedings",
-    authors: "Yu, J. (sole author)",
-    title: "A Practical Guide to Managing Online Course Design Projects: Timeline, Milestone, and RACI",
-    venue: "Proceedings of Innovate Learning Summit 2020, pp. 167-170 (AACE)",
-    url: "https://www.learntechlib.org/primary/p/218798/",
-  },
-  {
-    year: "2019",
-    type: "Conference proceedings",
-    authors: "Karakaya, O., Yu, J., Valai, A. & Updegraff, A. (2nd author)",
-    title: "Preparing Preservice Teachers for 'Learning by Making' in Makerspace Communities",
-    venue: "Proceedings of SITE 2019, pp. 1594-1599 (AACE)",
-    url: "https://www.learntechlib.org/primary/p/207857/",
-  },
-  {
-    year: "2018",
-    type: "Peer-reviewed article",
-    authors: "Elrick, D., Yu, J. & Hargrave, C. (2nd author)",
-    title: "Integrating Online Instruction and Hands-on Laboratory Activities for Summer Learning for Students of Color: A Design Case in Forensic Science",
-    venue: "Journal of Online Learning Research, 4(3), 263-294",
-    url: "https://www.learntechlib.org/primary/p/183592/",
-  },
-  {
-    year: "2018",
-    type: "Conference proceedings",
-    authors: "Yu, J. & Hargrave, C. (1st author)",
-    title: "Examination of an Emerging Community of Practice among Instructional Designers: A Descriptive Case Study",
-    venue: "41st Annual AECT Proceedings, Vol. 1, 218-228",
-    url: "https://members.aect.org/pdf/Proceedings/proceedings18/2018/18_26.pdf",
-  },
-  {
-    year: "2018",
-    type: "Conference proceedings",
-    authors: "Yu, J., Karakaya, O. & Schmidt-Crawford, D. (1st author)",
-    title: "Mentoring for Success: Graduate Student Mentors' Perceptions on the Impact of a One-on-One Technology Mentoring Program",
-    venue: "41st Annual AECT Proceedings, Vol. 1, 229-237",
-    url: "https://members.aect.org/pdf/Proceedings/proceedings18/2018/18_27.pdf",
-  },
-  {
-    year: "2018",
-    type: "Conference proceedings",
-    authors: "Yu, J. & Karakaya, O. (1st author)",
-    title: "Examination of the Impact of a One-on-One Technology Mentoring Program: Multiple Case Studies on the Mentees' Perspectives",
-    venue: "SITE 2018 Proceedings, pp. 585-590 (AACE)",
-    url: "https://www.learntechlib.org/p/182588/",
-  },
-  {
-    year: "2018",
-    type: "Conference proceedings",
-    authors: "Elrick, D., Yu, J. & Hargrave, C. (2nd author)",
-    title: "Design and Evaluate a Forensic Science Online Course for High School Students of Color",
-    venue: "SITE 2018 Proceedings, pp. 632-637 (AACE)",
-    url: "https://www.learntechlib.org/p/182595/",
-  },
-  {
-    year: "2015",
-    type: "Conference proceedings",
-    authors: "Correia, A.P., Yu, J., Munkvold, G. & Youngberg, L. (2nd author)",
-    title: "An Online Graduate Program Evaluation: What Do Course Instructors Have to Say?",
-    venue: "Proceedings of E-Learn 2015 (AACE), pp. 1740-1747",
-    url: "https://www.learntechlib.org/p/152221/",
-  },
-];
+const works = (await getCollection('works')).map(w => w.data);
+const highlights = (await getCollection('highlights')).map(h => h.data);
+const profiles = (await getCollection('scholarProfiles')).map(p => p.data);
 
-const presentations = [
-  {
-    year: "2026",
-    title: "Re-Architecting the CTL for Impact: From Service Load to Strategic Value",
-    venue: "UPCEA Summit for Online Leadership and Administration (SOLAR)",
-    location: "Boston, MA",
-    role: "Co-presenter",
-    coPresenters: "Parks, H.",
-  },
-  {
-    year: "2026",
-    title: "Building Sustainable Communities of Practice: A Scalable Model for Professional Growth and Educational Research",
-    venue: "OLC Innovate 2026",
-    location: "Virtual",
-    role: "Sole presenter",
-  },
-  {
-    year: "2026",
-    title: "From Practitioner to Scholar: Finding Your First Scholarly Project",
-    venue: "UPCEA Digital Teaching & Learning Conference (DT&L)",
-    location: "Virtual",
-    role: "Sole presenter",
-  },
-  {
-    year: "2026",
-    title: "From Chaos to Clarity: Preparing Instructional Designers with Project Management Skills to Lead Digital Learning Initiatives",
-    venue: "UPCEA Digital Teaching & Learning Conference (DT&L)",
-    location: "Virtual",
-    role: "Sole presenter",
-  },
-  {
-    year: "2025",
-    title: "Nurturing a Culture of Innovation in Health Science Education: Best Practices from the HSC SoTL Collective",
-    venue: "Texas Distance Learning Association (TxDLA) 2025",
-    location: "Denton, TX",
-    role: "Lead presenter",
-    coPresenters: "Parks, H.; Battaglia, A.",
-  },
-  {
-    year: "2025",
-    title: "Strategic Time Management and Academic Productivity",
-    venue: "UNT Health Academy of Medical Educators (AME)",
-    location: "Fort Worth, TX",
-    role: "Co-presenter",
-    coPresenters: "Heck, A.",
-  },
-  {
-    year: "2024",
-    title: "Cultivating a Community of Practice to Enhance Game-Based Learning and High-Impact Practices",
-    venue: "InnovateED 2024, Sanford University School of Medicine CME",
-    location: "Virtual",
-    role: "Lead presenter",
-    coPresenters: "Laborde, R.; Gruben, D.",
-  },
-  {
-    year: "2024",
-    title: "Fostering Well-Being: The Journey of Developing a Microcredential for Instructional Designers",
-    venue: "InstructureCon 2024",
-    location: "Las Vegas, NV",
-    role: "Co-presenter",
-    coPresenters: "Mahmoudi, L.",
-  },
-  {
-    year: "2023",
-    title: "Professional Development Opportunities and Strategies: Stories from Instructional Designers in Higher Education",
-    venue: "AECT 2023 International Convention",
-    location: "Orlando, FL",
-    role: "Panelist",
-    coPresenters: "Zeitler, J.; Woods, C.; Swift, A.; Gibson, R.; Battaglia, A.",
-  },
-  {
-    year: "2023",
-    title: "Five Institutions are Better than One: The Results of an Exploratory Collaborative on Instructional Designer Workload Planning and Capacity",
-    venue: "OLC Innovate 2023 Conference",
-    location: "Nashville, TN",
-    role: "Co-presenter",
-    coPresenters: "Pyke, G.; Stamper, B.; Grewe, K.; Cox, L.",
-  },
-  {
-    year: "2023",
-    title: "Interactive or Conventional Lectures: An Exploratory Study on Student Perceptions of Multiple Means of Representation",
-    venue: "UDL-IRN International Summit 2023",
-    location: "Orlando, FL",
-    role: "Lead presenter",
-    coPresenters: "Battaglia, A.; Neelamegam, M.",
-  },
-  {
-    year: "2023",
-    title: "Optimizing Project Management for Instructional Design in Higher Education",
-    venue: "OLC Webinar Series",
-    location: "Virtual",
-    role: "Panelist",
-    coPresenters: "McKenzie, J.; Wahl, L.; Zeitler, J.; Queen, E.",
-    link: "https://onlinelearningconsortium.org/webinar/optimizing-project-management-for-instructional-design-in-higher-education/",
-  },
-  {
-    year: "2022",
-    title: "Project Management for Instructional Designers in Higher Education: Best Practices, Strategies, and Tools",
-    venue: "OLC Accelerate 2022 Conference",
-    location: "Orlando, FL",
-    role: "Lead presenter",
-    coPresenters: "Wahl, L.; McKenzie, J.; Zeitler, J.; Queen, E.; Budhrani, K.",
-  },
-  {
-    year: "2022",
-    title: "Rapid Prototyping and Quality Assurance: An Agile Approach to Instructional Design in Higher Education",
-    venue: "OLC Accelerate 2022 Conference",
-    location: "Orlando, FL",
-    role: "Lead presenter",
-    coPresenters: "McKenzie, J.; Anderson, H.",
-  },
-  {
-    year: "2022",
-    title: "Towards a Multiverse of Faculty Development in Higher Education: A Community of Practice Approach",
-    venue: "OLC Accelerate 2022 Conference",
-    location: "Orlando, FL",
-    role: "Lead presenter",
-    coPresenters: "McKenzie, J.; Anderson, H.",
-  },
-  {
-    year: "2022",
-    title: "How Do Instructional Designers Spend Their Time? A Case Study from A Public Graduate School in Texas",
-    venue: "OLC Innovate 2022 Conference",
-    location: "Dallas, TX",
-    role: "Lead presenter",
-    coPresenters: "Anderson, H.",
-  },
-  {
-    year: "2020",
-    title: "A Practical Guide to Managing Online Course Design Projects: Timeline, Milestone, and RACI",
-    venue: "Innovate Learning Summit",
-    location: "Virtual",
-    role: "Sole presenter",
-  },
-  {
-    year: "2019",
-    title: "Preparing Preservice Teachers for 'Learning by Making' in Makerspace Communities",
-    venue: "SITE 2019",
-    location: "Las Vegas, NV",
-    role: "Co-presenter",
-    coPresenters: "Karakaya, O.; Valai, A.; Updegraff, A.",
-  },
-  {
-    year: "2018",
-    title: "Examination of an Emerging Community of Practice for Instructional Designers: A Descriptive Case Study",
-    venue: "AECT 2018 International Convention",
-    location: "Kansas City, MO",
-    role: "Lead presenter",
-    coPresenters: "Hargrave, C.",
-  },
-  {
-    year: "2018",
-    title: "Mentoring for Success: Graduate Student Mentors' Perceptions on the Impact of a One-on-One Technology Mentoring Program",
-    venue: "AECT 2018 International Convention",
-    location: "Kansas City, MO",
-    role: "Lead presenter",
-    coPresenters: "Karakaya, O.; Schmidt-Crawford, D.",
-  },
-  {
-    year: "2018",
-    title: "Examination of the Impact of a One-on-One Technology Mentoring Program: Multiple Case Studies on the Mentees' Perspectives",
-    venue: "SITE 2018",
-    location: "Washington, DC",
-    role: "Lead presenter",
-    coPresenters: "Karakaya, O.",
-  },
-  {
-    year: "2018",
-    title: "Design and Evaluate a Forensic Science Online Course for High School Students of Color",
-    venue: "SITE 2018",
-    location: "Washington, DC",
-    role: "Co-presenter",
-    coPresenters: "Elrick, D.; Hargrave, C.",
-  },
-  {
-    year: "2017",
-    title: "Application of UDL, Multimedia Learning, & Backward Design in Designing Accessible Instructional Videos",
-    venue: "AECT 2017 International Convention",
-    location: "Jacksonville, FL",
-    role: "Sole presenter",
-  },
-  {
-    year: "2017",
-    title: "Evaluating the Effectiveness, Efficiency, and Impact of a Blended Tutor Training: A Case Study",
-    venue: "OLC Innovate 2017",
-    location: "New Orleans, LA",
-    role: "Co-presenter",
-    coPresenters: "Jaramillo, N.",
-  },
-  {
-    year: "2017",
-    title: "Design for Innovation: A Blended Workshop to Prepare Female Graduate Students for Job-market Competency",
-    venue: "OLC Innovate 2017",
-    location: "New Orleans, LA",
-    role: "Co-presenter",
-    coPresenters: "Jaramillo, N.; Spencer, M.",
-  },
-  {
-    year: "2015",
-    title: "An Online Graduate Program Evaluation: What Do Course Instructors Have to Say?",
-    venue: "E-LEARN 2015",
-    location: "Kona, HI",
-    role: "Co-presenter",
-    coPresenters: "Correia, A.P.; Munkvold, G.; Youngberg, L.",
-  },
-];
+const counts = {
+  all: works.length,
+  pub: works.filter(w => w.kind === 'pub').length,
+  pres: works.filter(w => w.kind === 'pres').length,
+};
+const years = [...new Set(works.map(w => w.year))].sort((a, b) => b - a);
+const groups = years.map(year => ({ year, items: works.filter(w => w.year === year) }));
 
-const profiles = [
-  { label: "ORCID", url: "https://orcid.org/0009-0005-5432-0506" },
-  { label: "Google Scholar", url: "https://scholar.google.com/citations?user=78t1HIkAAAAJ&hl=en" },
-  { label: "ResearchGate", url: "https://www.researchgate.net/profile/Jiaqi-Yu-33" },
+const typeChips = [
+  { key: 'all', label: 'All', n: counts.all },
+  { key: 'pub', label: 'Publications', n: counts.pub },
+  { key: 'pres', label: 'Presentations', n: counts.pres },
 ];
-
-// Group presentations by year for display
-const presByYear = presentations.reduce((acc, p) => {
-  const y = p.year;
-  if (!acc[y]) acc[y] = [];
-  acc[y].push(p);
-  return acc;
-}, {} as Record<string, typeof presentations>);
-const presYears = Object.keys(presByYear).sort((a, b) => Number(b) - Number(a));
 ---
 
 <BaseLayout
   title="Scholarship — Jiaqi Yu, PhD"
   description="Selected publications and conference presentations by Jiaqi Yu, PhD — instructional design, SoTL, faculty development, and AI in education."
 >
-  <section class="max-w-4xl mx-auto px-6 py-16">
-    <h1 class="text-4xl font-semibold mb-4">Scholarship</h1>
-    <p class="text-lg text-gray-soft leading-relaxed mb-8 max-w-3xl">
-      Publications and conference presentations across instructional design, Communities of Practice, faculty development, and the scholarship of teaching and learning. For the most current view across all venues, see also my public profiles:
-    </p>
-
-    <div class="profile-links mb-16">
-      {profiles.map(p => (
-        <a href={p.url} class="profile-link">{p.label}</a>
-      ))}
-    </div>
-
-    <h2 class="scholarship-section-heading">Publications ({publications.length})</h2>
-    <ul class="scholarship-list mb-16">
-      {publications.map(pub => (
-        <li>
-          <div class="item-year">{pub.year}</div>
-          <div class="item-body">
-            <div class="item-type">{pub.type}</div>
-            <div class="item-authors">{pub.authors}</div>
-            <div class="item-title">
-              {pub.url ? <a href={pub.url} target="_blank" rel="noopener">{pub.title}</a> : pub.title}
-            </div>
-            <div class="item-venue">{pub.venue}</div>
-          </div>
-        </li>
-      ))}
-    </ul>
-
-    <h2 class="scholarship-section-heading">Presentations ({presentations.length})</h2>
-    {presYears.map(year => (
-      <div class="pres-year-group mb-8">
-        <h3 class="pres-year-header">{year}</h3>
-        <ul class="scholarship-list">
-          {presByYear[year].map(pres => (
-            <li class="pres-item">
-              <div class="item-body">
-                <div class="item-title">
-                  {pres.link ? <a href={pres.link} target="_blank" rel="noopener">{pres.title}</a> : pres.title}
-                </div>
-                <div class="item-venue">{pres.venue}{pres.location ? ` · ${pres.location}` : ''}</div>
-                <div class="item-meta">
-                  {pres.role}{pres.coPresenters ? ` · with ${pres.coPresenters}` : ''}
-                </div>
-              </div>
-            </li>
+  <div class="site-container">
+    <section class="head">
+      <div class="flex flex-col gap-[18px]">
+        <h1 class="h1-page">Scholarship</h1>
+        <p class="lead">Publications and presentations across instructional design, Communities of Practice, faculty development, and the scholarship of teaching and learning.</p>
+      </div>
+      <div class="flex flex-col gap-2.5">
+        <span class="text-sm subtle">For the most current view across venues:</span>
+        <ul class="flex flex-wrap gap-2 list-none m-0 p-0">
+          {profiles.map(p => (
+            <li><a href={p.url} class="profile-pill">{p.label} ↗</a></li>
           ))}
         </ul>
       </div>
-    ))}
-  </section>
+    </section>
+
+    <section class="highlights">
+      <h2 class="eyebrow tracking-[0.08em] mb-[18px]">Selected highlights</h2>
+      <div class="fluid-grid">
+        {highlights.map(h => (
+          <div class="highlight panel-navy">
+            <span class="pill-gold px-3">{h.label}</span>
+            <h3 class="highlight-title">
+              {h.url ? <a href={h.url}>{h.title}</a> : h.title}
+            </h3>
+            <p class="m-0 text-[15.5px] text-pretty">{h.note}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="list rule-top" id="works" data-works>
+      <div class="filters">
+        <div class="flex flex-wrap gap-2" role="group" aria-label="Filter by type">
+          {typeChips.map((c, i) => (
+            <button type="button" class="chip chip-type" data-filter="type" data-value={c.key} aria-pressed={i === 0 ? 'true' : 'false'}>
+              {c.label} <span class="chip-n">{c.n}</span>
+            </button>
+          ))}
+        </div>
+        <div class="flex flex-wrap gap-1.5" role="group" aria-label="Filter by year">
+          <button type="button" class="chip chip-year" data-filter="year" data-value="all" aria-pressed="true">All years</button>
+          {years.map(y => (
+            <button type="button" class="chip chip-year" data-filter="year" data-value={String(y)} aria-pressed="false">{y}</button>
+          ))}
+        </div>
+        <span class="text-sm subtle" aria-live="polite" data-count>Showing {works.length} works</span>
+      </div>
+
+      <div class="empty" data-empty hidden>
+        <span>No works match that combination.</span>
+        <button type="button" class="btn btn-primary clear" data-clear>Clear filters</button>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        {groups.map(g => (
+          <div class="year-group" data-group data-year={g.year}>
+            <h3 class="year">{g.year}</h3>
+            <ul class="items">
+              {g.items.map(w => (
+                <li class="item" data-item data-type={w.kind} data-year={w.year}>
+                  <span class:list={['badge', w.kind === 'pub' ? 'badge-pub' : 'badge-pres']}>{w.type}</span>
+                  {w.url
+                    ? <a href={w.url} class="work-title">{w.title} ↗</a>
+                    : <span class="work-title">{w.title}</span>}
+                  {w.venue && <span class="text-[15.5px] muted">{w.venue}</span>}
+                  {w.meta && <span class="text-sm subtle">{w.meta}</span>}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
 </BaseLayout>
 
+<script>
+  const root = document.querySelector<HTMLElement>('[data-works]');
+  if (root) {
+    const state = { type: 'all', year: 'all' };
+    const chips = [...root.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+    const items = [...root.querySelectorAll<HTMLElement>('[data-item]')];
+    const groups = [...root.querySelectorAll<HTMLElement>('[data-group]')];
+    const count = root.querySelector<HTMLElement>('[data-count]')!;
+    const empty = root.querySelector<HTMLElement>('[data-empty]')!;
+
+    const valid = (key: 'type' | 'year', v: string | null) =>
+      v !== null && chips.some(c => c.dataset.filter === key && c.dataset.value === v);
+
+    const readUrl = () => {
+      const q = new URLSearchParams(location.search);
+      state.type = valid('type', q.get('type')) ? q.get('type')! : 'all';
+      state.year = valid('year', q.get('year')) ? q.get('year')! : 'all';
+    };
+
+    const writeUrl = () => {
+      const q = new URLSearchParams(location.search);
+      state.type === 'all' ? q.delete('type') : q.set('type', state.type);
+      state.year === 'all' ? q.delete('year') : q.set('year', state.year);
+      const qs = q.toString();
+      history.replaceState(null, '', `${location.pathname}${qs ? `?${qs}` : ''}${location.hash}`);
+    };
+
+    const render = () => {
+      let shown = 0;
+      for (const el of items) {
+        const match =
+          (state.type === 'all' || el.dataset.type === state.type) &&
+          (state.year === 'all' || el.dataset.year === state.year);
+        el.hidden = !match;
+        if (match) shown++;
+      }
+      for (const g of groups) {
+        g.hidden = !g.querySelector('[data-item]:not([hidden])');
+      }
+      for (const c of chips) {
+        const active = state[c.dataset.filter as 'type' | 'year'] === c.dataset.value;
+        c.setAttribute('aria-pressed', String(active));
+      }
+      count.textContent = `Showing ${shown} ${shown === 1 ? 'work' : 'works'}`;
+      empty.hidden = shown !== 0;
+    };
+
+    for (const c of chips) {
+      c.addEventListener('click', () => {
+        state[c.dataset.filter as 'type' | 'year'] = c.dataset.value!;
+        render();
+        writeUrl();
+      });
+    }
+    root.querySelector('[data-clear]')?.addEventListener('click', () => {
+      state.type = 'all';
+      state.year = 'all';
+      render();
+      writeUrl();
+    });
+
+    readUrl();
+    render();
+  }
+</script>
+
 <style>
-  .profile-links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-  .profile-link {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-    color: var(--color-navy);
-    font-weight: 600;
-    text-decoration: none;
-    border: 1px solid var(--color-navy);
-    border-radius: 3px;
-    transition: background 0.15s, color 0.15s;
-  }
-  .profile-link:hover { background: var(--color-navy); color: white; }
-  .scholarship-section-heading {
-    font-size: 1.5rem;
-    color: var(--color-navy);
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--color-gold);
-  }
-  .scholarship-list { list-style: none; padding: 0; margin: 0; }
-  .scholarship-list li {
+  .head {
+    padding: clamp(32px, 6vw, 64px) 0 32px;
     display: grid;
-    grid-template-columns: 4rem 1fr;
-    gap: 1.5rem;
-    padding: 1rem 0;
-    border-bottom: 1px solid #F3F4F6;
-    align-items: baseline;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+    gap: 20px 64px;
+    align-items: end;
   }
-  .scholarship-list li.pres-item {
-    grid-template-columns: 1fr;
-  }
-  .scholarship-list li:last-child { border-bottom: none; }
-  .item-year {
-    font-family: var(--font-display);
+  .profile-pill {
+    display: inline-block;
+    text-decoration: none;
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    padding: 8px 16px;
+    font-size: 15px;
     font-weight: 600;
-    color: var(--color-gold);
-    font-size: 1.1rem;
-  }
-  .item-type {
-    font-family: var(--font-body);
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--color-gold);
-    font-weight: 600;
-    margin-bottom: 0.35rem;
-  }
-  .item-authors {
-    font-size: 0.9rem;
-    color: var(--color-gray-soft);
-    margin-bottom: 0.25rem;
-  }
-  .item-title {
-    font-size: 1rem;
     color: var(--color-navy);
+    transition: background-color 0.2s;
+  }
+  .profile-pill:hover { background: var(--color-gold-soft); color: var(--color-navy); }
+
+  .highlights { padding: 8px 0 clamp(40px, 6vw, 64px); }
+  .highlight {
+    border-radius: var(--radius-card);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .highlight-title {
+    margin: 0;
     font-weight: 500;
-    line-height: 1.4;
-    margin-bottom: 0.25rem;
+    font-size: 23px;
+    line-height: 1.22;
+    color: var(--color-surface);
+    text-wrap: pretty;
   }
-  .item-title a {
+  .highlight-title a { color: var(--color-surface); text-decoration-color: var(--color-gold-light); }
+
+  .list { padding: clamp(32px, 5vw, 56px) 0 clamp(56px, 8vw, 96px); }
+  .filters { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+  .chip {
+    cursor: pointer;
+    font: inherit;
+    border-radius: 999px;
+    border: 1px solid var(--color-line);
+    background: var(--color-surface);
     color: var(--color-navy);
-    text-decoration: underline;
-    text-decoration-color: var(--color-gold);
+    transition: background-color 0.15s, border-color 0.15s;
   }
-  .item-venue {
-    font-size: 0.9rem;
-    color: var(--color-ink);
-    font-style: italic;
-    line-height: 1.4;
-    margin-bottom: 0.25rem;
+  .chip:hover { border-color: var(--color-line-strong); }
+  .chip[aria-pressed="true"] {
+    background: var(--color-navy);
+    border-color: var(--color-navy);
+    color: var(--color-surface);
   }
-  .item-meta {
-    font-size: 0.85rem;
-    color: var(--color-gray-soft);
-    line-height: 1.4;
+  .chip-type {
+    font-size: 15px;
+    font-weight: 600;
+    padding: 9px 18px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
   }
-  .pres-year-header {
+  .chip-n { opacity: 0.7; font-weight: 500; }
+  .chip-year { font-size: 14px; font-weight: 500; padding: 5px 13px; }
+
+  .empty {
+    background: var(--color-surface);
+    border: 1px dashed var(--color-line-strong);
+    border-radius: 20px;
+    padding: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .empty[hidden] { display: none; }
+  .clear { padding: 10px 18px; }
+
+  /* Year column + items; items wrap under the year on narrow screens */
+  .year-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 32px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-line);
+  }
+  .year-group[hidden] { display: none; }
+  .year {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 34px;
+    font-style: italic;
+    line-height: 1.1;
     color: var(--color-gold);
-    font-weight: 700;
-    margin: 0 0 0.75rem 0;
-    padding-bottom: 0.35rem;
-    border-bottom: 1px solid #F3F4F6;
+    flex: 1 0 120px;
+    max-width: 200px;
+  }
+  .items {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; flex-direction: column;
+    flex: 7 1 min(100%, 560px);
+    min-width: 0;
+  }
+  .item { display: flex; flex-direction: column; gap: 6px; padding: 4px 0 22px; }
+  .item[hidden] { display: none; }
+  .badge {
+    align-self: flex-start;
+    border-radius: 999px;
+    padding: 2px 11px;
+    font-size: 12.5px;
+    font-weight: 600;
+  }
+  .badge-pub { background: var(--color-gold-soft); color: var(--color-gold-ink-deep); }
+  .badge-pres { background: var(--color-pres-bg); color: var(--color-navy); }
+  .work-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--color-navy);
+    text-wrap: pretty;
   }
 </style>

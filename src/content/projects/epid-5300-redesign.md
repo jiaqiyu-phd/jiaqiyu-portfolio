@@ -2,6 +2,9 @@
 title: "EPID 5300 Principles of Epidemiology: A UDL-Grounded Redesign"
 subtitle: "Translating a foundational public health course into an interactive, accessible, scholarship-producing learning experience."
 slug: "epid-5300-redesign"
+card_title: "EPID 5300: A UDL-Grounded Redesign"
+tag: "Faculty development"
+order: 2
 url: "/projects/epid-5300-redesign/"
 status: "flagship"
 role: "Lead Instructional Designer & Project Manager"
@@ -11,10 +14,10 @@ recognition: "Delta Omega Innovative Curriculum Runner-Up Award, October 2024"
 audience: ["Search Committee", "Award Panel", "Network"]
 themes: ["Faculty development", "Health sciences education", "Scholarship of Teaching and Learning (SoTL)"]
 last_updated: "2026-05-28"
-featured: true
-summary: "A 3-month UDL-grounded redesign of a foundational epidemiology course — 20+ interactive modules, sustained faculty partnership, and a national Delta Omega Innovative Curriculum Runner-Up Award."
 hero_image: "/images/projects/epid-5300-hero.jpg"
 hero_image_alt: "Screenshot of an interactive EPID 5300 module built in Articulate Rise."
+featured: false
+summary: "A 3-month redesign of a foundational epidemiology course — 20+ interactive modules, sustained faculty partnership, and a Delta Omega Innovative Curriculum award."
 ---
 
 # EPID 5300 Principles of Epidemiology: A UDL-Grounded Redesign

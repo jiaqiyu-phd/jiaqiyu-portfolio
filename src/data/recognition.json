@@ -1,0 +1,102 @@
+{
+  "topAwards": [
+    {
+      "year": "2026",
+      "title": "Outstanding Commitment to Excellence and Innovation in Digital Learning",
+      "org": "Texas Distance Learning Association",
+      "note": "Statewide award recognizing the Department of Educational Development's leadership in digital learning innovation.",
+      "team": "Team award"
+    },
+    {
+      "year": "2026",
+      "title": "Credential Innovation Award",
+      "org": "UPCEA",
+      "note": "National award to the Division of Academic Innovation for credentialing innovation.",
+      "team": "Team award"
+    },
+    {
+      "year": "2024",
+      "title": "Delta Omega Innovative Curriculum Runner-Up",
+      "org": "Delta Omega Public Health Honor Society",
+      "note": "For the interactive lecture redesign of EPID 5300 Principles of Epidemiology, with Battaglia and Neelamegam.",
+      "team": "National"
+    }
+  ],
+  "groups": [
+    {
+      "name": "Funded grants",
+      "items": [
+        {
+          "year": "2025",
+          "title": "Promoting Pedagogical Wellness Through a Community of Practice: A Scalable Faculty Development Model",
+          "org": "POD Network Early Researcher Grant · $1,000"
+        },
+        {
+          "year": "2025",
+          "title": "Professional Development Award",
+          "org": "Research Enhancement Assistance Program (REAP), UNT Health · $5,000"
+        }
+      ]
+    },
+    {
+      "name": "Nominations & board service",
+      "items": [
+        {
+          "year": "2025",
+          "title": "Nominated — TxDLA Outstanding Commitment to Excellence and Innovation in Digital Learning Award",
+          "org": "Texas Distance Learning Association"
+        },
+        {
+          "year": "2023",
+          "title": "Nominated — OLC Board of Directors, 2024–2026",
+          "org": "Online Learning Consortium"
+        },
+        {
+          "year": "2023",
+          "title": "Nominated — Excellence in Faculty Development Award",
+          "org": "Online Learning Consortium"
+        }
+      ]
+    },
+    {
+      "name": "Institutional recognitions",
+      "items": [
+        {
+          "year": "2024",
+          "title": "UNT System Way to Go Honoree — Regional Simulation Center",
+          "org": "UNT System / UNT Health"
+        },
+        {
+          "year": "2024",
+          "title": "UNT System Way to Go Honoree — Office of Culture and Experience",
+          "org": "UNT System / UNT Health"
+        },
+        {
+          "year": "2021–22",
+          "title": "Project of the Month, five-time awardee",
+          "org": "UNT Health Division of Academic Innovation"
+        }
+      ]
+    },
+    {
+      "name": "Fellowships & microcredentials",
+      "items": [
+        {
+          "year": "2025",
+          "title": "IELOL Fellow — Institute for Emerging Leadership in Online Learning",
+          "org": "Online Learning Consortium"
+        },
+        {
+          "year": "2024 & 2025",
+          "title": "ID2ID Advisory Committee Member",
+          "org": "EDUCAUSE / Penn State University"
+        },
+        {
+          "year": "Ongoing",
+          "title": "Certified Quality Matters Coordinator",
+          "org": "Quality Matters"
+        }
+      ]
+    }
+  ]
+}

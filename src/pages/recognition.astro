@@ -1,234 +1,117 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const grants = [
-  {
-    year: "2025",
-    title: "Promoting Pedagogical Wellness Through a Community of Practice: A Scalable Faculty Development Model",
-    org: "POD Network Early Researcher Grant",
-    amount: "$1,000",
-  },
-  {
-    year: "2025",
-    title: "Professional Development Award",
-    org: "Research Enhancement Assistance Program (REAP) at UNT Health",
-    amount: "$5,000",
-  },
-];
-
-const nationalAwards = [
-  {
-    year: "2026",
-    title: "TxDLA Outstanding Commitment to Excellence and Innovation in Digital Learning by an Organization Award (team)",
-    org: "Texas Distance Learning Association (TxDLA)",
-    note: "Statewide award recognizing the Department of Educational Development's leadership in digital learning innovation",
-  },
-  {
-    year: "2026",
-    title: "UPCEA Credential Innovation Award (team)",
-    org: "UPCEA",
-    note: "National award to the Division of Academic Innovation for credentialing innovation",
-  },
-  {
-    year: "2024",
-    title: "Delta Omega Innovative Curriculum Runner-Up Award",
-    org: "Delta Omega Public Health Honor Society",
-    note: "For interactive lecture redesign of EPID 5300 Principles of Epidemiology (with Battaglia, Neelamegam) — national recognition of innovative public health curriculum",
-  },
-];
-
-const nominations = [
-  {
-    year: "2025",
-    title: "Nominated — TxDLA Outstanding Commitment to Excellence and Innovation in Digital Learning Award",
-    org: "Texas Distance Learning Association (TxDLA)",
-    note: "Nomination signals leadership visibility in TX digital learning community",
-  },
-  {
-    year: "2023",
-    title: "Nominated — OLC Board of Directors 2024-2026",
-    org: "Online Learning Consortium (OLC)",
-    note: "National-level board nomination",
-  },
-  {
-    year: "2023",
-    title: "Nominated — Excellence in Faculty Development Award",
-    org: "Online Learning Consortium (OLC)",
-    note: "National recognition of faculty development work",
-  },
-];
-
-const institutionalAwards = [
-  {
-    year: "2024",
-    title: "UNT System Way to Go Honoree (Regional Simulation Center)",
-    org: "UNT System / Regional Simulation Center at UNT Health",
-    note: "System-level recognition for collaborative excellence",
-  },
-  {
-    year: "2024",
-    title: "UNT System Way to Go Honoree (Office of Culture and Experience)",
-    org: "UNT System / Office of Culture and Experience at UNT Health",
-    note: "System-level recognition for cultural contribution",
-  },
-  {
-    year: "2021–2022",
-    title: "Project of the Month (Five-Time Awardee)",
-    org: "UNT Health Division of Academic Innovation",
-    note: "Recognition of project leadership and execution; five separate months",
-  },
-];
-
-const fellowships = [
-  {
-    year: "2025",
-    title: "IELOL Fellow — Institute for Emerging Leadership in Online Learning",
-    org: "Online Learning Consortium",
-  },
-  {
-    year: "2024 & 2025",
-    title: "ID2ID Advisory Committee Member",
-    org: "EDUCAUSE / Penn State University",
-  },
-  {
-    year: "Ongoing",
-    title: "Certified Quality Matters Coordinator",
-    org: "Quality Matters",
-  },
-];
+const awards = (await getCollection('awards')).map(a => a.data);
+const groups = (await getCollection('recognitionGroups')).map(g => g.data);
 ---
 
 <BaseLayout
   title="Recognition — Jiaqi Yu, PhD"
   description="Awards, grants, fellowships, and microcredentials recognizing Jiaqi Yu's contributions to instructional innovation and health sciences education."
 >
-  <section class="max-w-4xl mx-auto px-6 py-16">
-    <h1 class="text-4xl font-semibold mb-4">Recognition</h1>
-    <p class="text-lg text-gray-soft leading-relaxed mb-12 max-w-3xl">
-      Selected grants, awards, fellowships, and microcredentials — grouped by type, then by recency. Where the recognition is collaborative, the team is named; where it is individual, the citation is included for verification.
-    </p>
+  <div class="site-container">
+    <section class="page-intro">
+      <h1 class="h1-page">Recognition</h1>
+      <p class="lead">Grants, awards, fellowships, and microcredentials. Collaborative recognitions name the team; individual ones include the citation.</p>
+    </section>
 
-    <div class="mb-16">
-      <h2 class="recognition-section-heading">Funded grants</h2>
-      <ul class="recognition-list">
-        {grants.map(g => (
-          <li>
-            <div class="item-year">{g.year}</div>
-            <div class="item-body">
-              <div class="item-title">{g.title}</div>
-              <div class="item-org">{g.org} · {g.amount}</div>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <section class="fluid-grid awards">
+      {awards.map(a => (
+        <article class="award">
+          <div class="award-circle" aria-hidden="true"></div>
+          <div class="award-top">
+            <span class="award-year">{a.year}</span>
+            {a.team && <span class="award-team">{a.team}</span>}
+          </div>
+          <h2 class="h3-card relative text-[25px]">{a.title}</h2>
+          <span class="font-semibold text-[15px]">{a.org}</span>
+          {a.note && <p class="m-0 muted text-base text-pretty">{a.note}</p>}
+        </article>
+      ))}
+    </section>
 
-    <div class="mb-16">
-      <h2 class="recognition-section-heading">National & regional awards</h2>
-      <ul class="recognition-list">
-        {nationalAwards.map(a => (
-          <li>
-            <div class="item-year">{a.year}</div>
-            <div class="item-body">
-              <div class="item-title">{a.title}</div>
-              <div class="item-org">{a.org}</div>
-              {a.note && <div class="item-note">{a.note}</div>}
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-
-    <div class="mb-16">
-      <h2 class="recognition-section-heading">Nominations & board service</h2>
-      <ul class="recognition-list">
-        {nominations.map(a => (
-          <li>
-            <div class="item-year">{a.year}</div>
-            <div class="item-body">
-              <div class="item-title">{a.title}</div>
-              <div class="item-org">{a.org}</div>
-              {a.note && <div class="item-note">{a.note}</div>}
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-
-    <div class="mb-16">
-      <h2 class="recognition-section-heading">Institutional recognitions</h2>
-      <ul class="recognition-list">
-        {institutionalAwards.map(a => (
-          <li>
-            <div class="item-year">{a.year}</div>
-            <div class="item-body">
-              <div class="item-title">{a.title}</div>
-              <div class="item-org">{a.org}</div>
-              {a.note && <div class="item-note">{a.note}</div>}
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-
-    <div class="mb-16">
-      <h2 class="recognition-section-heading">Fellowships & microcredentials</h2>
-      <ul class="recognition-list">
-        {fellowships.map(f => (
-          <li>
-            <div class="item-year">{f.year}</div>
-            <div class="item-body">
-              <div class="item-title">{f.title}</div>
-              <div class="item-org">{f.org}</div>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
+    <section class="groups rule-top">
+      {groups.map(g => (
+        <div>
+          <h2 class="h2-sub text-[28px] mb-4">{g.name}</h2>
+          <ul class="list-none m-0 p-0 flex flex-col">
+            {g.items.map(i => (
+              <li class="rec-row">
+                <span class="rec-year">{i.year}</span>
+                <div class="flex flex-col gap-0.5">
+                  <span class="font-semibold text-ink text-pretty">{i.title}</span>
+                  {i.org && <span class="text-[15px] subtle">{i.org}</span>}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </section>
+  </div>
 </BaseLayout>
 
 <style>
-  .recognition-section-heading {
-    font-size: 1.5rem;
-    color: var(--color-navy);
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--color-gold);
+  .awards { padding-bottom: clamp(48px, 7vw, 80px); }
+  .award {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-panel);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    position: relative;
+    overflow: hidden;
   }
-  .recognition-list { list-style: none; padding: 0; margin: 0; }
-  .recognition-list li {
-    display: grid;
-    grid-template-columns: 6rem 1fr;
-    gap: 1.5rem;
-    padding: 1rem 0;
-    border-bottom: 1px solid #F3F4F6;
+  .award-circle {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: var(--color-gold-soft);
+  }
+  .award-top {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
     align-items: baseline;
+    gap: 12px;
   }
-  .recognition-list li:last-child { border-bottom: none; }
-  .item-year {
+  .award-year {
     font-family: var(--font-display);
-    font-weight: 600;
-    color: var(--color-gold);
-    font-size: 1.05rem;
-  }
-  .item-title {
-    font-size: 1.05rem;
-    color: var(--color-navy);
-    font-weight: 500;
-    line-height: 1.4;
-    margin-bottom: 0.25rem;
-  }
-  .item-org {
-    font-size: 0.9rem;
-    color: var(--color-ink);
-    line-height: 1.4;
-  }
-  .item-note {
-    font-size: 0.85rem;
-    color: var(--color-gray-soft);
+    font-size: 40px;
     font-style: italic;
-    margin-top: 0.35rem;
-    line-height: 1.4;
+    line-height: 1;
+    color: var(--color-gold-ink);
+  }
+  .award-team {
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-gold-ink-deep);
+  }
+  .groups {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+    gap: clamp(32px, 5vw, 56px) clamp(32px, 5vw, 64px);
+    padding: clamp(40px, 6vw, 64px) 0 clamp(56px, 8vw, 96px);
+  }
+  .rec-row {
+    display: grid;
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 16px;
+    padding: 14px 0;
+    border-top: 1px solid var(--color-line);
+  }
+  .rec-year {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-gold-ink);
+    padding-top: 2px;
   }
 </style>

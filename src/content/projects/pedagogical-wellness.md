@@ -2,6 +2,9 @@
 title: "Pedagogical Wellness: A Community of Practice & Microcredential"
 subtitle: "Reframing educator well-being as an instructional design problem — and building a sustainable structure to study it."
 slug: "pedagogical-wellness"
+card_title: "Pedagogical Wellness: a CoP & Microcredential"
+tag: "Pedagogical wellness"
+order: 4
 url: "/projects/pedagogical-wellness/"
 status: "flagship"
 role: "Principal Investigator & Lead Designer"
@@ -11,10 +14,10 @@ funding: "POD Network Early Researcher Grant, 2025–2026"
 audience: ["Search Committee", "Award Panel", "Network"]
 themes: ["Pedagogical wellness", "Faculty development", "Community of Practice design"]
 last_updated: "2026-05-28"
-featured: true
-summary: "A POD Network–funded mixed-methods study and faculty development structure that positions wellness as a design problem, not a self-care problem — with a microcredential pathway in development."
 hero_image: "/images/projects/pedagogical-wellness-hero.jpg"
 hero_image_alt: "Faculty members in a Pedagogical Wellness CoP session at UNT Health."
+featured: false
+summary: "A POD Network–funded mixed-methods study that treats wellness as a design problem, not a self-care problem — with a microcredential in development."
 ---
 
 # Pedagogical Wellness: A Community of Practice & Microcredential
