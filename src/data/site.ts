@@ -16,7 +16,7 @@ export const signature = [
   {
     n: "01",
     title: "Communities of Practice for Health Sciences Education",
-    lead: "I build sustainable Communities of Practice that turn clinical teaching into scholarship.",
+    lead: "I build Communities of Practice that turn teaching into scholarship.",
     body: "Five interconnected CoPs engaging 150+ faculty at UNT Health — two annual Unconferences, a POD Network–funded study, and a statewide award.",
     url: "/projects/sotl-collective/",
   },
@@ -30,7 +30,7 @@ export const signature = [
   {
     n: "03",
     title: "Peer Mentoring & Scholarly Infrastructure",
-    lead: "I co-design the structures that support instructional designers across career stages.",
+    lead: "I co-design the structures that support designers across career stages.",
     body: "ID2ID Advisory Committee and co-author of a forthcoming Routledge chapter on the program's growth into an international network.",
     url: "/projects/id2id/",
   },
