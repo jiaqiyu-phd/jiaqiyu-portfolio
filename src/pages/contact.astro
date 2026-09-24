@@ -135,7 +135,9 @@ const defaultTopic = contactTopics[0];
         form.hidden = true;
         success.hidden = false;
         success.querySelector<HTMLElement>('[data-success-title]')?.focus();
-      } catch {
+      } catch (err) {
+        // A 404 here almost always means Netlify form detection is off for the site.
+        console.error('Contact form submission failed:', err);
         error.hidden = false;
       } finally {
         submit.disabled = false;
