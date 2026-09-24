@@ -1,194 +1,190 @@
 ---
 import { getCollection } from 'astro:content';
+import { Picture } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ProjectCard from '../components/ProjectCard.astro';
+import { signature, cvUrl, rootsUrl } from '../data/site';
+import portrait from '../assets/images/jiaqi-square.jpg';
 
-const allProjects = await getCollection('projects');
-
-const pillarOrder = ['sotl-collective', 'pm-for-ids', 'id2id'];
-const featured = allProjects
-  .filter(p => pillarOrder.includes(p.data.slug ?? p.id))
-  .sort((a, b) =>
-    pillarOrder.indexOf(a.data.slug ?? a.id) - pillarOrder.indexOf(b.data.slug ?? b.id)
-  );
-
-const pillars = [
-  {
-    title: "Communities of Practice for Health Sciences Education",
-    headline: "I build sustainable Communities of Practice that translate clinical teaching into scholarship.",
-    body: "Five interconnected Communities of Practice engaging 150+ faculty and 20+ active SoTL projects at UNT Health. The hub-and-spoke model has produced two annual Unconferences, a POD Network–funded study, and a statewide award.",
-    href: "/projects/sotl-collective/",
-  },
-  {
-    title: "Project Management for Instructional Designers",
-    headline: "I make the invisible work of instructional designers visible — across institutions and at scale.",
-    body: "More than a decade of cross-institutional collaboration through the Online Learning Consortium, EDUCAUSE / Penn State ID2ID, and the POD Network. Templates and artifacts openly shared and actively reused across the field.",
-    href: "/projects/pm-for-ids/",
-  },
-  {
-    title: "Cross-Institutional Peer Mentoring & Scholarly Infrastructure",
-    headline: "I co-design the structures—communities, networks, and scholarship—that support instructional designers across career stages.",
-    body: "Advisory Committee service on the EDUCAUSE / Penn State ID2ID Peer Mentoring Program (2024 & 2025). Co-author of the forthcoming Routledge chapter documenting the program's evolution to an international network.",
-    href: "/projects/id2id/",
-  },
-];
+const featured = (await getCollection('projects', p => p.data.featured))
+  .sort((a, b) => a.data.order - b.data.order);
+const projectCount = (await getCollection('projects')).length;
+const countWords = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
+const seeAll = `See all ${countWords[projectCount] ?? projectCount} →`;
+const href = (p: (typeof featured)[number]) => p.data.url ?? `/projects/${p.data.slug ?? p.id}/`;
 ---
 
 <BaseLayout title="Jiaqi Yu, PhD">
-  <section class="hero max-w-4xl mx-auto px-6 pt-20 pb-16 text-center">
-    <p class="hero-eyebrow">Instructional Design · Health Sciences Education</p>
-    <h1 class="hero-headline">
-      I design Communities of Practice, scale faculty development, and advance the scholarship of teaching and learning — work built to be sustainable for the people doing it.
-    </h1>
-    <p class="hero-subline">
-      Jiaqi Yu, PhD · Assistant Director of Instructional Innovation and Project Management, UNT Health at Fort Worth
-    </p>
-    <div class="hero-ctas">
-      <a href="/projects/" class="btn-primary">View projects</a>
-      <a href="/cv/CV_Jiaqi_Yu.pdf" class="btn-secondary">Download CV</a>
-    </div>
-  </section>
-
-  <section class="pillars-section max-w-5xl mx-auto px-6 py-16">
-    <h2 class="section-heading">Signature Contributions</h2>
-    <div class="grid md:grid-cols-3 gap-10">
-      {pillars.map((pillar, idx) => (
-        <div class="pillar">
-          <div class="pillar-number">0{idx + 1}</div>
-          <h3 class="pillar-title">{pillar.title}</h3>
-          <p class="pillar-headline">{pillar.headline}</p>
-          <p class="pillar-body">{pillar.body}</p>
-          <a href={pillar.href} class="pillar-link">Explore →</a>
+  <div class="site-container">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="hero-eyebrow">Instructional Design · Project Management · Faculty Development</span>
+        <h1 class="hero-title">I build Communities of Practice that make scholarship <em>sustainable</em> for the people doing it.</h1>
+        <p class="lead hero-lead">Assistant Director of Instructional Innovation and Project Management at UNT Health Fort Worth — empowering instructional designers and advancing the scholarship of teaching and learning.</p>
+        <div class="hero-ctas">
+          <a href="/projects/" class="btn btn-primary">View projects</a>
+          <a href={cvUrl} class="btn btn-secondary">Download CV</a>
         </div>
-      ))}
-    </div>
-  </section>
+      </div>
+      <div class="hero-photo">
+        <div class="arch-shape" aria-hidden="true"></div>
+        <Picture
+          src={portrait}
+          alt="Portrait of Jiaqi Yu, PhD"
+          formats={['avif', 'webp']}
+          widths={[440, 880]}
+          width={880}
+          sizes="(min-width: 900px) 440px, 90vw"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+    </section>
 
-  <section class="featured-section max-w-5xl mx-auto px-6 py-16 border-t border-gray-200">
-    <h2 class="section-heading">Featured Projects</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-      {featured.map(project => (
-        <ProjectCard project={project} />
-      ))}
-    </div>
-    <p class="text-center mt-8">
-      <a href="/projects/" class="pillar-link">See all projects →</a>
-    </p>
-  </section>
+    <!-- Signature contributions -->
+    <section class="section rule-top">
+      <h2 class="h2-section mb-8">Signature contributions</h2>
+      <div class="fluid-grid">
+        {signature.map(s => (
+          <a href={s.url} class="card">
+            <span class="numeral">{s.n}</span>
+            <h3 class="h3-card">{s.title}</h3>
+            <p class="m-0 font-semibold text-ink">{s.lead}</p>
+            <p class="m-0 muted text-base text-pretty">{s.body}</p>
+            <span class="card-cta">Explore →</span>
+          </a>
+        ))}
+      </div>
+    </section>
 
-  <section class="about-preview max-w-3xl mx-auto px-6 py-16 border-t border-gray-200 text-center">
-    <h2 class="section-heading">About</h2>
-    <p class="about-preview-body">
-      Scholar-practitioner in higher education. First-generation college student, immigrant scholar, and working parent — perspectives that shape why I design for sustainable scholarship, why I build Communities of Practice rather than offer one-off workshops, and why care for the people doing the work is part of the work.
-    </p>
-    <a href="/about/roots/" class="pillar-link">Read more about what guides my work →</a>
-  </section>
+    <!-- Featured projects -->
+    <section class="section rule-top">
+      <div class="featured-head">
+        <h2 class="h2-section">Featured projects</h2>
+        <a href="/projects/" class="font-semibold">{seeAll}</a>
+      </div>
+      <div class="flex flex-col">
+        {featured.map(p => (
+          <a href={href(p)} class="project-row">
+            <div class="flex flex-col gap-2">
+              <span class="eyebrow">{p.data.tag}</span>
+              <h3 class="h3-card row-title">{p.data.card_title ?? p.data.title}</h3>
+            </div>
+            <p class="m-0 muted text-pretty">{p.data.summary} <span class="read">Read →</span></p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Values panel -->
+    <section class="values panel-navy">
+      <h2 class="values-title">Care for the people doing the work <em>is</em> part of the work.</h2>
+      <div class="flex flex-col gap-5">
+        <p class="m-0 text-lg text-pretty">Scholar-practitioner, first-generation college student, immigrant scholar, and working parent — perspectives that shape why I build Communities of Practice rather than one-off workshops.</p>
+        <a href={rootsUrl} class="btn btn-gold self-start">What guides my work →</a>
+      </div>
+    </section>
+  </div>
 </BaseLayout>
 
 <style>
+  .hero {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+    gap: clamp(32px, 6vw, 80px);
+    align-items: center;
+    padding: clamp(32px, 6vw, 72px) 0 clamp(48px, 7vw, 96px);
+  }
+  .hero-copy { display: flex; flex-direction: column; gap: 24px; }
   .hero-eyebrow {
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--color-gold);
+    align-self: flex-start;
+    background: var(--color-gold-soft);
+    color: var(--color-gold-ink-deep);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 14px;
     font-weight: 600;
-    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
   }
-  .hero-headline {
-    font-size: 2rem;
-    line-height: 1.35;
-    color: var(--color-navy);
-    max-width: 44rem;
-    margin: 0 auto 1.5rem;
+  .hero-title {
+    margin: 0;
+    font-weight: 500;
+    font-size: clamp(38px, 5vw, 60px);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
   }
-  @media (min-width: 768px) {
-    .hero-headline { font-size: 2.5rem; }
+  .hero-title em { font-style: italic; color: var(--color-gold-ink); }
+  .hero-lead { max-width: 34em; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
+
+  .hero-photo {
+    position: relative;
+    max-width: 440px;
+    width: 100%;
+    justify-self: center;
   }
-  .hero-subline {
-    font-size: 0.95rem;
-    color: var(--color-gray-soft);
-    margin-bottom: 2rem;
+  .arch-shape {
+    position: absolute;
+    right: -18px;
+    bottom: -18px;
+    width: 72%;
+    height: 72%;
+    border-radius: 999px 999px 28px 28px;
+    background: var(--color-gold-soft);
   }
-  .hero-ctas {
+  .hero-photo :global(img) {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: 50% 20%;
+    border-radius: 999px 999px 28px 28px;
+  }
+
+  .featured-head {
     display: flex;
-    gap: 1rem;
-    justify-content: center;
     flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 24px;
   }
-  .btn-primary, .btn-secondary {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+  .project-row {
     text-decoration: none;
-    border-radius: 3px;
-    font-family: var(--font-body);
-    transition: background 0.15s;
+    color: inherit;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+    gap: 12px 40px;
+    padding: 26px 20px;
+    margin: 0 -20px;
+    border-radius: 20px;
+    border-bottom: 1px solid var(--color-line);
+    transition: background-color 0.2s;
   }
-  .btn-primary {
-    background: var(--color-navy);
-    color: white;
-  }
-  .btn-primary:hover { background: var(--color-navy-light); }
-  .btn-secondary {
-    background: white;
-    color: var(--color-navy);
-    border: 2px solid var(--color-navy);
-  }
-  .btn-secondary:hover { background: #F9FAFB; }
+  .project-row:hover { background: var(--color-surface); color: inherit; }
+  .row-title { font-size: 26px; text-wrap: wrap; }
+  .read { color: var(--color-navy); font-weight: 600; white-space: nowrap; }
 
-  .section-heading {
-    font-size: 1.75rem;
-    text-align: center;
-    margin-bottom: 3rem;
-    color: var(--color-navy);
+  .values {
+    margin: clamp(24px, 4vw, 48px) 0 clamp(56px, 8vw, 96px);
+    color: var(--color-on-navy-strong);
+    border-radius: var(--radius-hero);
+    padding: clamp(32px, 5vw, 64px);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 32px;
+    align-items: center;
   }
-
-  .pillar-number {
-    font-family: var(--font-display);
-    font-size: 2.5rem;
-    color: var(--color-gold);
-    line-height: 1;
-    margin-bottom: 1rem;
+  .values-title {
+    margin: 0;
+    font-weight: 500;
+    font-size: clamp(30px, 3.6vw, 44px);
+    line-height: 1.12;
+    color: var(--color-surface);
+    text-wrap: balance;
   }
-  .pillar-title {
-    font-size: 1.2rem;
-    color: var(--color-navy);
-    margin-bottom: 0.75rem;
-    line-height: 1.3;
-  }
-  .pillar-headline {
-    font-family: var(--font-display);
-    font-size: 1.05rem;
-    font-style: italic;
-    color: var(--color-navy-light);
-    margin-bottom: 1rem;
-    line-height: 1.4;
-  }
-  .pillar-body {
-    color: var(--color-ink);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-  }
-  .pillar-link {
-    color: var(--color-navy);
-    font-weight: 600;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-family: var(--font-body);
-    text-decoration: none;
-    border-bottom: 2px solid var(--color-gold);
-    padding-bottom: 2px;
-    display: inline-block;
-  }
-  .about-preview-body {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--color-ink);
-    margin-bottom: 1.5rem;
-  }
+  .values-title em { color: var(--color-gold-light); }
 </style>

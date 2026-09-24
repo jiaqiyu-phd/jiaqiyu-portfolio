@@ -2,6 +2,9 @@
 title: "ID2ID: A Cross-Institutional Peer Mentoring Program for Instructional Designers"
 subtitle: "From program participant to Advisory Committee member to co-author of the published model."
 slug: "id2id"
+card_title: "ID2ID Peer Mentoring for Instructional Designers"
+tag: "Cross-institutional"
+order: 3
 url: "/projects/id2id/"
 status: "flagship"
 role: "Mentor & Mentee (multi-cohort) · Advisory Committee Member · Chapter Co-author"
@@ -11,10 +14,10 @@ co_authors: ["Angela Dick (Penn State)", "Ed Beck (SUNY Oneonta)", "Jennifer Eng
 audience: ["Search Committee", "Network", "Award Panel"]
 themes: ["Cross-institutional collaboration", "Community of Practice design", "Project management for IDs"]
 last_updated: "2026-05-28"
-featured: true
-summary: "Service, scholarship, and network leadership inside a decade-old Community of Practice — Advisory Committee work, multi-cohort mentor and mentee participation, and co-authorship of the forthcoming Routledge chapter documenting the program."
 hero_image: "/images/projects/id2id-hero.jpg"
 hero_image_alt: "ID2ID program collaboration session — instructional designers across institutions."
+featured: true
+summary: "Advisory Committee work, multi-cohort mentoring, and co-authorship of the forthcoming Routledge chapter documenting the program."
 ---
 
 # ID2ID: A Cross-Institutional Peer Mentoring Program for Instructional Designers

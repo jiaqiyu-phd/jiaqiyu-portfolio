@@ -2,6 +2,9 @@
 title: "Project Management for Instructional Designers: A Multi-Institutional Collaborative"
 subtitle: "Building the field's shared vocabulary, templates, and mentorship pathways for ID project leadership."
 slug: "pm-for-ids"
+card_title: "PM for Instructional Designers"
+tag: "Project management for IDs"
+order: 5
 url: "/projects/pm-for-ids/"
 status: "flagship"
 role: "Convener, Facilitator & Lead Author"
@@ -10,10 +13,10 @@ partners: ["Online Learning Consortium", "EDUCAUSE / Penn State ID2ID", "POD Net
 audience: ["Search Committee", "Network", "Award Panel"]
 themes: ["Project management for IDs", "Cross-institutional collaboration", "Faculty development"]
 last_updated: "2026-05-28"
-featured: true
-summary: "More than a decade of cross-institutional work — OLC panels, EDUCAUSE / Penn State ID2ID mentoring, HigherID Podcast Ep 13 (most-listened of its season) — building shared vocabulary, templates, and mentorship pathways for ID project leadership."
 hero_image: "/images/projects/pm-for-ids-hero.jpg"
 hero_image_alt: "Jiaqi Yu presenting on project management at an OLC conference panel."
+featured: true
+summary: "A decade of OLC panels, ID2ID mentoring, and the HigherID Podcast (Ep 13, most-listened of its season) — shared vocabulary and templates for ID project leadership."
 ---
 
 # Project Management for Instructional Designers: A Multi-Institutional Collaborative

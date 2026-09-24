@@ -21,6 +21,9 @@ collections:
       preview: false
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Card title (short)", name: "card_title", widget: "string", required: false, hint: "Shorter title for project cards and rows. Leave blank to use the full title." }
+      - { label: "Card tag", name: "tag", widget: "string", required: false, hint: "Short label shown above card titles, e.g., 'Faculty development'." }
+      - { label: "Display order", name: "order", widget: "number", value_type: "int", default: 99, required: false, hint: "Lower numbers appear first on the Projects and Home pages." }
       - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
       - { label: "URL slug", name: "slug", widget: "string", hint: "Used in the URL, e.g., 'sotl-collective' for /projects/sotl-collective/" }
       - { label: "URL path", name: "url", widget: "string", required: false, hint: "Full path with slashes, e.g., /projects/sotl-collective/" }
@@ -60,7 +63,7 @@ collections:
           - "Responsible AI in education"
       - { label: "Last updated (YYYY-MM-DD)", name: "last_updated", widget: "string", required: false, hint: "Format: YYYY-MM-DD, e.g., 2026-05-28" }
       - { label: "Featured on Home page?", name: "featured", widget: "boolean", default: false }
-      - { label: "Summary (~30 words for project cards)", name: "summary", widget: "text", required: false }
+      - { label: "Summary (~25 words for project cards)", name: "summary", widget: "text", required: false }
       - { label: "Hero image", name: "hero_image", widget: "image", required: false }
       - { label: "Hero image alt text", name: "hero_image_alt", widget: "string", required: false }
       - { label: "Body content", name: "body", widget: "markdown" }
@@ -76,6 +79,7 @@ collections:
       preview: false
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "On-page heading (optional)", name: "heading", widget: "string", required: false, hint: "Used as the H1 when it should differ from the title (e.g., Contact)." }
       - { label: "URL slug", name: "slug", widget: "string" }
       - { label: "URL path", name: "url", widget: "string", required: false }
       - { label: "Last updated (YYYY-MM-DD)", name: "last_updated", widget: "string", required: false, hint: "Format: YYYY-MM-DD, e.g., 2026-05-28" }
@@ -102,3 +106,77 @@ collections:
           - "Equity & cross-cultural facilitation"
           - "Responsible AI in education"
       - { label: "Body content", name: "body", widget: "markdown" }
+
+  - name: "site_data"
+    label: "Site data"
+    editor:
+      preview: false
+    files:
+      - label: "Scholarship (publications & presentations)"
+        name: "scholarship"
+        file: "src/data/scholarship.json"
+        format: "json"
+        fields:
+          - label: "Scholar profiles"
+            name: "profiles"
+            widget: "list"
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+          - label: "Selected highlights"
+            name: "highlights"
+            widget: "list"
+            summary: "{{fields.label}} — {{fields.title}}"
+            fields:
+              - { label: "Label", name: "label", widget: "string", hint: "e.g., '2026 · OLC Innovate'" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Note", name: "note", widget: "text", required: false }
+              - { label: "URL", name: "url", widget: "string", required: false }
+          - label: "Works"
+            name: "works"
+            widget: "list"
+            summary: "{{fields.year}} · {{fields.type}} · {{fields.title}}"
+            hint: "Order within a year is the order shown on the page."
+            fields:
+              - label: "Kind"
+                name: "kind"
+                widget: "select"
+                options:
+                  - { label: "Publication", value: "pub" }
+                  - { label: "Presentation", value: "pres" }
+              - { label: "Year", name: "year", widget: "number", value_type: "int" }
+              - { label: "Type label", name: "type", widget: "string", hint: "e.g., 'Book chapter', 'Proceedings', 'Journal article', 'Presentation'" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Venue", name: "venue", widget: "string", required: false }
+              - { label: "Authors / role", name: "meta", widget: "string", required: false }
+              - { label: "URL", name: "url", widget: "string", required: false }
+      - label: "Recognition (awards & grants)"
+        name: "recognition"
+        file: "src/data/recognition.json"
+        format: "json"
+        fields:
+          - label: "Top awards (cards)"
+            name: "topAwards"
+            widget: "list"
+            summary: "{{fields.year}} · {{fields.title}}"
+            fields:
+              - { label: "Year", name: "year", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Organization", name: "org", widget: "string" }
+              - { label: "Note", name: "note", widget: "text", required: false }
+              - { label: "Corner label", name: "team", widget: "string", required: false, hint: "e.g., 'Team award' or 'National'" }
+          - label: "Groups"
+            name: "groups"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Group name", name: "name", widget: "string" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                summary: "{{fields.year}} · {{fields.title}}"
+                fields:
+                  - { label: "Year", name: "year", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Organization / detail", name: "org", widget: "string", required: false }

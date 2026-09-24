@@ -1,0 +1,362 @@
+{
+  "profiles": [
+    {
+      "label": "ORCID",
+      "url": "https://orcid.org/0009-0005-5432-0506"
+    },
+    {
+      "label": "Google Scholar",
+      "url": "https://scholar.google.com/citations?user=78t1HIkAAAAJ&hl=en"
+    },
+    {
+      "label": "ResearchGate",
+      "url": "https://www.researchgate.net/profile/Jiaqi-Yu-33"
+    }
+  ],
+  "highlights": [
+    {
+      "label": "Forthcoming · Routledge",
+      "title": "From Campus to Global: Building a Peer Mentorship Network Through the ID2ID Program",
+      "note": "Book chapter documenting a decade of cross-institutional peer mentoring for instructional designers.",
+      "url": ""
+    },
+    {
+      "label": "2026 · OLC Innovate",
+      "title": "Building Sustainable Communities of Practice: A Scalable Model for Professional Growth and Educational Research",
+      "note": "Sole presenter — the hub-and-spoke CoP model behind the SoTL Collective.",
+      "url": ""
+    },
+    {
+      "label": "2020 · AACE, sole author",
+      "title": "A Practical Guide to Managing Online Course Design Projects: Timeline, Milestone, and RACI",
+      "note": "A field-tested PM framework for instructional design teams.",
+      "url": "https://www.learntechlib.org/primary/p/218798/"
+    }
+  ],
+  "works": [
+    {
+      "kind": "pub",
+      "year": 2026,
+      "type": "Book chapter",
+      "title": "From Campus to Global: Building a Peer Mentorship Network Through the ID2ID Program",
+      "venue": "In Mancilla, R. & Frey, B. (Eds.), Mentoring Instructional Designers: Professional Development in Higher Education. Routledge.",
+      "meta": "Dick, A., Ed, B., Yu, J., & Englund, J.",
+      "url": ""
+    },
+    {
+      "kind": "pub",
+      "year": 2020,
+      "type": "Book chapter",
+      "title": "Preparing Mathematics Preservice Teachers for Teaching Emergent Bilinguals through Concurrent Intervention",
+      "venue": "Teaching Mathematics to English Language Learners (Palgrave Macmillan), pp. 6–26",
+      "meta": "I, J. & Yu, J.",
+      "url": ""
+    },
+    {
+      "kind": "pub",
+      "year": 2020,
+      "type": "Proceedings",
+      "title": "A Practical Guide to Managing Online Course Design Projects: Timeline, Milestone, and RACI",
+      "venue": "Proceedings of Innovate Learning Summit 2020, pp. 167–170 (AACE)",
+      "meta": "Yu, J.",
+      "url": "https://www.learntechlib.org/primary/p/218798/"
+    },
+    {
+      "kind": "pub",
+      "year": 2019,
+      "type": "Proceedings",
+      "title": "Preparing Preservice Teachers for 'Learning by Making' in Makerspace Communities",
+      "venue": "Proceedings of SITE 2019, pp. 1594–1599 (AACE)",
+      "meta": "Karakaya, O., Yu, J., Valai, A. & Updegraff, A.",
+      "url": "https://www.learntechlib.org/primary/p/207857/"
+    },
+    {
+      "kind": "pub",
+      "year": 2018,
+      "type": "Journal article",
+      "title": "Integrating Online Instruction and Hands-on Laboratory Activities for Summer Learning for Students of Color: A Design Case in Forensic Science",
+      "venue": "Journal of Online Learning Research, 4(3), 263–294",
+      "meta": "Elrick, D., Yu, J. & Hargrave, C.",
+      "url": "https://www.learntechlib.org/primary/p/183592/"
+    },
+    {
+      "kind": "pub",
+      "year": 2018,
+      "type": "Proceedings",
+      "title": "Examination of an Emerging Community of Practice among Instructional Designers: A Descriptive Case Study",
+      "venue": "41st Annual AECT Proceedings, Vol. 1, 218–228",
+      "meta": "Yu, J. & Hargrave, C.",
+      "url": "https://members.aect.org/pdf/Proceedings/proceedings18/2018/18_26.pdf"
+    },
+    {
+      "kind": "pub",
+      "year": 2018,
+      "type": "Proceedings",
+      "title": "Mentoring for Success: Graduate Student Mentors' Perceptions on the Impact of a One-on-One Technology Mentoring Program",
+      "venue": "41st Annual AECT Proceedings, Vol. 1, 229–237",
+      "meta": "Yu, J., Karakaya, O. & Schmidt-Crawford, D.",
+      "url": "https://members.aect.org/pdf/Proceedings/proceedings18/2018/18_27.pdf"
+    },
+    {
+      "kind": "pub",
+      "year": 2018,
+      "type": "Proceedings",
+      "title": "Examination of the Impact of a One-on-One Technology Mentoring Program: Multiple Case Studies on the Mentees' Perspectives",
+      "venue": "SITE 2018 Proceedings, pp. 585–590 (AACE)",
+      "meta": "Yu, J. & Karakaya, O.",
+      "url": "https://www.learntechlib.org/p/182588/"
+    },
+    {
+      "kind": "pub",
+      "year": 2018,
+      "type": "Proceedings",
+      "title": "Design and Evaluate a Forensic Science Online Course for High School Students of Color",
+      "venue": "SITE 2018 Proceedings, pp. 632–637 (AACE)",
+      "meta": "Elrick, D., Yu, J. & Hargrave, C.",
+      "url": "https://www.learntechlib.org/p/182595/"
+    },
+    {
+      "kind": "pub",
+      "year": 2015,
+      "type": "Proceedings",
+      "title": "An Online Graduate Program Evaluation: What Do Course Instructors Have to Say?",
+      "venue": "Proceedings of E-Learn 2015 (AACE), pp. 1740–1747",
+      "meta": "Correia, A.P., Yu, J., Munkvold, G. & Youngberg, L.",
+      "url": "https://www.learntechlib.org/p/152221/"
+    },
+    {
+      "kind": "pres",
+      "year": 2026,
+      "type": "Presentation",
+      "title": "Re-Architecting the CTL for Impact: From Service Load to Strategic Value",
+      "venue": "UPCEA SOLAR · Boston, MA",
+      "meta": "Co-presenter · with Parks, H.",
+      "url": ""
+    },
+    {
+      "kind": "pres",
+      "year": 2026,
+      "type": "Presentation",
+      "title": "Building Sustainable Communities of Practice: A Scalable Model for Professional Growth and Educational Research",
+      "venue": "OLC Innovate 2026 · Virtual",
+      "meta": "Sole presenter",
+      "url": ""
+    },
+    {
+      "kind": "pres",
+      "year": 2026,
+      "type": "Presentation",
+      "title": "From Practitioner to Scholar: Finding Your First Scholarly Project",
+      "venue": "UPCEA Digital Teaching & Learning · Virtual",
+      "meta": "Sole presenter",
+      "url": ""
+    },
+    {
+      "kind": "pres",
+      "year": 2026,
+      "type": "Presentation",
+      "title": "From Chaos to Clarity: Preparing Instructional Designers with Project Management Skills to Lead Digital Learning Initiatives",
+      "venue": "UPCEA Digital Teaching & Learning · Virtual",
+      "meta": "Sole presenter",
+      "url": ""
+    },
+    {
+      "kind": "pres",
+      "year": 2025,
+      "type": "Presentation",
+      "title": "Nurturing a Culture of Innovation in Health Science Education: Best Practices from the HSC SoTL Collective",
+      "venue": "TxDLA 2025 · Denton, TX",
+      "meta": "Lead presenter · with Parks, H.; Battaglia, A.",
+      "url": ""
+    },
+    {
+      "kind": "pres",
+      "year": 2025,
+      "type": "Presentation",
+      "title": "Strategic Time Management and Academic Productivity",
+      "venue": "UNT Health Academy of Medical Educators · Fort Worth, TX",
+      "meta": "Co-presenter · with Heck, A.",
+      "url": ""
+    },
+    {
+      "kind": "pres",
+      "year": 2024,
+      "type": "Presentation",
+      "title": "Cultivating a Community of Practice to Enhance Game-Based Learning and High-Impact Practices",
+      "venue": "InnovateED 2024, Sanford University School of Medicine CME · Virtual",
+      "meta": "Lead presenter · with Laborde, R.; Gruben, D.",
+      "url": ""
+    },
+    {
+      "kind": "pres",
+      "year": 2024,
+      "type": "Presentation",
+      "title": "Fostering Well-Being: The Journey of Developing a Microcredential for Instructional Designers",
+      "venue": "InstructureCon 2024 · Las Vegas, NV",
+      "meta": "Co-presenter · with Mahmoudi, L.",
+      "url": ""
+    },
+    {
+      "kind": "pres",
+      "year": 2023,
+      "type": "Presentation",
+      "title": "Professional Development Opportunities and Strategies: Stories from Instructional Designers in Higher Education",
+      "venue": "AECT 2023 International Convention · Orlando, FL",
+      "meta": "Panelist · with Zeitler, J.; Woods, C.; Swift, A.; Gibson, R.; Battaglia, A.",
+      "url": ""
+    },
+    {
+      "kind": "pres",
+      "year": 2023,
+      "type": "Presentation",
+      "title": "Five Institutions are Better than One: Results of an Exploratory Collaborative on Instructional Designer Workload Planning and Capacity",
+      "venue": "OLC Innovate 2023 · Nashville, TN",
+      "meta": "Co-presenter · with Pyke, G.; Stamper, B.; Grewe, K.; Cox, L.",
+      "url": ""
+    },
+    {
+      "kind": "pres",
+      "year": 2023,
+      "type": "Presentation",
+      "title": "Interactive or Conventional Lectures: An Exploratory Study on Student Perceptions of Multiple Means of Representation",
+      "venue": "UDL-IRN International Summit 2023 · Orlando, FL",
+      "meta": "Lead presenter · with Battaglia, A.; Neelamegam, M.",
+      "url": ""
+    },
+    {
+      "kind": "pres",
+      "year": 2023,
+      "type": "Presentation",
+      "title": "Optimizing Project Management for Instructional Design in Higher Education",
+      "venue": "OLC Webinar Series · Virtual",
+      "meta": "Panelist · with McKenzie, J.; Wahl, L.; Zeitler, J.; Queen, E.",
+      "url": "https://onlinelearningconsortium.org/webinar/optimizing-project-management-for-instructional-design-in-higher-education/"
+    },
+    {
+      "kind": "pres",
+      "year": 2022,
+      "type": "Presentation",
+      "title": "Project Management for Instructional Designers in Higher Education: Best Practices, Strategies, and Tools",
+      "venue": "OLC Accelerate 2022 · Orlando, FL",
+      "meta": "Lead presenter · with Wahl, L.; McKenzie, J.; Zeitler, J.; Queen, E.; Budhrani, K.",
+      "url": ""
+    },
+    {
+      "kind": "pres",
+      "year": 2022,
+      "type": "Presentation",
+      "title": "Rapid Prototyping and Quality Assurance: An Agile Approach to Instructional Design in Higher Education",
+      "venue": "OLC Accelerate 2022 · Orlando, FL",
+      "meta": "Lead presenter · with McKenzie, J.; Anderson, H.",
+      "url": ""
+    },
+    {
+      "kind": "pres",
+      "year": 2022,
+      "type": "Presentation",
+      "title": "Towards a Multiverse of Faculty Development in Higher Education: A Community of Practice Approach",
+      "venue": "OLC Accelerate 2022 · Orlando, FL",
+      "meta": "Lead presenter · with McKenzie, J.; Anderson, H.",
+      "url": ""
+    },
+    {
+      "kind": "pres",
+      "year": 2022,
+      "type": "Presentation",
+      "title": "How Do Instructional Designers Spend Their Time? A Case Study from a Public Graduate School in Texas",
+      "venue": "OLC Innovate 2022 · Dallas, TX",
+      "meta": "Lead presenter · with Anderson, H.",
+      "url": ""
+    },
+    {
+      "kind": "pres",
+      "year": 2020,
+      "type": "Presentation",
+      "title": "A Practical Guide to Managing Online Course Design Projects: Timeline, Milestone, and RACI",
+      "venue": "Innovate Learning Summit · Virtual",
+      "meta": "Sole presenter",
+      "url": ""
+    },
+    {
+      "kind": "pres",
+      "year": 2019,
+      "type": "Presentation",
+      "title": "Preparing Preservice Teachers for 'Learning by Making' in Makerspace Communities",
+      "venue": "SITE 2019 · Las Vegas, NV",
+      "meta": "Co-presenter · with Karakaya, O.; Valai, A.; Updegraff, A.",
+      "url": ""
+    },
+    {
+      "kind": "pres",
+      "year": 2018,
+      "type": "Presentation",
+      "title": "Examination of an Emerging Community of Practice for Instructional Designers: A Descriptive Case Study",
+      "venue": "AECT 2018 International Convention · Kansas City, MO",
+      "meta": "Lead presenter · with Hargrave, C.",
+      "url": ""
+    },
+    {
+      "kind": "pres",
+      "year": 2018,
+      "type": "Presentation",
+      "title": "Mentoring for Success: Graduate Student Mentors' Perceptions on the Impact of a One-on-One Technology Mentoring Program",
+      "venue": "AECT 2018 International Convention · Kansas City, MO",
+      "meta": "Lead presenter · with Karakaya, O.; Schmidt-Crawford, D.",
+      "url": ""
+    },
+    {
+      "kind": "pres",
+      "year": 2018,
+      "type": "Presentation",
+      "title": "Examination of the Impact of a One-on-One Technology Mentoring Program: Multiple Case Studies on the Mentees' Perspectives",
+      "venue": "SITE 2018 · Washington, DC",
+      "meta": "Lead presenter · with Karakaya, O.",
+      "url": ""
+    },
+    {
+      "kind": "pres",
+      "year": 2018,
+      "type": "Presentation",
+      "title": "Design and Evaluate a Forensic Science Online Course for High School Students of Color",
+      "venue": "SITE 2018 · Washington, DC",
+      "meta": "Co-presenter · with Elrick, D.; Hargrave, C.",
+      "url": ""
+    },
+    {
+      "kind": "pres",
+      "year": 2017,
+      "type": "Presentation",
+      "title": "Application of UDL, Multimedia Learning, & Backward Design in Designing Accessible Instructional Videos",
+      "venue": "AECT 2017 International Convention · Jacksonville, FL",
+      "meta": "Sole presenter",
+      "url": ""
+    },
+    {
+      "kind": "pres",
+      "year": 2017,
+      "type": "Presentation",
+      "title": "Evaluating the Effectiveness, Efficiency, and Impact of a Blended Tutor Training: A Case Study",
+      "venue": "OLC Innovate 2017 · New Orleans, LA",
+      "meta": "Co-presenter · with Jaramillo, N.",
+      "url": ""
+    },
+    {
+      "kind": "pres",
+      "year": 2017,
+      "type": "Presentation",
+      "title": "Design for Innovation: A Blended Workshop to Prepare Female Graduate Students for Job-market Competency",
+      "venue": "OLC Innovate 2017 · New Orleans, LA",
+      "meta": "Co-presenter · with Jaramillo, N.; Spencer, M.",
+      "url": ""
+    },
+    {
+      "kind": "pres",
+      "year": 2015,
+      "type": "Presentation",
+      "title": "An Online Graduate Program Evaluation: What Do Course Instructors Have to Say?",
+      "venue": "E-LEARN 2015 · Kona, HI",
+      "meta": "Co-presenter · with Correia, A.P.; Munkvold, G.; Youngberg, L.",
+      "url": ""
+    }
+  ]
+}

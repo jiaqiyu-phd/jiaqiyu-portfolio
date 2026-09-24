@@ -2,6 +2,9 @@
 title: "The Scholarship of Teaching and Learning Collective at UNT Health"
 subtitle: "Building a sustainable, faculty-led model for translating clinical teaching into scholarly inquiry."
 slug: "sotl-collective"
+card_title: "The SoTL Collective at UNT Health"
+tag: "Scholarship of Teaching & Learning"
+order: 1
 url: "/projects/sotl-collective/"
 status: "flagship"
 role: "Founder & Lead"
@@ -10,10 +13,10 @@ institution: "UNT Health at Fort Worth"
 audience: ["Search Committee", "Award Panel", "Network"]
 themes: ["Scholarship of Teaching and Learning (SoTL)", "Community of Practice design", "Health sciences education"]
 last_updated: "2026-05-28"
-featured: true
-summary: "Five interconnected Communities of Practice engaging 150+ faculty and 20+ active SoTL projects across health sciences education — a hub-and-spoke model designed to sustain scholarship without adding to faculty workload."
 hero_image: "/images/projects/sotl-collective-hero.jpg"
 hero_image_alt: "Faculty members engaged in discussion during a SoTL Collective session at UNT Health."
+featured: true
+summary: "Five interconnected Communities of Practice engaging 150+ faculty and 20+ active SoTL projects — a hub-and-spoke model that sustains scholarship without adding to faculty workload."
 ---
 
 # The Scholarship of Teaching and Learning Collective at UNT Health

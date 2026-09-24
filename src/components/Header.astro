@@ -13,45 +13,91 @@ const isActive = (href: string) =>
   href === "/" ? currentPath === "/" : currentPath.startsWith(href);
 ---
 
-<header class="border-b border-gray-200 bg-white">
-  <div class="max-w-6xl mx-auto px-6 py-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-    <a href="/" class="font-display text-xl font-semibold text-navy">
-      Jiaqi Yu, <span class="text-gold italic">PhD</span>
-    </a>
-    <nav aria-label="Primary">
-      <ul class="flex flex-wrap gap-x-6 gap-y-2 list-none p-0 m-0">
-        {navItems.map(item => (
-          <li>
-            <a     
-              href={item.href}
-              class:list={[
-                "nav-link text-sm font-medium tracking-wide uppercase",
-                isActive(item.href) ? "active" : "",
-              ]}
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  </div>
+<header class="site-container site-header">
+  <a href="/" class="brand">
+    <span class="monogram" aria-hidden="true">JY</span>
+    <span class="brand-name">Jiaqi Yu, PhD</span>
+  </a>
+  <nav aria-label="Primary" class="nav-pill">
+    <ul>
+      {navItems.map(item => (
+        <li>
+          <a
+            href={item.href}
+            class:list={["nav-link", { active: isActive(item.href) }]}
+            aria-current={isActive(item.href) ? "page" : undefined}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
 </header>
 
 <style>
-  a { text-decoration: none; }
+  .site-header {
+    padding-top: 22px;
+    padding-bottom: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .monogram {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--color-navy);
+    color: var(--color-gold-soft);
+    display: grid;
+    place-items: center;
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 600;
+  }
+  .brand-name {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--color-navy);
+  }
+  .nav-pill {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    padding: 5px;
+  }
+  .nav-pill ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
   .nav-link {
-    color: var(--color-ink);
-    padding-bottom: 4px;
-    border-bottom: 2px solid transparent;
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .nav-link:hover {
-    border-bottom-color: var(--color-gold);
+    display: block;
+    text-decoration: none;
+    padding: 7px 15px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 500;
     color: var(--color-navy);
+    background: transparent;
+    transition: background-color 0.2s;
   }
-  .nav-link.active {
-    color: var(--color-navy);
-    border-bottom-color: var(--color-gold);
+  .nav-link:hover { background: var(--color-gold-soft); color: var(--color-navy); }
+  .nav-link.active,
+  .nav-link.active:hover {
+    background: var(--color-navy);
+    color: var(--color-surface);
   }
 </style>

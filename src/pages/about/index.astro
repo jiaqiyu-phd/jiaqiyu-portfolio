@@ -1,194 +1,162 @@
 ---
+import { Picture } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { chapters, education, service, cvUrl, rootsUrl } from '../../data/site';
+import portrait from '../../assets/images/jiaqi-portrait.jpg';
 ---
 
 <BaseLayout
   title="About — Jiaqi Yu, PhD"
   description="About Jiaqi Yu, PhD — Instructional Innovation Leader at UNT Health at Fort Worth. Building sustainable Communities of Practice for health sciences education."
 >
-  <section class="max-w-5xl mx-auto px-6 py-16">
-
-    <!-- HERO -->
-    <div class="about-hero flex flex-col md:flex-row gap-10 mb-16 items-start">
-      <div class="headshot-wrapper">
-        <img src="/images/headshot.jpg" alt="Headshot of Jiaqi Yu, PhD." class="headshot" />
+  <div class="site-container">
+    <!-- Intro -->
+    <section class="intro">
+      <div class="portrait">
+        <Picture
+          src={portrait}
+          alt="Portrait of Jiaqi Yu, PhD"
+          formats={['avif', 'webp']}
+          widths={[400, 800]}
+          width={800}
+          sizes="(min-width: 800px) 400px, 90vw"
+          loading="eager"
+        />
       </div>
-      <div class="bio-wrapper">
-        <h1 class="mt-0 mb-3">Jiaqi Yu, PhD</h1>
-        <p class="about-tagline">Building communities · Designing possibilities · Empowering educators</p>
-        <p class="about-bio">
-          I build Communities of Practice, faculty development programs, and scholarly infrastructure in health sciences education. What connects the work is a commitment to making scholarship sustainable for the people doing it — clinical educators, instructional designers, and emerging scholars building careers in a field that rarely stops changing.
-        </p>
+      <div class="flex flex-col gap-5">
+        <span class="tagline">Building communities · Designing possibilities · Empowering educators</span>
+        <h1 class="h1-page">About Jiaqi</h1>
+        <p class="lead">I build Communities of Practice, faculty development programs, and scholarly infrastructure in health sciences education. The common thread: making scholarship sustainable for clinical educators, instructional designers, and emerging scholars in a field that rarely stops changing.</p>
       </div>
-    </div>
+    </section>
 
-    <!-- NOW -->
-    <div class="mb-6">
-      <p class="callout-eyebrow">Now</p>
-      <p class="focus-body">
-        At UNT Health at Fort Worth, I serve as Assistant Director of Instructional Innovation and Project Management. As founder of the Scholarship of Teaching and Learning Collective, I have built five interconnected Communities of Practice — now engaging 150+ faculty and 20+ active SoTL projects — and I lead institution-wide initiatives in faculty development, instructional design, and educational research.
-      </p>
-    </div>
+    <!-- Now / Then / Next -->
+    <section class="fluid-grid chapters">
+      {chapters.map(c => (
+        <div class="card chapter">
+          <span class="pill-soft">{c.k}</span>
+          <p class="m-0 text-pretty">{c.body}</p>
+        </div>
+      ))}
+    </section>
 
-    <!-- THEN -->
-    <div class="mb-6">
-      <p class="callout-eyebrow">Then</p>
-      <p class="focus-body">
-        Across more than a decade of practice, I have shaped how higher education prepares instructional design teams to lead complex projects — through cross-institutional collaborations with the Online Learning Consortium, EDUCAUSE and Penn State's ID2ID program, and the POD Network. My co-led redesign of an online public health course earned the Delta Omega Innovative Curriculum Runner-Up Award in 2024. I hold a PhD in Curriculum & Instructional Technology (co-major, Human–Computer Interaction) from Iowa State University.
-      </p>
-    </div>
-
-    <!-- NEXT -->
-    <div class="mb-16">
-      <p class="callout-eyebrow">Next</p>
-      <p class="focus-body">
-        Three commitments shape my next chapter: sustaining educator well-being inside ambitious instructional change; integrating generative AI into teaching with rigor, transparency, and care for faculty trust; and building an ICF-credentialed coaching practice grounded in the same principles that guide my faculty development work.
-      </p>
-    </div>
-
-    <!-- Education + Service -->
-    <div class="grid md:grid-cols-2 gap-12 mb-16">
+    <!-- Education + service -->
+    <section class="section rule-top fluid-grid two-col">
       <div>
-        <h2 class="about-section-heading">Education & credentials</h2>
-        <ul class="about-list">
-          <li><strong>PhD, Curriculum & Instructional Technology</strong> (co-major, Human–Computer Interaction) — Iowa State University</li>
-          <li><strong>MEd, Curriculum Studies and Teacher Development</strong> — University of Toronto</li>
-          <li><strong>BA</strong> — Beijing Normal University</li>
-          <li><strong>IELOL Fellow</strong>, Online Learning Consortium</li>
-          <li><strong>Certified Quality Matters Coordinator</strong></li>
+        <h2 class="h2-sub mb-5">Education</h2>
+        <ul class="rows">
+          {education.map(e => (
+            <li class="row flex-col">
+              <strong class="font-semibold text-navy">{e.a}</strong>
+              <span class="subtle text-[15px]">{e.b}</span>
+            </li>
+          ))}
         </ul>
       </div>
       <div>
-        <h2 class="about-section-heading">Selected service</h2>
-        <ul class="about-list">
-          <li>Advisory Committee, EDUCAUSE / Penn State ID2ID Peer Mentoring Program (2024–2025)</li>
-          <li>Board of Directors nomination, Online Learning Consortium (2024–2026)</li>
-          <li>Peer mentor across multiple ID2ID cohorts</li>
-          <li>Founder, Scholarship of Teaching and Learning Collective at UNT Health</li>
+        <h2 class="h2-sub mb-5">Selected service &amp; credentials</h2>
+        <ul class="rows">
+          {service.map(s => (
+            <li class="row items-baseline gap-3.5">
+              <span class="dot" aria-hidden="true"></span>
+              <span>{s}</span>
+            </li>
+          ))}
         </ul>
       </div>
-    </div>
+    </section>
 
-    <!-- Link blocks -->
-    <div class="grid md:grid-cols-2 gap-6 mb-16">
-      <a href="/about/roots/" class="link-block">
-        <span class="link-block-eyebrow">Beyond the CV</span>
-        <span class="link-block-title">Roots & Leadership Philosophy →</span>
-        <span class="link-block-desc">What guides my work — first-generation scholar, immigrant, working parent, and what those experiences produce in professional practice.</span>
+    <!-- CTA cards -->
+    <section class="fluid-grid ctas">
+      <a href={rootsUrl} class="cta-card cta-navy">
+        <span class="cta-eyebrow">Beyond the CV</span>
+        <span class="cta-title">Roots &amp; leadership philosophy →</span>
+        <span>First-generation scholar, immigrant, working parent — and what those experiences produce in practice.</span>
       </a>
-      <a href="/cv/CV_Jiaqi_Yu.pdf" class="link-block">
-        <span class="link-block-eyebrow">Full record</span>
-        <span class="link-block-title">Download CV (PDF) →</span>
-        <span class="link-block-desc">12 pages. Education, experience, publications, presentations, awards, service, grants.</span>
+      <a href={cvUrl} class="cta-card cta-gold">
+        <span class="cta-eyebrow">Full record</span>
+        <span class="cta-title">Download CV (PDF) →</span>
+        <span>12 pages — education, experience, publications, presentations, awards, service, grants.</span>
       </a>
-    </div>
-
-    <!-- Contact CTA -->
-    <div class="text-center py-8 border-t border-gray-200">
-      <p class="text-lg mb-4">Open to collaboration, speaking, and mentoring conversations.</p>
-      <a href="/contact/" class="btn-primary">Contact</a>
-    </div>
-  </section>
+    </section>
+  </div>
 </BaseLayout>
 
 <style>
-  .headshot-wrapper { flex-shrink: 0; width: 240px; }
-  .bio-wrapper { flex: 1; min-width: 0; }
-  .headshot { width: 100%; height: auto; border-radius: 4px; display: block; }
-
-  .about-tagline {
+  .intro {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    gap: clamp(32px, 6vw, 72px);
+    align-items: center;
+    padding: clamp(32px, 6vw, 64px) 0;
+  }
+  .portrait { width: 100%; max-width: 400px; justify-self: center; }
+  .portrait :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: 50% 20%;
+    border-radius: var(--radius-panel);
+  }
+  .tagline {
     font-family: var(--font-display);
-    font-size: 1.05rem;
     font-style: italic;
-    color: var(--color-gold);
-    margin-top: 0;
-    margin-bottom: 1.5rem;
-    line-height: 1.4;
+    font-size: 20px;
+    color: var(--color-gold-ink);
   }
-  .about-bio {
-    font-size: 1.05rem;
-    line-height: 1.65;
-    color: var(--color-ink);
-    margin-bottom: 0;
-  }
+  .chapters { padding: 24px 0 clamp(40px, 6vw, 72px); }
+  .chapter { gap: 12px; }
 
-  .callout-eyebrow {
-    font-family: var(--font-body);
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--color-gold);
-    font-weight: 700;
-    margin: 0 0 0.5rem 0;
-  }
-  .focus-body {
-    padding: 1.25rem 1.5rem;
-    background: #FAFAFA;
-    border-left: 3px solid var(--color-gold);
-    font-size: 1rem;
-    line-height: 1.65;
+  .two-col { --min: 340px; --gap: clamp(32px, 5vw, 64px); }
+  .rows {
+    list-style: none;
     margin: 0;
-    color: var(--color-ink);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .row {
+    display: flex;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-gold);
+    flex: none;
+    transform: translateY(-2px);
   }
 
-  .about-section-heading {
-    font-size: 1.15rem;
-    color: var(--color-navy);
-    margin-top: 0;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--color-gold);
-  }
-  .about-list { list-style: none; padding: 0; margin: 0; }
-  .about-list li {
-    padding: 0.6rem 0;
-    line-height: 1.55;
-    font-size: 0.95rem;
-    border-bottom: 1px solid #F3F4F6;
-  }
-  .about-list li:last-child { border-bottom: none; }
-
-  .link-block {
-    display: block;
-    padding: 1.5rem;
-    background: white;
-    border: 1px solid #E5E7EB;
-    border-radius: 4px;
+  .ctas { --min: 320px; padding-bottom: clamp(56px, 8vw, 96px); }
+  .cta-card {
     text-decoration: none;
-    transition: border-color 0.2s, transform 0.15s;
+    border-radius: var(--radius-panel);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: background-color 0.2s;
   }
-  .link-block:hover { border-color: var(--color-gold); transform: translateY(-2px); }
-  .link-block-eyebrow {
-    display: block;
-    font-family: var(--font-body);
-    font-size: 0.7rem;
+  .cta-eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--color-gold);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
   }
-  .link-block-title {
-    display: block;
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    color: var(--color-navy);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-  .link-block-desc { display: block; font-size: 0.9rem; color: var(--color-ink); line-height: 1.5; }
-  .btn-primary {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    text-decoration: none;
-    border-radius: 3px;
-    font-family: var(--font-body);
-    background: var(--color-navy);
-    color: white;
-  }
-  .btn-primary:hover { background: var(--color-navy-light); }
+  .cta-title { font-family: var(--font-display); font-size: 28px; line-height: 1.2; }
+  .cta-navy, .cta-navy:hover { color: var(--color-on-navy-strong); }
+  .cta-navy { background: var(--color-navy); }
+  .cta-navy:hover { background: var(--color-navy-light); }
+  .cta-navy .cta-eyebrow { color: var(--color-gold-light); }
+  .cta-navy .cta-title { color: var(--color-surface); }
+  .cta-gold, .cta-gold:hover { color: var(--color-ink); }
+  .cta-gold { background: var(--color-gold-soft); }
+  .cta-gold:hover { background: var(--color-gold-soft-hover); }
+  .cta-gold .cta-eyebrow { color: var(--color-gold-ink-deep); }
+  .cta-gold .cta-title { color: var(--color-navy); }
 </style>

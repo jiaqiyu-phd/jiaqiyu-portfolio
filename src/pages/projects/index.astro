@@ -1,43 +1,77 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ProjectCard from '../../components/ProjectCard.astro';
 
-const allProjects = await getCollection('projects');
+const all = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const slugOf = (p: (typeof all)[number]) => p.data.slug ?? p.id;
+const href = (p: (typeof all)[number]) => p.data.url ?? `/projects/${slugOf(p)}/`;
 
-const featured = allProjects.find(p => (p.data.slug ?? p.id) === 'sotl-collective');
-const rest = allProjects
-  .filter(p => (p.data.slug ?? p.id) !== 'sotl-collective')
-  .sort((a, b) => {
-    if (a.data.status === b.data.status) return 0;
-    return a.data.status === 'flagship' ? -1 : 1;
-  });
+const flagship = all.find(p => slugOf(p) === 'sotl-collective') ?? all[0];
+const others = all.filter(p => p !== flagship);
 ---
 
 <BaseLayout
   title="Projects — Jiaqi Yu, PhD"
   description="Six projects spanning Communities of Practice, faculty partnership, cross-institutional collaboration, and community-led work in health sciences education."
 >
-  <section class="max-w-5xl mx-auto px-6 py-16">
-    <h1 class="text-4xl font-semibold mb-4">Projects</h1>
-    <p class="text-lg text-gray-soft leading-relaxed mb-12 max-w-3xl">
-      Six projects across institutional Communities of Practice, cross-institutional
-      collaboration, faculty partnership, and community-led work — selected because
-      together they show how the same design principles travel from a faculty
-      development program at UNT Health to a national peer mentoring network to
-      a bilingual book club in Dallas–Fort Worth.
-    </p>
+  <div class="site-container">
+    <section class="page-intro">
+      <h1 class="h1-page">Projects</h1>
+      <p class="lead">Six projects showing how the same design principles travel — from faculty development at UNT Health, to a national peer mentoring network, to a bilingual book club in Dallas–Fort Worth.</p>
+    </section>
 
-    {featured && (
-      <div class="mb-8">
-        <ProjectCard project={featured} featured={true} />
-      </div>
+    {flagship && (
+      <a href={href(flagship)} class="flagship">
+        <div class="flex flex-col gap-3">
+          <span class="pill-gold">Flagship{flagship.data.tag && ` · ${flagship.data.tag}`}</span>
+          <h2 class="flagship-title">{flagship.data.card_title ?? flagship.data.title}</h2>
+        </div>
+        <p class="flagship-summary">{flagship.data.summary} <span class="flagship-cta">Read the case study →</span></p>
+      </a>
     )}
 
-    <div class="grid md:grid-cols-2 gap-6">
-      {rest.map(project => (
-        <ProjectCard project={project} />
+    <div class="fluid-grid others">
+      {others.map(p => (
+        <a href={href(p)} class="card">
+          <span class="eyebrow">{p.data.tag ?? p.data.themes?.[0]}</span>
+          <h3 class="h3-card text-[25px]">{p.data.card_title ?? p.data.title}</h3>
+          <p class="m-0 muted text-base text-pretty">{p.data.summary}</p>
+          <span class="card-cta">Read the case study →</span>
+        </a>
       ))}
     </div>
-  </section>
+  </div>
 </BaseLayout>
+
+<style>
+  .flagship {
+    text-decoration: none;
+    color: inherit;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    gap: 24px 48px;
+    align-items: end;
+    background: var(--color-navy);
+    border-radius: var(--radius-hero);
+    padding: clamp(28px, 4vw, 48px);
+    margin-bottom: 20px;
+    transition: background-color 0.2s;
+  }
+  .flagship:hover { background: var(--color-navy-light); color: inherit; }
+  .flagship-title {
+    margin: 0;
+    font-weight: 500;
+    font-size: clamp(30px, 3.6vw, 44px);
+    line-height: 1.1;
+    color: var(--color-surface);
+  }
+  .flagship-summary {
+    margin: 0;
+    color: var(--color-on-navy);
+    font-size: 18px;
+    text-wrap: pretty;
+  }
+  .flagship-cta { color: var(--color-gold-light); font-weight: 600; }
+  .others { --min: 320px; padding-bottom: clamp(56px, 8vw, 96px); }
+  .others .card { gap: 12px; }
+</style>

@@ -4,6 +4,9 @@ title: "EmpowHer: A Bilingual Community of Practice for First-Generation Asian
 subtitle: A founder-led, member-shaped community using shared reading as
   structure for cross-cultural inquiry, mutual support, and quiet leadership.
 slug: empowher
+card_title: "EmpowHer: a Bilingual CoP in DFW"
+tag: "Community-led · mini case"
+order: 6
 url: /projects/empowher/
 status: mini
 role: Founder & Facilitator
@@ -17,12 +20,10 @@ themes:
   - Community of Practice design
   - Equity & cross-cultural facilitation
 last_updated: 2026-05-28
-featured: false
-summary: A two-year-old bilingual Community of Practice for first-generation
-  Asian women in DFW — proving that CoP design principles travel beyond
-  institutional sponsorship.
 hero_image: /images/projects/empowher-hero.jpg
 hero_image_alt: Books and notes from a recent EmpowHer book club discussion.
+featured: false
+summary: "A bilingual Community of Practice for first-generation Asian women — proof that CoP design travels beyond institutional sponsorship."
 ---
 # EmpowHer: A Bilingual Community of Practice for First-Generation Asian Women in DFW
 

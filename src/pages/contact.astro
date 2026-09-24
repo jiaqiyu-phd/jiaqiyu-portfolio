@@ -1,16 +1,286 @@
 ---
 import { getEntry, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { ways, connect, email, contactTopics } from '../data/site';
 
 const entry = await getEntry('pages', 'contact');
-const { Content } = await render(entry);
+const { Content } = await render(entry!);
+const heading = entry?.data.heading ?? "I'm glad you found your way here.";
+const defaultTopic = contactTopics[0];
 ---
 
 <BaseLayout
   title="Contact — Jiaqi Yu, PhD"
-  description="Get in touch with Jiaqi Yu, PhD — open to collaboration, conference speaking, and mentoring of mid-career instructional designers."
+  description={entry?.data.meta_description ?? "Get in touch with Jiaqi Yu, PhD — open to collaboration, conference speaking, and mentoring of mid-career instructional designers."}
 >
-  <article class="case-study max-w-2xl mx-auto px-6 py-16">
-    <Content />
-  </article>
+  <div class="site-container">
+    <section class="page-intro intro">
+      <h1 class="h1-page">{heading}</h1>
+      <div class="lead intro-lead"><Content /></div>
+    </section>
+
+    <section class="fluid-grid ways" aria-label="Ways to work together">
+      {ways.map(w => (
+        <div class="card way">
+          <span class="numeral text-[34px]">{w.n}</span>
+          <h2 class="h3-card">{w.title}</h2>
+          <p class="m-0 text-[15.5px] muted text-pretty">{w.body}</p>
+        </div>
+      ))}
+    </section>
+
+    <section class="fluid-grid panels">
+      <div class="form-panel" data-contact>
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          class="contact-form"
+          data-form
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="topic" value={defaultTopic} data-topic-input />
+          <p class="hidden" aria-hidden="true">
+            <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+          </p>
+
+          <h2 class="panel-title">Send a note</h2>
+
+          <fieldset class="flex flex-col gap-2 border-0 m-0 p-0 min-w-0">
+            <legend class="text-sm font-semibold mb-2">What's it about?</legend>
+            <div class="flex flex-wrap gap-1.5">
+              {contactTopics.map(t => (
+                <button type="button" class="topic" data-topic={t} aria-pressed={t === defaultTopic ? 'true' : 'false'}>{t}</button>
+              ))}
+            </div>
+          </fieldset>
+
+          <div class="fluid-grid name-email">
+            <label class="field">Name
+              <input name="name" autocomplete="name" required />
+            </label>
+            <label class="field">Email
+              <input name="email" type="email" autocomplete="email" required />
+            </label>
+          </div>
+          <label class="field">Message
+            <textarea name="message" rows="6" required></textarea>
+          </label>
+
+          <p class="error" data-error hidden role="alert">
+            Something went wrong sending your note. Please try again, or email <a href={`mailto:${email}`}>{email}</a>.
+          </p>
+
+          <button type="submit" class="btn btn-primary self-start submit">Send message</button>
+        </form>
+
+        <div class="success" data-success hidden>
+          <span class="check" aria-hidden="true">✓</span>
+          <h2 class="panel-title" tabindex="-1" data-success-title>Thank you — your note is on its way.</h2>
+          <p class="m-0 muted">I'll reply within five business days.</p>
+          <button type="button" class="again" data-again>Send another</button>
+        </div>
+      </div>
+
+      <div class="direct panel-navy">
+        <h2 class="panel-title text-surface">Or reach me directly</h2>
+        <div class="flex flex-col gap-1">
+          <span class="direct-label">Email</span>
+          <a href={`mailto:${email}`} class="direct-email">{email}</a>
+        </div>
+        <div class="flex flex-col gap-2">
+          <span class="direct-label">Elsewhere</span>
+          <ul class="flex flex-wrap gap-2 list-none m-0 p-0">
+            {connect.map(c => (
+              <li><a href={c.url} class="navy-pill">{c.label}</a></li>
+            ))}
+          </ul>
+        </div>
+        <p class="direct-note">Based at UNT Health at Fort Worth, Texas — most of my work happens across North American time zones.</p>
+      </div>
+    </section>
+  </div>
 </BaseLayout>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-contact]');
+  if (root) {
+    const form = root.querySelector<HTMLFormElement>('[data-form]')!;
+    const topicInput = form.querySelector<HTMLInputElement>('[data-topic-input]')!;
+    const topics = [...form.querySelectorAll<HTMLButtonElement>('[data-topic]')];
+    const success = root.querySelector<HTMLElement>('[data-success]')!;
+    const error = form.querySelector<HTMLElement>('[data-error]')!;
+    const submit = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+    const defaultTopic = topicInput.value;
+
+    const setTopic = (value: string) => {
+      topicInput.value = value;
+      for (const t of topics) t.setAttribute('aria-pressed', String(t.dataset.topic === value));
+    };
+    for (const t of topics) t.addEventListener('click', () => setTopic(t.dataset.topic!));
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      error.hidden = true;
+      submit.disabled = true;
+      try {
+        const body = new URLSearchParams(new FormData(form) as unknown as Record<string, string>).toString();
+        const res = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body,
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        form.hidden = true;
+        success.hidden = false;
+        success.querySelector<HTMLElement>('[data-success-title]')?.focus();
+      } catch {
+        error.hidden = false;
+      } finally {
+        submit.disabled = false;
+      }
+    });
+
+    root.querySelector('[data-again]')?.addEventListener('click', () => {
+      form.reset();
+      setTopic(defaultTopic);
+      success.hidden = true;
+      form.hidden = false;
+      form.querySelector<HTMLInputElement>('input[name="name"]')?.focus();
+    });
+  }
+</script>
+
+<style>
+  .intro { max-width: 760px; padding-bottom: 40px; }
+  .intro-lead :global(p) { margin: 0; }
+
+  .ways { --min: 240px; --gap: 16px; padding-bottom: clamp(40px, 6vw, 64px); }
+  .way { padding: 26px; gap: 10px; }
+
+  .panels { --min: 340px; padding-bottom: clamp(56px, 8vw, 96px); }
+  .form-panel {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-panel);
+    padding: clamp(24px, 4vw, 40px);
+  }
+  .contact-form { display: flex; flex-direction: column; gap: 18px; }
+  .contact-form[hidden], .success[hidden], .error[hidden] { display: none; }
+  .panel-title {
+    margin: 0;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.2;
+  }
+  .panel-title:focus { outline: none; }
+  .topic {
+    cursor: pointer;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--color-line);
+    background: var(--color-surface);
+    color: var(--color-navy);
+    transition: background-color 0.15s, border-color 0.15s;
+  }
+  .topic:hover { border-color: var(--color-line-strong); }
+  .topic[aria-pressed="true"] {
+    background: var(--color-navy);
+    border-color: var(--color-navy);
+    color: var(--color-surface);
+  }
+  .name-email { --min: 200px; --gap: 14px; }
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .field input, .field textarea {
+    font: inherit;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 12px 14px;
+    border: 1px solid var(--color-line-strong);
+    border-radius: var(--radius-input);
+    background: var(--color-cream);
+    color: var(--color-ink);
+  }
+  .field textarea { resize: vertical; }
+  .field input:focus-visible, .field textarea:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 1px;
+  }
+  .submit { padding: 14px 26px; }
+  .submit:disabled { opacity: 0.7; cursor: progress; }
+  .error { margin: 0; font-size: 15px; color: #8A2A1B; }
+
+  .success {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 24px 0;
+  }
+  .check {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--color-gold-soft);
+    color: var(--color-gold-ink-deep);
+    display: grid;
+    place-items: center;
+    font-size: 24px;
+  }
+  .again {
+    cursor: pointer;
+    font: inherit;
+    font-weight: 600;
+    background: none;
+    border: 0;
+    padding: 0;
+    color: var(--color-navy);
+    text-decoration: underline;
+    text-decoration-color: var(--color-gold);
+    text-underline-offset: 0.2em;
+  }
+
+  .direct {
+    border-radius: var(--radius-panel);
+    padding: clamp(24px, 4vw, 40px);
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .direct-label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-gold-light);
+  }
+  .direct-email {
+    font-family: var(--font-display);
+    font-size: 26px;
+    color: var(--color-surface);
+    overflow-wrap: anywhere;
+  }
+  .direct-email:hover { color: var(--color-surface); }
+  .navy-pill {
+    display: inline-block;
+    text-decoration: none;
+    border: 1px solid var(--color-on-navy-line);
+    color: var(--color-surface);
+    border-radius: 999px;
+    padding: 8px 16px;
+    font-size: 15px;
+    transition: border-color 0.2s;
+  }
+  .navy-pill:hover { border-color: var(--color-gold-light); color: var(--color-surface); }
+  .direct-note { margin: auto 0 0; font-size: 15.5px; text-wrap: pretty; }
+</style>

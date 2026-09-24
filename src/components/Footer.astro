@@ -1,10 +1,5 @@
 ---
-const profiles = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/yujiaqi/" },
-  { label: "ORCID", href: "https://orcid.org/0009-0005-5432-0506" },
-  { label: "Google Scholar", href: "https://scholar.google.com/citations?user=78t1HIkAAAAJ&hl=en" },
-  { label: "Credly", href: "https://www.credly.com/users/jiaqi-yu.827f7563" },
-];
+import { connect } from "../data/site";
 
 // Derived from build time, so it can never go stale. Every Netlify deploy —
 // including CMS edits — refreshes this automatically.
@@ -15,65 +10,61 @@ const lastUpdated = new Date().toLocaleDateString("en-US", {
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="border-t border-gray-200 mt-24" style="background: #FAFAFA;">
-  <div class="max-w-6xl mx-auto px-6 py-12">
-    <div class="grid md:grid-cols-3 gap-8">
-      <div>
-        <h3 class="footer-heading">Connect</h3>
-        <ul class="footer-list">
-          {profiles.map(p => (
-            <li><a href={p.href} class="footer-link">{p.label}</a></li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h3 class="footer-heading">Resources</h3>
-        <ul class="footer-list">
-          <li><a href="/cv/CV_Jiaqi_Yu.pdf" class="footer-link">Download CV (PDF)</a></li>
-          <li><a href="/contact/" class="footer-link">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="footer-heading">About this site</h3>
-        <p class="text-sm text-gray-soft leading-relaxed">
-          Last updated: {lastUpdated}<br />
-          Built with Astro + Decap CMS<br />
-          Hosted on Netlify
-        </p>
-      </div>
+<footer class="site-footer">
+  <div class="site-container footer-main">
+    <div class="footer-cta">
+      <span class="footer-title">Let's talk.</span>
+      <span class="muted">Open to collaboration, speaking, and mentoring conversations.</span>
+      <a href="/contact/" class="footer-contact">Get in touch →</a>
     </div>
-    <div class="mt-10 pt-6 border-t border-gray-200 text-xs text-gray-soft text-center">
-      © {currentYear} Jiaqi Yu, PhD
-    </div>
+    <ul class="footer-links" aria-label="Profiles">
+      {connect.map(p => (
+        <li><a href={p.url} class="pill-link">{p.label}</a></li>
+      ))}
+    </ul>
+  </div>
+  <div class="site-container footer-meta">
+    © {currentYear} Jiaqi Yu, PhD · Last updated {lastUpdated}
   </div>
 </footer>
 
 <style>
-  .footer-heading {
-    font-family: var(--font-body);
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-navy);
-    margin-bottom: 0.75rem;
+  .site-footer {
+    background: var(--color-sand);
+    border-top: 1px solid var(--color-line);
   }
-  .footer-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  .footer-main {
+    padding-top: 48px;
+    padding-bottom: 48px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .footer-cta {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 8px;
+    max-width: 360px;
   }
-  .footer-link {
-    font-size: 0.875rem;
-    color: var(--color-ink);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s;
+  .footer-title {
+    font-family: var(--font-display);
+    font-size: 26px;
+    color: var(--color-navy);
   }
-  .footer-link:hover {
-    border-bottom-color: var(--color-gold);
+  .footer-contact { font-weight: 600; align-self: flex-start; }
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .footer-meta {
+    padding-bottom: 32px;
+    font-size: 14px;
+    color: var(--color-ink-subtle);
   }
 </style>
