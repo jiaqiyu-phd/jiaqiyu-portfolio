@@ -21,16 +21,16 @@
       "url": ""
     },
     {
+      "label": "Forthcoming · Routledge",
+      "title": "From Training to Formation: How Communities, Coaching, and Inquiry Sustain Learning Designers in the Age of AI",
+      "note": "Boot chapter argues that designers are formed continuously by the communities and the profession they participate in, and shows how to build that collective infrastructure deliberately, without new authority or budget. \n",
+      "url": ""
+    },
+    {
       "label": "2026 · OLC Innovate",
       "title": "Building Sustainable Communities of Practice: A Scalable Model for Professional Growth and Educational Research",
       "note": "Sole presenter — the hub-and-spoke CoP model behind the SoTL Collective.",
       "url": ""
-    },
-    {
-      "label": "2020 · AACE, sole author",
-      "title": "A Practical Guide to Managing Online Course Design Projects: Timeline, Milestone, and RACI",
-      "note": "A field-tested PM framework for instructional design teams.",
-      "url": "https://www.learntechlib.org/primary/p/218798/"
     }
   ],
   "works": [
@@ -50,7 +50,7 @@
       "title": "Preparing Mathematics Preservice Teachers for Teaching Emergent Bilinguals through Concurrent Intervention",
       "venue": "Teaching Mathematics to English Language Learners (Palgrave Macmillan), pp. 6–26",
       "meta": "I, J. & Yu, J.",
-      "url": ""
+      "url": "https://link.springer.com/book/10.1007/978-3-030-48355-5"
     },
     {
       "kind": "pub",
@@ -86,7 +86,7 @@
       "title": "Examination of an Emerging Community of Practice among Instructional Designers: A Descriptive Case Study",
       "venue": "41st Annual AECT Proceedings, Vol. 1, 218–228",
       "meta": "Yu, J. & Hargrave, C.",
-      "url": "https://members.aect.org/pdf/Proceedings/proceedings18/2018/18_26.pdf"
+      "url": "https://files.eric.ed.gov/fulltext/ED600551.pdf"
     },
     {
       "kind": "pub",
@@ -95,7 +95,7 @@
       "title": "Mentoring for Success: Graduate Student Mentors' Perceptions on the Impact of a One-on-One Technology Mentoring Program",
       "venue": "41st Annual AECT Proceedings, Vol. 1, 229–237",
       "meta": "Yu, J., Karakaya, O. & Schmidt-Crawford, D.",
-      "url": "https://members.aect.org/pdf/Proceedings/proceedings18/2018/18_27.pdf"
+      "url": "https://files.eric.ed.gov/fulltext/ED600551.pdf"
     },
     {
       "kind": "pub",
@@ -140,7 +140,7 @@
       "title": "Building Sustainable Communities of Practice: A Scalable Model for Professional Growth and Educational Research",
       "venue": "OLC Innovate 2026 · Virtual",
       "meta": "Sole presenter",
-      "url": ""
+      "url": "https://docs.google.com/presentation/d/10jlB9b0tNPNsVsBtIKFjmZYgY718W13AbTjIS0xegks/edit?usp=sharing"
     },
     {
       "kind": "pres",
@@ -149,7 +149,7 @@
       "title": "From Practitioner to Scholar: Finding Your First Scholarly Project",
       "venue": "UPCEA Digital Teaching & Learning · Virtual",
       "meta": "Sole presenter",
-      "url": ""
+      "url": "https://docs.google.com/presentation/d/1bo-Z-94AcYIuHS_rVDLx9h4ndAhUwnQL6wl9sl16MTE/edit?usp=sharing"
     },
     {
       "kind": "pres",
@@ -158,7 +158,7 @@
       "title": "From Chaos to Clarity: Preparing Instructional Designers with Project Management Skills to Lead Digital Learning Initiatives",
       "venue": "UPCEA Digital Teaching & Learning · Virtual",
       "meta": "Sole presenter",
-      "url": ""
+      "url": "https://docs.google.com/presentation/d/19X2XfuFz3etK27ZdHcjdeNHHCGZV4M02_--NsBeG1bA/edit?usp=sharing"
     },
     {
       "kind": "pres",
@@ -167,7 +167,7 @@
       "title": "Nurturing a Culture of Innovation in Health Science Education: Best Practices from the HSC SoTL Collective",
       "venue": "TxDLA 2025 · Denton, TX",
       "meta": "Lead presenter · with Parks, H.; Battaglia, A.",
-      "url": ""
+      "url": "https://canva.link/sc4jlheyw6n4tyx"
     },
     {
       "kind": "pres",
@@ -194,7 +194,7 @@
       "title": "Fostering Well-Being: The Journey of Developing a Microcredential for Instructional Designers",
       "venue": "InstructureCon 2024 · Las Vegas, NV",
       "meta": "Co-presenter · with Mahmoudi, L.",
-      "url": ""
+      "url": "https://docs.google.com/presentation/d/1xCgtJhl83TmMaSKtUKwFAva1ChbDfVMYlZVcrZHPqXU/edit?usp=sharing"
     },
     {
       "kind": "pres",
@@ -266,7 +266,7 @@
       "title": "How Do Instructional Designers Spend Their Time? A Case Study from a Public Graduate School in Texas",
       "venue": "OLC Innovate 2022 · Dallas, TX",
       "meta": "Lead presenter · with Anderson, H.",
-      "url": ""
+      "url": "https://canva.link/1ve29hrm23w5ir8"
     },
     {
       "kind": "pres",
@@ -373,6 +373,22 @@
       "type": "Presentation",
       "venue": "3rd Graduate and Professional Student Research Conference (GPSRC) · Ames, IA",
       "meta": "Co-presenter · with Jaramillo, N."
+    },
+    {
+      "kind": "pres",
+      "year": 2027,
+      "type": "Presentation",
+      "title": "From Convening to Capacity: A Design-and-Evaluation Toolkit for Faculty Communities of Practice",
+      "venue": " 2027 UPCEA Annual Conference · Anaheim, CA",
+      "meta": "Sole presenter"
+    },
+    {
+      "year": 2027,
+      "kind": "pub",
+      "type": "Book chapter",
+      "title": "From Training to Formation: How Communities, Coaching, and Inquiry Sustain Learning Designers in the Age of AI",
+      "venue": "In Kohler, M. & Davi, A. (Eds.), Advancing Learning Design in the Age of AI:  The Collaborative Design Shift",
+      "meta": "Yu, J."
     }
   ]
 }
