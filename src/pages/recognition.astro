@@ -16,17 +16,19 @@ const groups = (await getCollection('recognitionGroups')).map(g => g.data);
       <p class="lead">Grants, awards, fellowships, and microcredentials. Collaborative recognitions name the team; individual ones include the citation.</p>
     </section>
 
-    <section class="fluid-grid awards">
+    <section class="awards">
       {awards.map(a => (
         <article class="award">
           <div class="award-circle" aria-hidden="true"></div>
-          <div class="award-top">
+          <div class="award-rail">
             <span class="award-year">{a.year}</span>
             {a.team && <span class="award-team">{a.team}</span>}
           </div>
-          <h2 class="h3-card relative text-[25px]">{a.title}</h2>
-          <span class="font-semibold text-[15px]">{a.org}</span>
-          {a.note && <p class="m-0 muted text-base text-pretty">{a.note}</p>}
+          <div class="award-body">
+            <h2 class="h3-card award-title">{a.title}</h2>
+            <span class="award-org">{a.org}</span>
+            {a.note && <p class="award-note muted text-pretty">{a.note}</p>}
+          </div>
         </article>
       ))}
     </section>
@@ -53,47 +55,84 @@ const groups = (await getCollection('recognitionGroups')).map(g => g.data);
 </BaseLayout>
 
 <style>
-  .awards { padding-bottom: clamp(48px, 7vw, 80px); }
+  /* Stacked bands rather than a grid: reads correctly at any number of
+     awards, and gives each citation room to breathe. */
+  .awards {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding-bottom: clamp(48px, 7vw, 80px);
+  }
   .award {
     background: var(--color-surface);
     border: 1px solid var(--color-line);
+    border-left: 3px solid var(--color-gold-ink);
     border-radius: var(--radius-panel);
-    padding: 32px 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+    padding: 30px 34px;
+    display: grid;
+    grid-template-columns: 118px minmax(0, 1fr);
+    gap: 30px;
+    align-items: start;
     position: relative;
     overflow: hidden;
   }
   .award-circle {
     position: absolute;
-    top: -40px;
-    right: -40px;
-    width: 130px;
-    height: 130px;
+    top: -52px;
+    right: -52px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     background: var(--color-gold-soft);
+    pointer-events: none;
   }
-  .award-top {
+  .award-rail {
     position: relative;
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
   .award-year {
     font-family: var(--font-display);
-    font-size: 40px;
+    font-size: 44px;
     font-style: italic;
     line-height: 1;
     color: var(--color-gold-ink);
   }
   .award-team {
-    font-size: 12.5px;
+    font-size: 11.5px;
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--color-gold-ink-deep);
+    background: var(--color-gold-soft);
+    border-radius: 999px;
+    padding: 4px 10px;
+    white-space: nowrap;
+  }
+  .award-body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .award-title { font-size: 25px; margin: 0; }
+  .award-org { font-weight: 600; font-size: 15px; }
+  .award-note { margin: 0; font-size: 16px; max-width: 68ch; }
+
+  @media (max-width: 640px) {
+    .award {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      padding: 26px 24px;
+    }
+    .award-rail {
+      flex-direction: row;
+      align-items: baseline;
+      gap: 14px;
+    }
+    .award-year { font-size: 36px; }
   }
   .groups {
     display: grid;
